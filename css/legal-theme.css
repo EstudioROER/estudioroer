@@ -1,35 +1,34 @@
 /* ==========================================================================
-   ARISMENDI & VERA ABOGADOS ASOCIADOS - PRESTIGE LEGAL PALETTE
-   Estilo visual derivado de Estudio ROER, elevado para firma de abogados:
-   - Fondo: Blanco Mármol / Slate Luminoso (#f8fafc / #ffffff)
-   - Tonos de Prestigio: Deep Oxford Navy (#0f172a / #1e293b)
-   - Acentos: Champagne Gold & Bronce Noble (#b4832c / #c59b27 / #d4af37)
-   - Tipografía: Cormorant Garamond (títulos nobles) + Plus Jakarta Sans (UI limpia)
+   ARISMENDI & VERA ABOGADOS ASOCIADOS - COURTROOM DARK PRESTIGE THEME
+   Atmósfera solemne y prestigiosa de tribunal / corte judicial:
+   - Fondos: Negro Obsidiana, Grafito Judicial y Nogal Profundo (#080b11, #0f141d, #141a24)
+   - Acentos: Oro Bruñido Judicial, Bronce Cálido y Ámbar Noble (#d4af37, #c59b27, #e5c05d)
+   - Superficies de Tarjetas: Carbón Judicial con bordes dorados tenues (#121824 / #161e2c)
+   - Tipografía: Cormorant Garamond (Serif Solemne) + Plus Jakarta Sans (Alta legibilidad)
    ========================================================================== */
 
 :root {
-  --bg-page: #f8fafc;
-  --bg-white: #ffffff;
-  --bg-card: #ffffff;
-  --bg-card-subtle: #f1f5f9;
-  --bg-dark-block: #0b1120;
+  --bg-page: #080b11;
+  --bg-courtroom-dark: #0b0f17;
+  --bg-card: #121824;
+  --bg-card-elevated: #161e2c;
+  --bg-card-hover: #1c2637;
   
-  --text-dark: #0f172a;
-  --text-body: #334155;
-  --text-muted: #64748b;
-  --text-light-muted: #94a3b8;
-  --text-white: #ffffff;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-dark: #080b11;
   
-  --gold-primary: #b4832c;
-  --gold-light: #fef9ee;
-  --gold-border: #f7e6be;
-  --gold-accent: #c59b27;
-  
-  --navy-dark: #0f172a;
-  --navy-deep: #0b1120;
-  --navy-light: #1e293b;
-  --border-light: #e2e8f0;
-  --border-card: #eaedf2;
+  --gold-court: #d4af37;
+  --gold-hover: #e5c05d;
+  --gold-glow: rgba(212, 175, 55, 0.18);
+  --gold-border: rgba(212, 175, 55, 0.22);
+  --gold-border-bright: rgba(212, 175, 55, 0.55);
+  --gold-bg-subtle: rgba(212, 175, 55, 0.08);
+
+  --wood-accent: #2a2019;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-card: rgba(212, 175, 55, 0.16);
 
   --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -41,12 +40,12 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
-  --shadow-hover: 0 14px 28px -4px rgba(15, 23, 42, 0.09);
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 2px 8px -2px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.15);
   --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Reset */
+/* Reset & Base */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -61,15 +60,17 @@ html {
 
 body {
   background-color: var(--bg-page);
-  color: var(--text-dark);
+  color: var(--text-secondary);
   font-family: var(--font-main);
   line-height: 1.6;
   overflow-x: hidden;
+  background-image: radial-gradient(circle at 50% 0%, #151d2a 0%, #080b11 75%);
+  background-attachment: fixed;
 }
 
 ::selection {
-  background-color: var(--navy-dark);
-  color: #ffffff;
+  background-color: var(--gold-court);
+  color: #080b11;
 }
 
 a {
@@ -93,7 +94,7 @@ img {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--text-dark);
+  color: var(--text-primary);
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -103,12 +104,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: 600;
   letter-spacing: -0.01em;
+  color: var(--text-primary);
 }
 
 .serif-title em {
   font-style: italic;
-  color: var(--gold-primary);
+  color: var(--gold-court);
   font-weight: 700;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
 /* Buttons */
@@ -132,38 +135,30 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-.btn-navy {
-  background: var(--navy-dark);
-  color: #ffffff;
-}
-
-.btn-navy:hover {
-  background: #1e293b;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
-}
-
 .btn-gold {
-  background: var(--gold-primary);
-  color: #ffffff;
+  background: linear-gradient(135deg, #d4af37 0%, #b89128 100%);
+  color: #080b11;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
 }
 
 .btn-gold:hover {
-  background: #9a6f23;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(180, 131, 44, 0.3);
+  background: linear-gradient(135deg, #e5c05d 0%, #c59b27 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(212, 175, 55, 0.4);
 }
 
-.btn-light-gold {
-  background: var(--gold-light);
-  color: var(--gold-primary);
+.btn-court-dark {
+  background: var(--bg-card-elevated);
+  color: var(--text-primary);
   border: 1px solid var(--gold-border);
 }
 
-.btn-light-gold:hover {
-  background: #ffffff;
-  border-color: var(--gold-primary);
-  transform: translateY(-1px);
+.btn-court-dark:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--gold-court);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .btn-arrow {
@@ -176,40 +171,40 @@ h1, h2, h3, h4, h5, h6 {
   transform: translate(2px, -2px);
 }
 
-/* Chips & Badges */
+/* Chips & Badges Judicial */
 .chip-gold {
-  background: var(--gold-light);
-  color: var(--gold-primary);
+  background: var(--gold-bg-subtle);
+  color: var(--gold-court);
   border: 1px solid var(--gold-border);
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 0.25rem 0.65rem;
+  padding: 0.25rem 0.75rem;
   border-radius: var(--radius-full);
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
+  letter-spacing: 0.04em;
 }
 
-.chip-navy {
-  background: #f1f5f9;
-  color: var(--navy-dark);
-  border: 1px solid #cbd5e1;
+.chip-court {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+  border: 1px solid var(--border-subtle);
   font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.25rem 0.65rem;
+  font-weight: 600;
+  padding: 0.25rem 0.7rem;
   border-radius: var(--radius-full);
 }
 
-/* ==========================================================================
-   HEADER / NAVBAR
-   ========================================================================== */
+/* Navbar */
 .site-navbar {
-  background: var(--bg-white);
-  border-bottom: 1px solid var(--border-card);
+  background: rgba(11, 15, 23, 0.9);
+  border-bottom: 1px solid var(--gold-border);
+  backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 0.65rem 0;
+  padding: 0.7rem 0;
 }
 
 .nav-inner {
@@ -225,10 +220,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-brand-logo-text {
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--navy-dark);
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--gold-court);
   line-height: 1;
 }
 
@@ -236,8 +232,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.68rem;
   color: var(--text-muted);
   line-height: 1.15;
-  border-left: 1px solid var(--border-light);
+  border-left: 1px solid var(--gold-border);
   padding-left: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .nav-menu {
@@ -250,11 +248,11 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link {
   font-size: 0.84rem;
   font-weight: 500;
-  color: var(--text-body);
+  color: var(--text-secondary);
 }
 
 .nav-link:hover {
-  color: var(--gold-primary);
+  color: var(--gold-court);
 }
 
 .mobile-toggle {
@@ -262,31 +260,40 @@ h1, h2, h3, h4, h5, h6 {
   background: none;
   border: none;
   font-size: 1.4rem;
-  color: var(--navy-dark);
+  color: var(--gold-court);
   cursor: pointer;
 }
 
-/* ==========================================================================
-   HERO SECTION (LEGAL)
-   ========================================================================== */
+/* Hero */
 .legal-hero-wrapper {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-  border-bottom: 1px solid var(--border-card);
-  padding: 3.25rem 0 3.75rem;
+  padding: 3.5rem 0 4.25rem;
+  position: relative;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.legal-hero-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 15%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(8, 11, 17, 0) 70%);
+  pointer-events: none;
 }
 
 .legal-hero-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 3rem;
+  gap: 3.5rem;
   align-items: center;
 }
 
 .legal-hero-kicker {
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--gold-primary);
-  margin-bottom: 0.75rem;
+  color: var(--gold-court);
+  margin-bottom: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   display: flex;
@@ -296,34 +303,46 @@ h1, h2, h3, h4, h5, h6 {
 
 .legal-hero-title {
   font-family: var(--font-serif);
-  font-size: 3.2rem;
-  line-height: 1.1;
-  margin-bottom: 1.25rem;
-  color: var(--navy-dark);
+  font-size: 3.4rem;
+  line-height: 1.08;
+  margin-bottom: 1.35rem;
+  color: #ffffff;
 }
 
 .legal-hero-title em {
-  color: var(--gold-primary);
+  color: var(--gold-court);
   font-style: italic;
 }
 
 .legal-hero-desc {
   font-size: 0.96rem;
-  color: var(--text-body);
+  color: var(--text-secondary);
   line-height: 1.65;
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
   max-width: 500px;
 }
 
 .legal-hero-badges-card {
-  background: var(--bg-white);
-  border: 1px solid var(--border-card);
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
   border-radius: var(--radius-lg);
-  padding: 2rem;
+  padding: 2.25rem;
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.35rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.legal-hero-badges-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold-court), transparent);
 }
 
 .badge-item-row {
@@ -333,22 +352,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .badge-item-icon {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: var(--gold-light);
+  background: var(--gold-bg-subtle);
   border: 1px solid var(--gold-border);
-  color: var(--gold-primary);
+  color: var(--gold-court);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   flex-shrink: 0;
 }
 
 .badge-item-text strong {
-  font-size: 0.92rem;
-  color: var(--navy-dark);
+  font-size: 0.94rem;
+  color: #ffffff;
   display: block;
 }
 
@@ -357,41 +376,40 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-muted);
 }
 
-/* ==========================================================================
-   ÁREAS DE PRÁCTICA (6 TARJETAS EN CUADRÍCULA)
-   ========================================================================== */
+/* Áreas de Práctica */
 .section-areas {
-  padding: 3.75rem 0;
+  padding: 4.25rem 0;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .areas-grid-6 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 2.25rem;
 }
 
 .area-card-item {
-  background: var(--bg-white);
+  background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-md);
-  padding: 1.75rem 1.5rem;
+  padding: 1.85rem 1.6rem;
   box-shadow: var(--shadow-card);
   transition: var(--transition);
-  position: relative;
 }
 
 .area-card-item:hover {
   transform: translateY(-4px);
+  background: var(--bg-card-elevated);
+  border-color: var(--gold-border-bright);
   box-shadow: var(--shadow-hover);
-  border-color: var(--gold-border);
 }
 
 .area-number {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--gold-primary);
+  color: var(--gold-court);
   margin-bottom: 0.75rem;
 }
 
@@ -402,36 +420,33 @@ h1, h2, h3, h4, h5, h6 {
 
 .area-card-title {
   font-size: 1.15rem;
-  color: var(--navy-dark);
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
 .area-card-desc {
   font-size: 0.84rem;
-  color: var(--text-body);
+  color: var(--text-secondary);
   line-height: 1.55;
 }
 
-/* ==========================================================================
-   EQUIPO PROFESIONAL (LORENA VERA & HÉCTOR ARISMENDI)
-   ========================================================================== */
+/* Equipo */
 .section-team {
-  padding: 4rem 0;
-  background: var(--bg-white);
-  border-top: 1px solid var(--border-card);
-  border-bottom: 1px solid var(--border-card);
+  padding: 4.5rem 0;
+  background: rgba(14, 19, 29, 0.6);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .team-grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  margin-top: 2.25rem;
+  margin-top: 2.5rem;
 }
 
 .team-card-lawyer {
-  background: var(--bg-page);
-  border: 1px solid var(--border-card);
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
   border-radius: var(--radius-lg);
   padding: 2.25rem;
   box-shadow: var(--shadow-card);
@@ -442,8 +457,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .team-card-lawyer:hover {
-  background: #ffffff;
-  border-color: #cbd5e1;
+  background: var(--bg-card-elevated);
+  border-color: var(--gold-court);
   box-shadow: var(--shadow-hover);
 }
 
@@ -451,15 +466,15 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--gold-primary);
+  color: var(--gold-court);
   letter-spacing: 0.05em;
   margin-bottom: 0.35rem;
 }
 
 .lawyer-name {
   font-family: var(--font-serif);
-  font-size: 1.7rem;
-  color: var(--navy-dark);
+  font-size: 1.8rem;
+  color: #ffffff;
   margin-bottom: 0.25rem;
 }
 
@@ -468,13 +483,13 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   color: var(--text-muted);
   margin-bottom: 1.25rem;
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-subtle);
   padding-bottom: 0.75rem;
 }
 
 .lawyer-bio {
   font-size: 0.86rem;
-  color: var(--text-body);
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1.25rem;
 }
@@ -487,12 +502,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .lawyer-tag {
-  background: #ffffff;
-  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
   padding: 0.2rem 0.6rem;
   border-radius: var(--radius-full);
   font-size: 0.74rem;
-  color: #334155;
+  color: #cbd5e1;
   font-weight: 500;
 }
 
@@ -500,7 +515,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  border-top: 1px solid var(--border-light);
+  border-top: 1px solid var(--border-subtle);
   padding-top: 1.25rem;
 }
 
@@ -509,18 +524,18 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 0.6rem;
   font-size: 0.84rem;
+  color: #e2e8f0;
 }
 
 .lawyer-contact-item a:hover {
-  color: var(--gold-primary);
+  color: var(--gold-court);
   font-weight: 600;
 }
 
-/* ==========================================================================
-   PROCESO LEGAL & REPUTACIÓN
-   ========================================================================== */
+/* Proceso */
 .section-legal-process {
-  padding: 3.5rem 0;
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .legal-steps-grid {
@@ -531,7 +546,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .legal-step-card {
-  background: var(--bg-white);
+  background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: var(--radius-md);
   padding: 1.5rem 1.25rem;
@@ -542,8 +557,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--gold-primary);
-  background: var(--gold-light);
+  color: var(--gold-court);
+  background: var(--gold-bg-subtle);
   border: 1px solid var(--gold-border);
   padding: 0.2rem 0.55rem;
   border-radius: var(--radius-full);
@@ -553,7 +568,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .legal-step-title {
   font-size: 1rem;
-  color: var(--navy-dark);
+  color: #ffffff;
   margin-bottom: 0.35rem;
 }
 
@@ -563,14 +578,14 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
 }
 
-/* Banner de Prestigio */
+/* Prestige Quote */
 .section-dark-prestige {
-  padding: 1rem 0 3.5rem;
+  padding: 2rem 0 4rem;
 }
 
 .dark-prestige-block {
-  background: var(--navy-deep);
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  background: linear-gradient(135deg, #131926 0%, #0d121c 100%);
+  border: 1px solid var(--gold-border-bright);
   border-radius: var(--radius-xl);
   padding: 3.5rem 3rem;
   color: #ffffff;
@@ -578,6 +593,7 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-columns: 1.2fr 0.8fr;
   gap: 3rem;
   align-items: center;
+  box-shadow: var(--shadow-hover);
 }
 
 .quote-text {
@@ -585,13 +601,13 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.6rem;
   line-height: 1.4;
   font-style: italic;
-  color: #f1f5f9;
+  color: #f8fafc;
   margin-bottom: 1.5rem;
 }
 
 .quote-author {
   font-size: 0.85rem;
-  color: var(--gold-primary);
+  color: var(--gold-court);
   font-weight: 600;
 }
 
@@ -602,8 +618,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .stat-box-gold {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--gold-border);
   border-radius: var(--radius-md);
   padding: 1.5rem;
   text-align: center;
@@ -612,25 +628,23 @@ h1, h2, h3, h4, h5, h6 {
 .stat-box-gold .num {
   font-size: 2.2rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--gold-court);
   display: block;
 }
 
 .stat-box-gold .label {
   font-size: 0.78rem;
-  color: #94a3b8;
+  color: #cbd5e1;
 }
 
-/* ==========================================================================
-   FORMULARIO DE CONSULTA LEGAL
-   ========================================================================== */
+/* Contacto Form */
 .section-legal-contact {
   padding: 4rem 0 5rem;
 }
 
 .legal-contact-box {
-  background: var(--bg-white);
-  border: 1px solid var(--border-card);
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
   border-radius: var(--radius-lg);
   padding: 3rem 2.5rem;
   box-shadow: var(--shadow-card);
@@ -654,14 +668,15 @@ h1, h2, h3, h4, h5, h6 {
 .legal-input-group label {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--navy-dark);
+  color: #e2e8f0;
 }
 
 .legal-input-field, .legal-select-field, .legal-textarea {
   padding: 0.7rem 0.95rem;
   border-radius: var(--radius-sm);
-  background: #f8fafc;
-  border: 1px solid var(--border-light);
+  background: #0b0f17;
+  border: 1px solid var(--border-subtle);
+  color: #ffffff;
   font-family: var(--font-main);
   font-size: 0.86rem;
   outline: none;
@@ -669,8 +684,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .legal-input-field:focus, .legal-select-field:focus, .legal-textarea:focus {
-  background: #ffffff;
-  border-color: var(--navy-dark);
+  border-color: var(--gold-court);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
 }
 
 /* Floating Dual WhatsApp */
@@ -692,7 +707,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
   font-weight: 700;
   font-size: 0.8rem;
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   gap: 0.45rem;
@@ -705,8 +720,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Footer */
 .legal-footer {
-  background: var(--navy-deep);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #04060a;
+  border-top: 1px solid var(--gold-border);
   padding: 2.25rem 0;
   font-size: 0.82rem;
   color: #94a3b8;
