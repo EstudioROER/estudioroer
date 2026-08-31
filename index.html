@@ -2,12 +2,69 @@
 <html lang="es-CL">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   
-  <title>Estudio ROER | Arquitectura, Regularización y Soluciones DOM Chile</title>
-  <meta name="title" content="Estudio ROER | Arquitectura, Regularización y Soluciones DOM Chile">
-  <meta name="description" content="Estudio ROER: Regularización Ley del Mono 20.898, Permisos de Edificación, Recepción Final y Ampliaciones en Santiago y Valparaíso. Presupuesto final certificado en visita técnica.">
+  <!-- SEO Primary Meta Tags -->
+  <title>Estudio ROER | Regularización Ley del Mono 20.898 & Permisos DOM Chile</title>
+  <meta name="title" content="Estudio ROER | Regularización Ley del Mono 20.898 & Permisos DOM Chile">
+  <meta name="description" content="Estudio de Arquitectura especializado en Regularización Ley 20.898 (Ley del Mono vigente hasta 2027), Permisos de Edificación DOM y Recepción Final en Santiago y Valparaíso. Presupuesto final certificado tras visita técnica.">
+  <meta name="keywords" content="Regularizacion Ley del Mono, Ley 20898 Chile, Permiso de Edificacion DOM, Recepcion Final Municipal, Arquitectos regularizar casa San Bernardo, El Bosque, Penaflor, Buin, Valparaiso">
+  <meta name="author" content="Estudio ROER Arquitectura">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://www.estudioroer.com/">
+
+  <!-- Open Graph / WhatsApp / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.estudioroer.com/">
+  <meta property="og:title" content="Estudio ROER | Regularización y Soluciones Normativas DOM Chile">
+  <meta property="og:description" content="Regularización de viviendas bajo Ley 20.898, Permisos DOM y Recepción Final. Asesoría técnica presencial con presupuesto certificado.">
+  <meta property="og:image" content="https://www.estudioroer.com/assets/images/hero_architectural_house.jpg">
+  <meta property="og:locale" content="es_CL">
+
+  <!-- Schema.org JSON-LD Structured Data for Google Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "name": "Estudio ROER Arquitectura",
+        "url": "https://www.estudioroer.com/",
+        "telephone": "+56950196861",
+        "email": "roer.arquitectura@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Santiago",
+          "addressRegion": "Región Metropolitana",
+          "addressCountry": "CL"
+        },
+        "description": "Estudio de arquitectura especializado en Regularización de Viviendas (Ley 20.898 Ley del Mono), Permisos de Edificación y Recepción Final ante la DOM.",
+        "areaServed": ["San Bernardo", "El Bosque", "Peñaflor", "Buin", "Paine", "Maipú", "Puente Alto", "Valparaíso", "Viña del Mar"]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Hasta cuándo está vigente la Ley del Mono 20.898?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La Ley 20.898 está vigente para el ingreso de expedientes ante la Dirección de Obras Municipales (DOM) hasta el 31 de diciembre de 2027."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuándo se certifica el precio final de la regularización?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Los valores calculados en línea son referenciales. El precio final y cerrado se certifica formalmente tras la visita técnica en terreno del arquitecto, revisando deslindes, CIP y condiciones estructurales."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,22 +77,24 @@
 <body>
 
   <!-- ==========================================================================
-       HEADER (ESCALA ELEGANTE Y BOTÓN COMPACTO)
+       BARRA DE SECCIONES
        ========================================================================== -->
   <header class="site-navbar">
     <div class="container">
       <div class="nav-inner">
-        <a href="#" class="nav-brand">
+        <a href="#inicio" class="nav-brand">
           <div class="nav-brand-logo-text">ROER</div>
           <div class="nav-brand-tagline">arquitectura &<br>regularizaciones</div>
         </a>
 
         <ul class="nav-menu" id="navMenu">
-          <li><a href="#experiencia" class="nav-link">Nuestra Experiencia</a></li>
-          <li><a href="#proceso" class="nav-link">Proceso DOM</a></li>
+          <li><a href="#inicio" class="nav-link">Inicio</a></li>
           <li><a href="#servicios" class="nav-link">Servicios</a></li>
-          <li><a href="#estudio" class="nav-link">Sobre el Estudio</a></li>
+          <li><a href="#proceso" class="nav-link">Proceso DOM</a></li>
+          <li><a href="#experiencia" class="nav-link">Nuestra Experiencia</a></li>
+          <li><a href="#guias" class="nav-link">Guías & Blog</a></li>
           <li><a href="#simulador" class="nav-link">Simulador UF</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
           <li><a href="#contacto" class="nav-link">Contacto</a></li>
         </ul>
 
@@ -51,7 +110,7 @@
   </header>
 
   <!-- ==========================================================================
-       HERO SECTION (ESCALA EQUILIBRADA)
+       1. INICIO (HERO SECTION)
        ========================================================================== -->
   <section class="hero-wrapper" id="inicio">
     <div class="container">
@@ -60,22 +119,22 @@
           <div class="hero-kicker">Arquitectura & Regularización en Chile</div>
           <h1 class="hero-title">Espacios con certeza legal y plusvalía</h1>
           <p class="hero-desc">
-            Diseñamos y regularizamos tu vivienda ante la Dirección de Obras Municipales. Tramitación expedita bajo Ley del Mono 20.898 y obtención de Recepción Final para créditos y venta.
+            Diseñamos y regularizamos tu vivienda ante la Dirección de Obras Municipales. Tramitación expedita bajo Ley del Mono 20.898 (vigente hasta 2027) y obtención de Recepción Final para créditos hipotecarios y venta.
           </p>
 
           <div class="hero-buttons">
-            <a href="#experiencia" class="btn-pill btn-dark">
-              <span>Nuestra experiencia</span>
+            <a href="#servicios" class="btn-pill btn-dark">
+              <span>Ver servicios</span>
               <span class="btn-arrow">↗</span>
             </a>
             <a href="#simulador" class="btn-pill btn-light">
-              <span>Cotizar regularización</span>
+              <span>Simular presupuesto</span>
             </a>
           </div>
 
           <div class="notice-pill">
             <span class="dot"></span>
-            <span>El precio final se certifica formalmente tras la visita técnica</span>
+            <span>El precio final se certifica formalmente tras la visita técnica en terreno</span>
           </div>
         </div>
 
@@ -88,112 +147,153 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-       4 BENEFIT / FEATURE CARDS (CON ICONOS CLAROS)
-       ========================================================================== -->
+  <!-- 4 Tarjetas de Pilares Técnicos -->
   <section class="section-features">
     <div class="container">
       <div class="features-grid">
-        <!-- Card 1 -->
         <div class="feature-card">
           <div class="feature-icon-circle">📐</div>
           <h3 class="feature-title">Levantamiento Láser</h3>
-          <p class="feature-text">
-            Medición milimétrica in situ y planos técnicos CAD con firma de arquitectos colegiados.
-          </p>
+          <p class="feature-text">Medición milimétrica in situ y planos técnicos CAD con firma de arquitectos colegiados.</p>
         </div>
 
-        <!-- Card 2 -->
         <div class="feature-card">
           <div class="feature-icon-circle">🏛️</div>
           <h3 class="feature-title">Gestión DOM Integral</h3>
-          <p class="feature-text">
-            Tramitamos todo el expediente municipal. Nosotros hacemos las gestiones ante la Dirección de Obras.
-          </p>
+          <p class="feature-text">Tramitamos todo el expediente municipal. Nosotros realizamos las gestiones ante la Dirección de Obras.</p>
         </div>
 
-        <!-- Card 3 -->
         <div class="feature-card">
           <div class="feature-icon-circle">⏱️</div>
           <h3 class="feature-title">Plazos Claros</h3>
-          <p class="feature-text">
-            Tiempos transparentes (4 a 8 semanas promedio) y seguimiento continuo del estado de tu carpeta.
-          </p>
+          <p class="feature-text">Tiempos transparentes (4 a 8 semanas promedio) y seguimiento continuo del estado de tu carpeta.</p>
         </div>
 
-        <!-- Card 4 -->
         <div class="feature-card">
           <div class="feature-icon-circle">🏷️</div>
           <h3 class="feature-title">Precio en Visita</h3>
-          <p class="feature-text">
-            Evaluación técnica presencial: el valor definitivo se certifica y congela tras la visita en terreno.
-          </p>
+          <p class="feature-text">Evaluación técnica presencial: el valor definitivo se certifica y congela tras la visita en terreno.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       PROCESO DOM EN 4 PASOS (VISUAL Y FÁCIL DE ENTENDER)
+       2. SERVICIOS
+       ========================================================================== -->
+  <section class="section-services" id="servicios">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Nuestros servicios</h2>
+        <p class="section-subtitle">Soluciones normativas y proyectos arquitectónicos para propietarios en la RM y V Región.</p>
+      </div>
+
+      <div class="services-grid-roer">
+        <div class="service-box-item">
+          <div>
+            <div class="service-box-icon">📜</div>
+            <h3 class="service-box-title">Ley del Mono 20.898</h3>
+            <p class="service-box-desc">
+              Procedimiento simplificado de regularización simultánea (permiso + recepción) para viviendas de hasta 140 m² o sociales.
+            </p>
+          </div>
+          <a href="#guias" class="service-box-link">Ver requisitos y guía →</a>
+        </div>
+
+        <div class="service-box-item">
+          <div>
+            <div class="service-box-icon">🏛️</div>
+            <h3 class="service-box-title">Permisos de Edificación</h3>
+            <p class="service-box-desc">
+              Planimetría oficial, memorias de cálculo y especificaciones técnicas para construir obras nuevas o ampliaciones mayores.
+            </p>
+          </div>
+          <a href="#simulador" class="service-box-link">Cotizar permiso →</a>
+        </div>
+
+        <div class="service-box-item">
+          <div>
+            <div class="service-box-icon">✅</div>
+            <h3 class="service-box-title">Recepción Final DOM</h3>
+            <p class="service-box-desc">
+              Cierre formal de expedientes para destrabar ventas bancarias, herencias y tasaciones de créditos hipotecarios.
+            </p>
+          </div>
+          <a href="#experiencia" class="service-box-link">Ver casos resueltos →</a>
+        </div>
+
+        <div class="service-box-item">
+          <div>
+            <div class="service-box-icon">📐</div>
+            <h3 class="service-box-title">Diseño & Ampliaciones</h3>
+            <p class="service-box-desc">
+              Optimización de metros cuadrados, ampliaciones de segundo piso, iluminación cenital y renderizado 3D fotorrealista.
+            </p>
+          </div>
+          <a href="#contacto" class="service-box-link">Consultar diseño →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. PROCESO DOM
        ========================================================================== -->
   <section class="section-process" id="proceso">
     <div class="container">
-      <div style="display: flex; justify-content: space-between; align-items: center;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
         <div>
-          <h2 style="font-size: 1.5rem;">El camino hacia tu Recepción Final</h2>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Un proceso ordenado y transparente en 4 etapas sencillas:</p>
+          <h2 class="section-title">El camino hacia tu Recepción Final</h2>
+          <p class="section-subtitle">Un proceso ordenado, sin complicaciones para ti, estructurado en 4 etapas claras:</p>
         </div>
-        <span class="chip chip-blue">100% Tramitación Conforme</span>
+        <span class="chip chip-blue">100% Tramitación Conforme a la OGUC</span>
       </div>
 
       <div class="process-steps-row">
         <div class="process-step-item">
           <span class="process-step-num">Paso 01</span>
           <h4 class="process-step-title">1. Visita Técnica</h4>
-          <p class="process-step-desc">Inspección en terreno, medición láser y certificación del presupuesto final cerrado.</p>
+          <p class="process-step-desc">Inspección in situ, medición láser de cada metro construido y certificación del presupuesto final cerrado.</p>
         </div>
 
         <div class="process-step-item">
           <span class="process-step-num">Paso 02</span>
           <h4 class="process-step-title">2. Planimetría CAD</h4>
-          <p class="process-step-desc">Elaboración de planos oficiales, especificaciones técnicas y memorias de cálculo.</p>
+          <p class="process-step-desc">Elaboración de planos oficiales de arquitectura, memorias de habitabilidad y especificaciones técnicas.</p>
         </div>
 
         <div class="process-step-item">
           <span class="process-step-num">Paso 03</span>
           <h4 class="process-step-title">3. Ingreso a la DOM</h4>
-          <p class="process-step-desc">Presentación formal del expediente ante el municipio y resolución de observaciones.</p>
+          <p class="process-step-desc">Presentación formal del expediente ante el municipio correspondiente y respuesta inmediata a observaciones.</p>
         </div>
 
         <div class="process-step-item">
           <span class="process-step-num">Paso 04</span>
           <h4 class="process-step-title">4. Recepción Final</h4>
-          <p class="process-step-desc">Entrega del certificado oficial que habilita créditos bancarios y asegura tu plusvalía.</p>
+          <p class="process-step-desc">Entrega del Certificado de Recepción Definitiva timbrado que habilita créditos bancarios y asegura tu plusvalía.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       NUESTRA EXPERIENCIA (3 CASOS EMBLEMÁTICOS)
+       4. NUESTRA EXPERIENCIA
        ========================================================================== -->
   <section class="section-experience" id="experiencia">
     <div class="container">
-      <div class="section-title-row">
+      <div class="section-head" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
         <div>
           <h2 class="section-heading">Nuestra experiencia</h2>
-          <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 0.25rem;">
-            Trayectoria comprobada resolviendo casos normativos y regularizaciones en comunas de RM y V Región.
-          </p>
+          <p class="section-subtitle">Más de 10 años resolviendo casos normativos y regularizaciones en diversas comunas.</p>
         </div>
         <a href="https://wa.me/56950196861?text=Hola,%20quisiera%20conocer%20m%C3%A1s%20sobre%20la%20experiencia%20de%20Estudio%20ROER." target="_blank" class="see-all-link">
-          <span>Ver trayectoria</span>
+          <span>Ver trayectoria y casos</span>
           <span class="btn-arrow">↗</span>
         </a>
       </div>
 
       <div class="experience-grid">
-        <!-- Case 1 -->
         <div class="experience-card-clean">
           <div class="experience-image-box">
             <img src="assets/images/hero_architectural_house.jpg" alt="Regularización San Bernardo">
@@ -203,7 +303,7 @@
             <h3 class="experience-name">Regularización Ley del Mono 20.898</h3>
             <div class="experience-location">📍 DOM San Bernardo, Región Metropolitana</div>
             <p class="experience-desc-text">
-              Autoconstrucción no declarada que bloqueaba la venta por crédito hipotecario. Armamos el expediente y la recepción salió aprobada en 6 semanas.
+              Autoconstrucción no declarada que bloqueaba la venta por crédito hipotecario. Armamos el expediente y la recepción final salió aprobada en 6 semanas.
             </p>
             <div class="experience-specs-row">
               <div class="experience-specs-text">✓ Aprobado • Crédito Hipotecario Habilitado</div>
@@ -212,7 +312,6 @@
           </div>
         </div>
 
-        <!-- Case 2 -->
         <div class="experience-card-clean">
           <div class="experience-image-box">
             <img src="assets/images/ampliacion-piso2.jpg" alt="Ampliación El Bosque">
@@ -222,7 +321,7 @@
             <h3 class="experience-name">Ampliación 2° Piso & Permiso DOM</h3>
             <div class="experience-location">📍 DOM El Bosque, Región Metropolitana</div>
             <p class="experience-desc-text">
-              Incorporación de segundo nivel en estructura ligera. Gestionamos el permiso de edificación y recepción final cumpliendo distanciamientos normativos.
+              Incorporación de segundo nivel en estructura ligera. Gestionamos el permiso de edificación y recepción final cumpliendo distanciamientos y adosamientos.
             </p>
             <div class="experience-specs-row">
               <div class="experience-specs-text">✓ Aprobado • Estructura & Cálculo Conforme</div>
@@ -231,7 +330,6 @@
           </div>
         </div>
 
-        <!-- Case 3 -->
         <div class="experience-card-clean">
           <div class="experience-image-box">
             <img src="assets/images/modern_interior_expansion.jpg" alt="Recepción Final Peñaflor">
@@ -241,7 +339,7 @@
             <h3 class="experience-name">Destrabe de Tasación Bancaria</h3>
             <div class="experience-location">📍 DOM Peñaflor, Región Metropolitana</div>
             <p class="experience-desc-text">
-              Subsanación de observaciones municipales para cierre de carpeta y tasación comercial, logrando un +38% de incremento en el valor tasado.
+              Subsanación de observaciones municipales para cierre de carpeta y tasación comercial, logrando un +38% de incremento en el valor tasado por el banco.
             </p>
             <div class="experience-specs-row">
               <div class="experience-specs-text">✓ Aprobado • +38% Plusvalía Certificada</div>
@@ -254,87 +352,94 @@
   </section>
 
   <!-- ==========================================================================
-       DARK STATS / METRICS BANNER
+       5. GUÍAS TÉCNICAS & BLOG
        ========================================================================== -->
-  <section class="section-dark-stats" id="estudio">
+  <section class="section-guides" id="guias">
     <div class="container">
-      <div class="dark-stats-block">
-        <div class="dark-stats-content">
-          <h2 class="dark-stats-title">Diseñamos y regularizamos con orgullo</h2>
+      <div class="section-head" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="chip chip-amber" style="margin-bottom: 0.5rem;">Contenido Didáctico & Normativo</span>
+          <h2 class="section-heading">Guías y Respuestas Didácticas</h2>
+          <p class="section-subtitle">Información técnica explicada de forma clara y accesible para propietarios e inversionistas.</p>
+        </div>
+        <button class="btn-pill btn-light open-gift-trigger" style="border-color: #cbd5e1;">
+          <span>🎁 Descargar Guía Completa PDF</span>
+          <span class="btn-arrow">↗</span>
+        </button>
+      </div>
 
-          <div class="dark-metrics-grid">
-            <div>
-              <div class="dark-metric-val">12+</div>
-              <div class="dark-metric-label">años de experiencia</div>
-              <div class="dark-metric-sub">Estudio fundado en 2014</div>
+      <div class="guides-grid">
+        <article class="guide-article-card">
+          <div>
+            <div class="guide-tag-row">
+              <span class="chip chip-blue">Normativa Ley 20.898</span>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">Lectura: 3 min</span>
             </div>
-
-            <div>
-              <div class="dark-metric-val">180+</div>
-              <div class="dark-metric-label">expedientes aprobados</div>
-              <div class="dark-metric-sub">En Santiago y Valparaíso</div>
-            </div>
-
-            <div>
-              <div class="dark-metric-val">99%</div>
-              <div class="dark-metric-label">clientes conformes</div>
-              <div class="dark-metric-sub">Nos recomiendan activamente</div>
-            </div>
-
-            <div>
-              <div class="dark-metric-val">100%</div>
-              <div class="dark-metric-label">garantía de recepción</div>
-              <div class="dark-metric-sub">En cumplimiento de la OGUC</div>
-            </div>
+            <h3 class="guide-title">Ley del Mono 20.898: Requisitos y Vigencia hasta 2027</h3>
+            <p class="guide-excerpt">
+              Aprende cómo funciona el procedimiento simplificado para regularizar viviendas construidas antes de febrero de 2016 sin multas municipales.
+            </p>
+            <ul class="guide-points-list">
+              <li>Hasta 90 m² (Avalúo fiscal menor a 1.000 UF)</li>
+              <li>Hasta 140 m² (Avalúo fiscal menor a 2.000 UF)</li>
+              <li>Permiso y Recepción en un solo trámite simultáneo</li>
+            </ul>
           </div>
-        </div>
+          <a href="#" class="guide-read-btn open-gift-trigger">
+            <span>Descargar Guía en PDF</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+        </article>
 
-        <div class="dark-stats-image-wrap">
-          <img src="assets/images/blueprint_laser_plan.jpg" alt="Estudio ROER Arquitectos">
-        </div>
+        <article class="guide-article-card">
+          <div>
+            <div class="guide-tag-row">
+              <span class="chip chip-green">Tasación & Venta</span>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">Lectura: 4 min</span>
+            </div>
+            <h3 class="guide-title">Por qué los bancos exigen Recepción Final para Créditos</h3>
+            <p class="guide-excerpt">
+              Si tu casa tiene una ampliación no regularizada, el banco tasará únicamente los metros originales, bloqueando compras con subsidio o hipotecario.
+            </p>
+            <ul class="guide-points-list">
+              <li>Aumento del valor comercial (+30% a +50%)</li>
+              <li>Venta rápida sin objeciones en tasación</li>
+              <li>Seguros de incendio y sismo 100% operativos</li>
+            </ul>
+          </div>
+          <a href="#" class="guide-read-btn open-gift-trigger">
+            <span>Descargar Guía en PDF</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+        </article>
+
+        <article class="guide-article-card">
+          <div>
+            <div class="guide-tag-row">
+              <span class="chip chip-blue">Deslindes & OGUC</span>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">Lectura: 3 min</span>
+            </div>
+            <h3 class="guide-title">¿Qué pasa si construí hasta el deslinde del vecino?</h3>
+            <p class="guide-excerpt">
+              Conoce las soluciones técnicas permitidas por la Ordenanza General (OGUC) para muros cortafuego, adosamientos y alturas máximas.
+            </p>
+            <ul class="guide-points-list">
+              <li>Muro cortafuego con resistencia F-60 o F-120</li>
+              <li>Cumplimiento de porcentajes de adosamiento</li>
+              <li>Evita decretos de demolición o multas de policía local</li>
+            </ul>
+          </div>
+          <a href="#" class="guide-read-btn open-gift-trigger">
+            <span>Descargar Guía en PDF</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       SERVICIOS RESUMIDOS CON ICONOS
-       ========================================================================== -->
-  <section class="section-features" id="servicios" style="padding-top: 0;">
-    <div class="container">
-      <div class="section-title-row">
-        <h2 class="section-heading">Nuestras soluciones</h2>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon-circle">📜</div>
-          <h3 class="feature-title">Ley del Mono 20.898</h3>
-          <p class="feature-text">Regularización simplificada de viviendas y ampliaciones hasta 140 m² o de carácter social.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon-circle">🏛️</div>
-          <h3 class="feature-title">Permisos DOM</h3>
-          <p class="feature-text">Planimetría oficial, memorias técnicas y permisos previos para construir con respaldo.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon-circle">✅</div>
-          <h3 class="feature-title">Recepción Final</h3>
-          <p class="feature-text">Cierre definitivo municipal para venta con crédito hipotecario o tasaciones bancarias.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon-circle">📐</div>
-          <h3 class="feature-title">Diseño & 2° Piso</h3>
-          <p class="feature-text">Optimización arquitectónica de espacios interiores, iluminación y ampliaciones contemporáneas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SIMULADOR UF / CLP
+       6. SIMULADOR UF / CLP
        ========================================================================== -->
   <section class="section-calculator" id="simulador">
     <div class="container">
@@ -397,8 +502,104 @@
     </div>
   </section>
 
+  <!-- Banner de Estadísticas -->
+  <section class="section-dark-stats" id="estudio">
+    <div class="container">
+      <div class="dark-stats-block">
+        <div class="dark-stats-content">
+          <h2 class="dark-stats-title">Diseñamos y regularizamos con orgullo</h2>
+
+          <div class="dark-metrics-grid">
+            <div>
+              <div class="dark-metric-val">12+</div>
+              <div class="dark-metric-label">años de experiencia</div>
+              <div class="dark-metric-sub">Estudio fundado en 2014</div>
+            </div>
+
+            <div>
+              <div class="dark-metric-val">180+</div>
+              <div class="dark-metric-label">expedientes aprobados</div>
+              <div class="dark-metric-sub">En Santiago y Valparaíso</div>
+            </div>
+
+            <div>
+              <div class="dark-metric-val">99%</div>
+              <div class="dark-metric-label">clientes conformes</div>
+              <div class="dark-metric-sub">Nos recomiendan activamente</div>
+            </div>
+
+            <div>
+              <div class="dark-metric-val">100%</div>
+              <div class="dark-metric-label">garantía de recepción</div>
+              <div class="dark-metric-sub">En cumplimiento de la OGUC</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dark-stats-image-wrap">
+          <img src="assets/images/blueprint_laser_plan.jpg" alt="Estudio ROER Arquitectos">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ==========================================================================
-       CONTACT CARD
+       7. PREGUNTAS FRECUENTES
+       ========================================================================== -->
+  <section class="section-faq" id="faq">
+    <div class="container">
+      <div style="text-align: center; max-width: 680px; margin: 0 auto;">
+        <span class="chip chip-blue" style="margin-bottom: 0.5rem;">Resolución de Dudas</span>
+        <h2 class="section-title">Preguntas Frecuentes sobre Trámites DOM</h2>
+        <p class="section-subtitle">Respuestas directas a las inquietudes más habituales antes de iniciar tu expediente.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item active">
+          <div class="faq-question">
+            <span>¿Hasta cuándo está vigente la Ley del Mono (Ley 20.898)?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            La prórroga legal aprobada por el Congreso mantiene vigente la Ley 20.898 para ingresar expedientes ante la Dirección de Obras Municipales (DOM) hasta el <strong>31 de diciembre de 2027</strong>.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Por qué el precio final se certifica tras la visita técnica?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Cada propiedad presenta particularidades únicas: distanciamientos a deslindes, estado de la estructura, tipo de materialidad y exigencias de la DOM comunal. La visita técnica presencial permite medir con láser y verificar el CIP para entregarte un presupuesto 100% cerrado y transparente, sin costos ocultos posteriores.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Cuánto tiempo demora la municipalidad en aprobar el expediente?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            El tiempo promedio varía según la Dirección de Obras de cada comuna, pero habitualmente toma entre <strong>4 y 8 semanas</strong> desde el ingreso formal del expediente técnico completo hasta la emisión de la Recepción Final timbrada.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>¿Qué documentos necesito para una primera revisión?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Principalmente el Certificado de Informaciones Previas (CIP), Rol de Avalúo Fiscal y Certificado de Dominio Vigente. Si no dispones de ellos, en Estudio ROER te apoyamos en su tramitación digital inmediata.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. CONTACTO
        ========================================================================== -->
   <section class="section-contact-card" id="contacto">
     <div class="container">
@@ -444,9 +645,7 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-       FOOTER
-       ========================================================================== -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
@@ -456,25 +655,115 @@
         </div>
 
         <ul class="footer-nav">
-          <li><a href="#experiencia">Nuestra Experiencia</a></li>
-          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#inicio">Inicio</a></li>
           <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#estudio">Sobre el Estudio</a></li>
+          <li><a href="#proceso">Proceso DOM</a></li>
+          <li><a href="#experiencia">Nuestra Experiencia</a></li>
+          <li><a href="#guias">Guías & Blog</a></li>
+          <li><a href="#simulador">Simulador UF</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
 
-        <div>© 2026 Estudio ROER. Todos los derechos reservados.</div>
+        <div>© 2026 Estudio ROER Arquitectura SpA. Todos los derechos reservados.</div>
       </div>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp Pill Button -->
+  <!-- ==========================================================================
+       BOTÓN FLOTANTE DE REGALO (BOTTOM LEFT)
+       ========================================================================== -->
+  <button class="floating-gift-btn" id="floatingGiftBtn" aria-label="Descargar Guía Gratuita">
+    <span class="floating-gift-icon">🎁</span>
+    <span>Guía Gratis DOM</span>
+  </button>
+
+  <!-- Floating WhatsApp Pill Button (Bottom Right) -->
   <a href="https://wa.me/56950196861?text=Hola%20Estudio%20ROER,%20quisiera%20agendar%20una%20visita%20t%C3%A9cnica%20para%20regularizar%20mi%20propiedad." target="_blank" class="floating-wsp" aria-label="Contactar por WhatsApp">
     <svg viewBox="0 0 24 24">
       <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.966.528 1.957.818 3.125.819 3.182 0 5.769-2.587 5.77-5.767.001-3.181-2.586-5.766-5.767-5.766zm9.969 5.766c-.002 5.519-4.489 9.998-10.007 9.998-1.758 0-3.418-.46-4.872-1.267l-5.121 1.343 1.368-4.996c-.887-1.503-1.37-3.238-1.37-5.078.002-5.52 4.49-10.001 10.009-10.001 5.517 0 9.993 4.481 9.993 10.001z"/>
     </svg>
     <span>WhatsApp</span>
   </a>
+
+  <!-- ==========================================================================
+       MODAL DE CAPTACIÓN / DESCARGA DE GUÍA DE REGALO
+       ========================================================================== -->
+  <div class="gift-modal-overlay" id="giftModal">
+    <div class="gift-modal-card">
+      <button class="gift-modal-close" id="giftModalClose" aria-label="Cerrar modal">✕</button>
+
+      <div id="giftFormContainer">
+        <div class="gift-modal-header">
+          <span class="chip chip-amber">🎁 Regalo Exclusivo 2026-2027</span>
+          <h3 class="gift-modal-title">Descarga la Guía Práctica de Regularización DOM</h3>
+          <p class="gift-modal-subtitle">
+            Ingresa tus datos para acceder inmediatamente al documento técnico con los requisitos y pasos para regularizar por Ley 20.898 sin multas.
+          </p>
+        </div>
+
+        <div class="gift-modal-features">
+          <div>✓ Nuevos límites de m² y avalúo fiscal hasta 2027.</div>
+          <div>✓ Checklist de documentos obligatorios para la DOM.</div>
+          <div>✓ Cómo evitar observaciones y destrabar ventas bancarias.</div>
+        </div>
+
+        <form id="giftLeadForm">
+          <div class="gift-form-group">
+            <label for="giftName">Nombre y Apellido *</label>
+            <input type="text" id="giftName" class="gift-form-input" placeholder="Ej: Marcela González" required>
+          </div>
+
+          <div class="gift-form-group">
+            <label for="giftPhone">WhatsApp / Teléfono *</label>
+            <input type="tel" id="giftPhone" class="gift-form-input" placeholder="Ej: +56 9 1234 5678" required>
+          </div>
+
+          <div class="gift-form-group">
+            <label for="giftEmail">Correo Electrónico *</label>
+            <input type="email" id="giftEmail" class="gift-form-input" placeholder="Ej: marcela@gmail.com" required>
+          </div>
+
+          <div class="gift-form-group">
+            <label for="giftComuna">Comuna del Inmueble</label>
+            <select id="giftComuna" class="gift-form-select">
+              <option value="San Bernardo">San Bernardo</option>
+              <option value="El Bosque">El Bosque</option>
+              <option value="Peñaflor">Peñaflor</option>
+              <option value="Buin">Buin</option>
+              <option value="Paine">Paine</option>
+              <option value="Maipú">Maipú</option>
+              <option value="Puente Alto">Puente Alto</option>
+              <option value="La Florida">La Florida</option>
+              <option value="Valparaíso">Valparaíso</option>
+              <option value="Otra Comuna">Otra Comuna RM / V Región</option>
+            </select>
+          </div>
+
+          <button type="submit" class="gift-modal-submit-btn">
+            <span>📥 Descargar Guía Gratuita (PDF)</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Estado de Éxito / Confirmación -->
+      <div class="gift-success-state" id="giftSuccessState">
+        <div class="gift-success-icon">🎉</div>
+        <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">¡Gracias, <span id="giftUserNameDisplay"></span>!</h3>
+        <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.5; margin-bottom: 1.25rem;">
+          Tu guía se ha abierto en una nueva pestaña. Si no se abrió automáticamente, puedes verla en el botón de abajo:
+        </p>
+
+        <a href="assets/docs/guia-regularizacion-roer.html" target="_blank" class="btn-pill btn-dark" style="margin-bottom: 0.75rem; width: 100%;">
+          <span>Abrir Guía en Pantalla Completa 📄</span>
+        </a>
+
+        <a href="#" id="giftWspConfirmBtn" target="_blank" class="btn-pill btn-light" style="width: 100%; border-color: #25D366; color: #15803d;">
+          <span>💬 Consultar con Arquitecto en WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
