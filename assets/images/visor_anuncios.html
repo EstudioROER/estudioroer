@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visor de Anuncios Meta Ads 2.0 | Estudio ROER Arquitectura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #10141a;
+      --card-bg: #18202a;
+      --card-border: #263445;
+      --wood-warm: #8c5b36;
+      --wood-light: #d4a373;
+      --text-main: #f8f6f0;
+      --text-muted: #9aa8b8;
+      --accent: #25d366;
+      --accent-blue: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 2rem;
+    }
+
+    .header-logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .header-logo-img {
+      height: 70px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(140, 91, 54, 0.2);
+      color: var(--wood-light);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border: 1px solid rgba(140, 91, 54, 0.4);
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.03em;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 0.6rem;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 820px;
+      margin: 0 auto 1.5rem auto;
+      line-height: 1.6;
+    }
+
+    .strategy-pills {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .strat-pill {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--card-border);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #e2e8f0;
+    }
+
+    .grid-ads {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .ad-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    .ad-header {
+      padding: 1.25rem 1.75rem;
+      background: rgba(0, 0, 0, 0.25);
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .ad-title-block h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .ad-title-block span {
+      font-size: 0.85rem;
+      color: var(--wood-light);
+      font-weight: 600;
+    }
+
+    .ad-body {
+      padding: 1.75rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .ad-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .visual-previews {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .preview-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .preview-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .img-wrapper {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: #000;
+    }
+
+    .img-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .img-wrapper:hover img {
+      transform: scale(1.02);
+    }
+
+    .download-btn {
+      margin-top: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      background: rgba(140, 91, 54, 0.2);
+      border: 1px solid var(--wood-warm);
+      color: #fff;
+      padding: 0.55rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .download-btn:hover {
+      background: var(--wood-warm);
+      color: #fff;
+    }
+
+    .ad-copy-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .copy-group {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 1rem;
+      position: relative;
+    }
+
+    .copy-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--wood-light);
+      margin-bottom: 0.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .copy-content {
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+      white-space: pre-line;
+      word-break: break-word;
+    }
+
+    .copy-btn {
+      background: #263445;
+      color: #fff;
+      border: none;
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: var(--wood-warm);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: #000;
+      padding: 0.85rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="toast" id="toast">✅ ¡Texto copiado al portapapeles!</div>
+
+  <div class="container">
+    <header>
+      <div class="header-logo-container">
+        <img src="imagenes/logo_roer_white.png" alt="Logo Estudio ROER" class="header-logo-img">
+      </div>
+      <span class="badge">ESTUDIO ROER ARQUITECTURA • META ADS 2.0</span>
+      <h1>Kit de Anuncios con Filtro de Precio y Calculadora</h1>
+      <p class="subtitle">
+        Anuncios optimizados para cualificar clientes desde el primer segundo: mencionan la <strong>Asesoría Técnica desde $30.000</strong>, venden el <strong>Ahorro frente a multas</strong> y usan la <strong>Calculadora Online</strong> de www.estudioroer.com como gancho.
+      </p>
+      
+      <div class="strategy-pills">
+        <div class="strat-pill">🎯 <strong>1. Filtro Previo:</strong> Mención explícita "Desde $30.000" para evitar curiosos sin presupuesto.</div>
+        <div class="strat-pill">🛡️ <strong>2. Vender el Ahorro:</strong> "Evita multas millonarias y errores costosos en tu propiedad".</div>
+        <div class="strat-pill">💻 <strong>3. Gancho Calculadora:</strong> "Cotiza gratis en nuestra calculadora o agenda asesoría por $30.000".</div>
+      </div>
+    </header>
+
+    <div class="grid-ads">
+
+      <!-- CAMPAÑA 1 -->
+      <article class="ad-card" id="campana1">
+        <div class="ad-header">
+          <div class="ad-title-block">
+            <h2>Campaña 1: Protección & Ahorro vs Multas (Filtro $30.000)</h2>
+            <span>🏛️ Regularización Ley del Mono 20.898 • Enfoque en evitar pérdidas de dinero</span>
+          </div>
+        </div>
+
+        <div class="ad-body">
+          <div class="visual-previews">
+            <div class="preview-box">
+              <div class="preview-label">Formato Feed (1:1 - 1080x1080)</div>
+              <div class="img-wrapper">
+                <img src="imagenes/01_regularizacion_ley_del_mono_feed_1080x1080.jpg" alt="Anuncio Feed Campaña 1">
+              </div>
+              <a href="imagenes/01_regularizacion_ley_del_mono_feed_1080x1080.jpg" download class="download-btn">⬇️ Descargar Feed JPG</a>
+            </div>
+
+            <div class="preview-box">
+              <div class="preview-label">Formato Story / Reel (9:16 - 1080x1920)</div>
+              <div class="img-wrapper">
+                <img src="imagenes/01_regularizacion_ley_del_mono_story_1080x1920.jpg" alt="Anuncio Story Campaña 1">
+              </div>
+              <a href="imagenes/01_regularizacion_ley_del_mono_story_1080x1920.jpg" download class="download-btn">⬇️ Descargar Story JPG</a>
+            </div>
+          </div>
+
+          <div class="ad-copy-section">
+            <div class="copy-group">
+              <div class="copy-label">
+                <span>Texto Principal (Primary Text)</span>
+                <button class="copy-btn" onclick="copyText('copy1-text')">📋 Copiar</button>
+              </div>
+              <div class="copy-content" id="copy1-text">¿Construiste o ampliaste tu casa y no tienes permiso municipal? 🏠⚠️
+
+Las multas municipales y la desvalorización de tu propiedad pueden costarte millones de pesos. Evita errores costosos con una Asesoría Técnica Inmobiliaria realizada por un Arquitecto Colegiado.
+
+✅ Diagnóstico normativo de factibilidad y Ley del Mono (Ley 20.898).
+✅ Asesoría técnica telemática desde solo $30.000 pesos.
+✅ Si realizas el proyecto con nosotros, los $30.000 se descuentan 100% del total.
+✅ Cobertura en Santiago (San Bernardo, Peñaflor, El Bosque, Maipú) y Valparaíso.
+
+🌐 Visita www.estudioroer.com o haz clic abajo para agendar tu asesoría técnica.</div>
+            </div>
+
+            <div class="copy-group">
+              <div class="copy-label">
+                <span>Título del Anuncio (Headline)</span>
+                <button class="copy-btn" onclick="copyText('copy1-head')">📋 Copiar</button>
+              </div>
+              <div class="copy-content" id="copy1-head">🛡️ Evita Multas en tu Casa | Asesoría Técnica desde $30.000</div>
+            </div>
+
+            <div class="copy-group">
+              <div class="copy-label">
+                <span>Descripción</span>
+                <button class="copy-btn" onclick="copyText('copy1-desc')">📋 Copiar</button>
+              </div>
+              <div class="copy-content" id="copy1-desc">Asegura tu propiedad con arquitecto. Cotiza en www.estudioroer.com.</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CAMPAÑA 2 -->
+      <article class="ad-card" id="campana2">
+        <div class="ad-header">
+          <div class="ad-title-block">
+            <h2>Campaña 2: Gancho Calculadora Online + Asesoría $30.000</h2>
+            <span>💻 Autoservicio en Web + Asesoría Virtual para Cualificación</span>
+          </div>
+        </div>
+
+        <div class="ad-body">
+          <div class="visual-previews">
+            <div class="preview-box">
+              <div class="preview-label">Formato Feed (1:1 - 1080x1080)</div>
+              <div class="img-wrapper">
+                <img src="imagenes/02_venta_hipotecario_tasacion_feed_1080x1080.jpg" alt="Anuncio Feed Campaña 2">
+              </div>
+              <a href="imagenes/02_venta_hipotecario_tasacion_feed_1080x1080.jpg" download class="download-btn">⬇️ Descargar Feed JPG</a>
+            </div>
+
+            <div class="preview-box">
+              <div class="preview-label">Formato Story / Reel (9:16 - 1080x1920)</div>
+              <div class="img-wrapper">
+                <img src="imagenes/02_venta_hipotecario_tasacion_story_1080x1920.jpg" alt="Anuncio Story Campaña 2">
+              </div>
+              <a href="imagenes/02_venta_hipotecario_tasacion_story_1080x1920.jpg" download class="download-btn">⬇️ Descargar Story JPG</a>
+            </div>
+          </div>
+
+          <div class="ad-copy-section">
+            <div class="copy-group">
+              <div class="copy-label">
+                <span>Texto Principal (Primary Text)</span>
+                <button class="copy-btn" onclick="copyText('copy2-text')">📋 Copiar</button>
+              </div>
+              <div class="copy-content" id="copy2-text">¿Quieres saber cuánto cuesta regularizar tu casa o ampliación? 📐💡
+
+En Estudio ROER creamos una herramienta rápida para ti:
+1. Entra a www.estudioroer.com y calcula el costo estimado de tu regularización gratis.
+2. ¿Necesitas revisar tus planos o títulos con un arquitecto? Agenda una Asesoría Virtual por solo $30.000 pesos (monto 100% abonable a tu proyecto).
+
+Evita rechazos de tasadores de bancos y soluciona la situación de tu inmueble con respaldo profesional.
+
+🌐 Ingresa a www.estudioroer.com y calcula tu proyecto en 1 minuto.</div>
+            </div>
+
+            <div class="copy-group">
+              <div class="copy-label">
+                <span>Título del Anuncio (Headline)</span>
+                <button class="copy-btn" onclick="copyText('copy2-head')">📋 Copiar</button>
+              </div>
+              <div class="copy-content" id="copy2-head">💻 ¿Cuánto Cuesta Regularizar tu Casa? Calcula Online o Asesoría por $30.000</div>
+            </div>
+
+            <div class="copy-group">
+              <div class="copy-label">
+                <span>Descripción</span>
+                <button class="copy-btn" onclick="copyText('copy2-desc')">📋 Copiar</button>
+              </div>
+              <div class="copy-content" id="copy2-desc">Calculadora gratuita y asesoría telemática en www.estudioroer.com.</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CAMPAÑA 3 -->
+      <article class="ad-card" id="campana3">
+        <div class="ad-header">
+          <div class="ad-title-block">
+            <h2>Campaña 3: Estudio Telemático Económico (Ampliaciones & Ventas)</h2>
+            <span>📐 Diagnóstico de Arquitectura desde $30.000 con Abono a Proyecto</span>
+          </div>
+        </div>
+
+        <div class="ad-body">
+          <div class="visual-previews">
+            <div class="preview-box">
+              <div class="preview-label">Formato Feed (1:1 - 1080x1080)</div>
+              <div class="img-wrapper">
+                <img src="imagenes/03_ampliacion_remodelacion_feed_1080x1080.jpg" alt="Anuncio Feed Campaña 3">
+              </div>
+              <a href="imagenes/03_ampliacion_remodelacion_feed_1080x1080.jpg" download class="download-btn">⬇️ Descargar Feed JPG</a>
+            </div>
+
+            <div class="preview-box">
+              <div class="preview-label">Formato Story / Reel (9:16 - 1080x1920)</div>
+              <div class="img-wrapper">
+                <img src="imagenes/03_ampliacion_remodelacion_story_1080x1920.jpg" alt="Anuncio Story Campaña 3">
+              </div>
+              <a href="imagenes/03_ampliacion_remodelacion_story_1080x1920.jpg" download class="download-btn">⬇️ Descargar Story JPG</a>
+            </div>
+          </div>
+
+          <div class="ad-copy-section">
+            <div class="copy-group">
+              <div class="copy-label">
+                <span>Texto Principal (Primary Text)</span>
+                <button class="copy-btn" onclick="copyText('copy3-text')">📋 Copiar</button>
+              </div>
+              <div class="copy-content" id="copy3-text">¿Vas a ampliar tu casa o necesitas venderla rápido? No arriesgues tu dinero construyendo sin permiso o firmando promesas a ciegas. 🔨🏡
+
+Accede a un Estudio Telemático Económico con un arquitecto especialista:
+• Revisión de normativa municipal DOM y factibilidad técnica.
+• Asesoría profesional desde solo $30.000 pesos.
+• Si contratas el expediente con nosotros, ¡la asesoría te sale GRATIS! ($30.000 abonados al total).
+
+Diseño a medida, regularización y tramitación completa en Santiago y Valparaíso.
+
+🌐 Cotiza o agenda en www.estudioroer.com</div>
+            </div>
+
+            <div class="copy-group">
+              <div class="copy-label">
+                <span>Título del Anuncio (Headline)</span>
+                <button class="copy-btn" onclick="copyText('copy3-head')">📋 Copiar</button>
+              </div>
+              <div class="copy-content" id="copy3-head">📐 Estudio Telemático desde $30.000 | Ampliaciones y Permisos DOM</div>
+            </div>
+
+            <div class="copy-group">
+              <div class="copy-label">
+                <span>Descripción</span>
+                <button class="copy-btn" onclick="copyText('copy3-desc')">📋 Copiar</button>
+              </div>
+              <div class="copy-content" id="copy3-desc">Asesoría técnica abonable al proyecto. Revisa en www.estudioroer.com.</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <script>
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.innerText = msg;
+      t.className = 'toast show';
+      setTimeout(() => { t.className = 'toast'; }, 2500);
+    }
+
+    function copyText(elementId) {
+      const el = document.getElementById(elementId);
+      if (el) {
+        navigator.clipboard.writeText(el.innerText).then(() => {
+          showToast('✅ ¡Texto copiado al portapapeles!');
+        });
+      }
+    }
+  </script>
+</body>
+</html>
