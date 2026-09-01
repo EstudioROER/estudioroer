@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <title>Volante Arismendi & Vera - 4 por Hoja (Formato Completo Guillotina)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@700;800&display=swap');
+
+    @page {
+      size: letter portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 8.5in;
+      height: 11in;
+      margin: 0 auto;
+      background: #ffffff;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #0f172a;
+      position: relative;
+      overflow: hidden;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* 2x2 Grid */
+    .sheet-grid {
+      display: grid;
+      grid-template-columns: 4.25in 4.25in;
+      grid-template-rows: 5.5in 5.5in;
+      width: 8.5in;
+      height: 11in;
+    }
+
+    /* Single Quadrant */
+    .flyer-quadrant {
+      padding: 0.2in 0.22in;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      background: #ffffff;
+      height: 5.5in;
+    }
+
+    /* Guillotine Guides */
+    .guide-vertical {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 4.25in;
+      width: 1px;
+      border-left: 1px dashed #94a3b8;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    .guide-horizontal {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 5.5in;
+      height: 1px;
+      border-top: 1px dashed #94a3b8;
+      pointer-events: none;
+      z-index: 100;
+    }
+
+    .cut-mark-center {
+      position: absolute;
+      top: 5.5in;
+      left: 4.25in;
+      transform: translate(-50%, -50%);
+      background: #ffffff;
+      color: #475569;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid #cbd5e1;
+      z-index: 101;
+      font-family: monospace;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .logo-icon {
+      font-size: 20px;
+      line-height: 1;
+      margin-bottom: 2px;
+      display: block;
+    }
+
+    .brand-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: #0f172a;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-size: 8.5px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      color: #334155;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* Highlight Banner */
+    .specialty-box {
+      border: 1.5px solid #0f172a;
+      border-radius: 4px;
+      padding: 6px 8px;
+      text-align: center;
+      margin: 6px 0 10px;
+      background: #f8fafc;
+    }
+
+    .specialty-title {
+      font-size: 9.2px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: #0f172a;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .specialty-desc {
+      font-size: 7.8px;
+      font-style: italic;
+      color: #334155;
+      line-height: 1.25;
+      margin-top: 2px;
+    }
+
+    /* Columns Body */
+    .columns-row {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 12px;
+      flex-grow: 1;
+      margin-bottom: 6px;
+    }
+
+    .col-title {
+      font-size: 9.8px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #0f172a;
+      border-bottom: 1.5px solid #0f172a;
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+    }
+
+    /* Practice Area Items */
+    .area-item {
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .area-name {
+      font-size: 8.5px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .area-name::before {
+      content: '▪ ';
+      color: #0f172a;
+    }
+
+    .area-desc {
+      font-size: 7.2px;
+      color: #334155;
+      padding-left: 8px;
+      line-height: 1.25;
+      margin-top: 1px;
+    }
+
+    /* Team Cards */
+    .lawyer-box {
+      border-left: 2.5px solid #0f172a;
+      padding-left: 7px;
+      margin-bottom: 11px;
+    }
+
+    .lawyer-name {
+      font-size: 9.2px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.15;
+    }
+
+    .lawyer-role {
+      font-size: 7.4px;
+      font-weight: 700;
+      color: #475569;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .lawyer-contact {
+      font-size: 7.5px;
+      color: #0f172a;
+      line-height: 1.3;
+    }
+
+    .lawyer-bio {
+      font-size: 6.8px;
+      color: #475569;
+      line-height: 1.25;
+      margin-top: 2px;
+    }
+
+    /* Why Choose Us Box */
+    .why-box {
+      border: 1.2px solid #cbd5e1;
+      border-radius: 4px;
+      padding: 7px 8px;
+      background: #f8fafc;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .why-title {
+      font-size: 8px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+
+    .why-desc {
+      font-size: 7px;
+      color: #334155;
+      line-height: 1.3;
+    }
+
+    /* Footer */
+    .footer-bar {
+      border-top: 1.5px solid #0f172a;
+      padding-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 7.5px;
+      line-height: 1.25;
+    }
+
+    .footer-col strong {
+      display: block;
+      font-size: 8px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #0f172a;
+    }
+
+    .footer-col span {
+      color: #334155;
+    }
+
+    .footer-web {
+      font-weight: 800;
+      color: #0f172a;
+      text-decoration: underline;
+    }
+
+    /* Print Controls */
+    .print-controls {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 9999;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .print-controls:hover {
+      background: #1e293b;
+    }
+
+    @media print {
+      .print-controls {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-controls" onclick="window.print()">
+    <span>🖨️ Imprimir Hoja Completa (4 Volantes para Guillotina)</span>
+  </button>
+
+  <div class="guide-vertical"></div>
+  <div class="guide-horizontal"></div>
+  <div class="cut-mark-center">✂ CORTE</div>
+
+  <div class="sheet-grid">
+
+    <!-- VOLANTE CUADRANTE -->
+    <div class="flyer-quadrant">
+      <div>
+        <!-- Cabecera -->
+        <div class="header">
+          <span class="logo-icon">⚖️</span>
+          <div class="brand-title">ARISMENDI & VERA</div>
+          <div class="brand-sub">ABOGADOS & CONSULTORES</div>
+        </div>
+
+        <!-- Banner Especialistas -->
+        <div class="specialty-box">
+          <div class="specialty-title">ESPECIALISTAS EN DERECHO INMOBILIARIO & URBANÍSTICO</div>
+          <div class="specialty-desc">Asesoría legal integral, estratégica y de alta especialización para personas y empresas.</div>
+        </div>
+
+        <!-- Dos Columnas -->
+        <div class="columns-row">
+          <!-- Columna Izquierda: Áreas de Práctica -->
+          <div>
+            <div class="col-title">ÁREAS DE PRÁCTICA</div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Inmobiliario y Urbanismo</div>
+              <div class="area-desc">Estudios de títulos, regularizaciones, compra y venta de propiedades, loteos, copropiedad e informes urbanísticos.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Sucesorio y Hereditario</div>
+              <div class="area-desc">Tramitación de posesiones efectivas (testadas e intestadas), testamentos y partición de bienes.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Civil</div>
+              <div class="area-desc">Contratos, indemnizaciones de perjuicios, juicio ordinario y ejecutivo, cobro de pesos y litigios de propiedad.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Laboral</div>
+              <div class="area-desc">Inspección del Trabajo, despidos injustificados, tutelas laborales y demandas de fiscalización.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho de Familia</div>
+              <div class="area-desc">Divorcios, pensiones de alimentos, relación directa y regular, cuidado personal y mediaciones.</div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Equipo Profesional -->
+          <div>
+            <div class="col-title">EQUIPO PROFESIONAL</div>
+
+            <div class="lawyer-box">
+              <div class="lawyer-name">Lorena Vera Flores</div>
+              <div class="lawyer-role">ABOGADA SOCIO</div>
+              <div class="lawyer-contact">Tel: <strong>+56 9 9227 6833</strong><br>Email: lvfabogada@gmail.com</div>
+              <div class="lawyer-bio">Especialista en litigación civil, laboral, familia, compraventa y posesiones efectivas.</div>
+            </div>
+
+            <div class="lawyer-box">
+              <div class="lawyer-name">Héctor Arismendi Poblete</div>
+              <div class="lawyer-role">MAGÍSTER EN URBANÍSTICA</div>
+              <div class="lawyer-contact">Tel: <strong>+56 9 2642 7550</strong><br>Email: hector.arismendi@yahoo.es</div>
+              <div class="lawyer-bio">Consultor especialista en normativa de edificación, planificación urbana y factibilidad.</div>
+            </div>
+
+            <div class="why-box">
+              <div class="why-title">¿POR QUÉ ELEGIRNOS?</div>
+              <div class="why-desc">Combinamos el rigor jurídico con un profundo conocimiento técnico urbanístico, protegiendo su patrimonio.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pie del Volante -->
+      <div class="footer-bar">
+        <div class="footer-col">
+          <strong>ESTUDIO JURÍDICO</strong>
+          <span>Arismendi & Vera y Asociados</span>
+        </div>
+        <div class="footer-col" style="text-align: center;">
+          <strong>COBERTURA</strong>
+          <span>Presencial y Remota • Nivel Nacional</span>
+        </div>
+        <div class="footer-col" style="text-align: right;">
+          <strong>SITIO WEB</strong>
+          <span class="footer-web">www.estudioroer.com/legal.html</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VOLANTE CUADRANTE -->
+    <div class="flyer-quadrant">
+      <div>
+        <!-- Cabecera -->
+        <div class="header">
+          <span class="logo-icon">⚖️</span>
+          <div class="brand-title">ARISMENDI & VERA</div>
+          <div class="brand-sub">ABOGADOS & CONSULTORES</div>
+        </div>
+
+        <!-- Banner Especialistas -->
+        <div class="specialty-box">
+          <div class="specialty-title">ESPECIALISTAS EN DERECHO INMOBILIARIO & URBANÍSTICO</div>
+          <div class="specialty-desc">Asesoría legal integral, estratégica y de alta especialización para personas y empresas.</div>
+        </div>
+
+        <!-- Dos Columnas -->
+        <div class="columns-row">
+          <!-- Columna Izquierda: Áreas de Práctica -->
+          <div>
+            <div class="col-title">ÁREAS DE PRÁCTICA</div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Inmobiliario y Urbanismo</div>
+              <div class="area-desc">Estudios de títulos, regularizaciones, compra y venta de propiedades, loteos, copropiedad e informes urbanísticos.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Sucesorio y Hereditario</div>
+              <div class="area-desc">Tramitación de posesiones efectivas (testadas e intestadas), testamentos y partición de bienes.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Civil</div>
+              <div class="area-desc">Contratos, indemnizaciones de perjuicios, juicio ordinario y ejecutivo, cobro de pesos y litigios de propiedad.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Laboral</div>
+              <div class="area-desc">Inspección del Trabajo, despidos injustificados, tutelas laborales y demandas de fiscalización.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho de Familia</div>
+              <div class="area-desc">Divorcios, pensiones de alimentos, relación directa y regular, cuidado personal y mediaciones.</div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Equipo Profesional -->
+          <div>
+            <div class="col-title">EQUIPO PROFESIONAL</div>
+
+            <div class="lawyer-box">
+              <div class="lawyer-name">Lorena Vera Flores</div>
+              <div class="lawyer-role">ABOGADA SOCIO</div>
+              <div class="lawyer-contact">Tel: <strong>+56 9 9227 6833</strong><br>Email: lvfabogada@gmail.com</div>
+              <div class="lawyer-bio">Especialista en litigación civil, laboral, familia, compraventa y posesiones efectivas.</div>
+            </div>
+
+            <div class="lawyer-box">
+              <div class="lawyer-name">Héctor Arismendi Poblete</div>
+              <div class="lawyer-role">MAGÍSTER EN URBANÍSTICA</div>
+              <div class="lawyer-contact">Tel: <strong>+56 9 2642 7550</strong><br>Email: hector.arismendi@yahoo.es</div>
+              <div class="lawyer-bio">Consultor especialista en normativa de edificación, planificación urbana y factibilidad.</div>
+            </div>
+
+            <div class="why-box">
+              <div class="why-title">¿POR QUÉ ELEGIRNOS?</div>
+              <div class="why-desc">Combinamos el rigor jurídico con un profundo conocimiento técnico urbanístico, protegiendo su patrimonio.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pie del Volante -->
+      <div class="footer-bar">
+        <div class="footer-col">
+          <strong>ESTUDIO JURÍDICO</strong>
+          <span>Arismendi & Vera y Asociados</span>
+        </div>
+        <div class="footer-col" style="text-align: center;">
+          <strong>COBERTURA</strong>
+          <span>Presencial y Remota • Nivel Nacional</span>
+        </div>
+        <div class="footer-col" style="text-align: right;">
+          <strong>SITIO WEB</strong>
+          <span class="footer-web">www.estudioroer.com/legal.html</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VOLANTE CUADRANTE -->
+    <div class="flyer-quadrant">
+      <div>
+        <!-- Cabecera -->
+        <div class="header">
+          <span class="logo-icon">⚖️</span>
+          <div class="brand-title">ARISMENDI & VERA</div>
+          <div class="brand-sub">ABOGADOS & CONSULTORES</div>
+        </div>
+
+        <!-- Banner Especialistas -->
+        <div class="specialty-box">
+          <div class="specialty-title">ESPECIALISTAS EN DERECHO INMOBILIARIO & URBANÍSTICO</div>
+          <div class="specialty-desc">Asesoría legal integral, estratégica y de alta especialización para personas y empresas.</div>
+        </div>
+
+        <!-- Dos Columnas -->
+        <div class="columns-row">
+          <!-- Columna Izquierda: Áreas de Práctica -->
+          <div>
+            <div class="col-title">ÁREAS DE PRÁCTICA</div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Inmobiliario y Urbanismo</div>
+              <div class="area-desc">Estudios de títulos, regularizaciones, compra y venta de propiedades, loteos, copropiedad e informes urbanísticos.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Sucesorio y Hereditario</div>
+              <div class="area-desc">Tramitación de posesiones efectivas (testadas e intestadas), testamentos y partición de bienes.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Civil</div>
+              <div class="area-desc">Contratos, indemnizaciones de perjuicios, juicio ordinario y ejecutivo, cobro de pesos y litigios de propiedad.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Laboral</div>
+              <div class="area-desc">Inspección del Trabajo, despidos injustificados, tutelas laborales y demandas de fiscalización.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho de Familia</div>
+              <div class="area-desc">Divorcios, pensiones de alimentos, relación directa y regular, cuidado personal y mediaciones.</div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Equipo Profesional -->
+          <div>
+            <div class="col-title">EQUIPO PROFESIONAL</div>
+
+            <div class="lawyer-box">
+              <div class="lawyer-name">Lorena Vera Flores</div>
+              <div class="lawyer-role">ABOGADA SOCIO</div>
+              <div class="lawyer-contact">Tel: <strong>+56 9 9227 6833</strong><br>Email: lvfabogada@gmail.com</div>
+              <div class="lawyer-bio">Especialista en litigación civil, laboral, familia, compraventa y posesiones efectivas.</div>
+            </div>
+
+            <div class="lawyer-box">
+              <div class="lawyer-name">Héctor Arismendi Poblete</div>
+              <div class="lawyer-role">MAGÍSTER EN URBANÍSTICA</div>
+              <div class="lawyer-contact">Tel: <strong>+56 9 2642 7550</strong><br>Email: hector.arismendi@yahoo.es</div>
+              <div class="lawyer-bio">Consultor especialista en normativa de edificación, planificación urbana y factibilidad.</div>
+            </div>
+
+            <div class="why-box">
+              <div class="why-title">¿POR QUÉ ELEGIRNOS?</div>
+              <div class="why-desc">Combinamos el rigor jurídico con un profundo conocimiento técnico urbanístico, protegiendo su patrimonio.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pie del Volante -->
+      <div class="footer-bar">
+        <div class="footer-col">
+          <strong>ESTUDIO JURÍDICO</strong>
+          <span>Arismendi & Vera y Asociados</span>
+        </div>
+        <div class="footer-col" style="text-align: center;">
+          <strong>COBERTURA</strong>
+          <span>Presencial y Remota • Nivel Nacional</span>
+        </div>
+        <div class="footer-col" style="text-align: right;">
+          <strong>SITIO WEB</strong>
+          <span class="footer-web">www.estudioroer.com/legal.html</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VOLANTE CUADRANTE -->
+    <div class="flyer-quadrant">
+      <div>
+        <!-- Cabecera -->
+        <div class="header">
+          <span class="logo-icon">⚖️</span>
+          <div class="brand-title">ARISMENDI & VERA</div>
+          <div class="brand-sub">ABOGADOS & CONSULTORES</div>
+        </div>
+
+        <!-- Banner Especialistas -->
+        <div class="specialty-box">
+          <div class="specialty-title">ESPECIALISTAS EN DERECHO INMOBILIARIO & URBANÍSTICO</div>
+          <div class="specialty-desc">Asesoría legal integral, estratégica y de alta especialización para personas y empresas.</div>
+        </div>
+
+        <!-- Dos Columnas -->
+        <div class="columns-row">
+          <!-- Columna Izquierda: Áreas de Práctica -->
+          <div>
+            <div class="col-title">ÁREAS DE PRÁCTICA</div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Inmobiliario y Urbanismo</div>
+              <div class="area-desc">Estudios de títulos, regularizaciones, compra y venta de propiedades, loteos, copropiedad e informes urbanísticos.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Sucesorio y Hereditario</div>
+              <div class="area-desc">Tramitación de posesiones efectivas (testadas e intestadas), testamentos y partición de bienes.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Civil</div>
+              <div class="area-desc">Contratos, indemnizaciones de perjuicios, juicio ordinario y ejecutivo, cobro de pesos y litigios de propiedad.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho Laboral</div>
+              <div class="area-desc">Inspección del Trabajo, despidos injustificados, tutelas laborales y demandas de fiscalización.</div>
+            </div>
+
+            <div class="area-item">
+              <div class="area-name">Derecho de Familia</div>
+              <div class="area-desc">Divorcios, pensiones de alimentos, relación directa y regular, cuidado personal y mediaciones.</div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Equipo Profesional -->
+          <div>
+            <div class="col-title">EQUIPO PROFESIONAL</div>
+
+            <div class="lawyer-box">
+              <div class="lawyer-name">Lorena Vera Flores</div>
+              <div class="lawyer-role">ABOGADA SOCIO</div>
+              <div class="lawyer-contact">Tel: <strong>+56 9 9227 6833</strong><br>Email: lvfabogada@gmail.com</div>
+              <div class="lawyer-bio">Especialista en litigación civil, laboral, familia, compraventa y posesiones efectivas.</div>
+            </div>
+
+            <div class="lawyer-box">
+              <div class="lawyer-name">Héctor Arismendi Poblete</div>
+              <div class="lawyer-role">MAGÍSTER EN URBANÍSTICA</div>
+              <div class="lawyer-contact">Tel: <strong>+56 9 2642 7550</strong><br>Email: hector.arismendi@yahoo.es</div>
+              <div class="lawyer-bio">Consultor especialista en normativa de edificación, planificación urbana y factibilidad.</div>
+            </div>
+
+            <div class="why-box">
+              <div class="why-title">¿POR QUÉ ELEGIRNOS?</div>
+              <div class="why-desc">Combinamos el rigor jurídico con un profundo conocimiento técnico urbanístico, protegiendo su patrimonio.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pie del Volante -->
+      <div class="footer-bar">
+        <div class="footer-col">
+          <strong>ESTUDIO JURÍDICO</strong>
+          <span>Arismendi & Vera y Asociados</span>
+        </div>
+        <div class="footer-col" style="text-align: center;">
+          <strong>COBERTURA</strong>
+          <span>Presencial y Remota • Nivel Nacional</span>
+        </div>
+        <div class="footer-col" style="text-align: right;">
+          <strong>SITIO WEB</strong>
+          <span class="footer-web">www.estudioroer.com/legal.html</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

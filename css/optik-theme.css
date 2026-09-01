@@ -46,6 +46,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+section[id], header[id], footer[id] {
+  scroll-margin-top: 80px;
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
 }
