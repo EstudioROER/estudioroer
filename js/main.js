@@ -4,21 +4,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
   if (mobileToggle && navMenu) {
+    const setMenu = (open) => {
+      navMenu.classList.toggle('open', open);
+      mobileToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      mobileToggle.textContent = open ? '✕' : '☰';
+    };
+
+    mobileToggle.setAttribute('aria-expanded', 'false');
     mobileToggle.addEventListener('click', () => {
-      const isVisible = navMenu.style.display === 'flex';
-      navMenu.style.display = isVisible ? 'none' : 'flex';
-      if (!isVisible) {
-        navMenu.style.flexDirection = 'column';
-        navMenu.style.position = 'absolute';
-        navMenu.style.top = '58px';
-        navMenu.style.left = '1.25rem';
-        navMenu.style.right = '1.25rem';
-        navMenu.style.background = '#ffffff';
-        navMenu.style.padding = '1.25rem';
-        navMenu.style.borderRadius = '14px';
-        navMenu.style.boxShadow = '0 10px 25px rgba(0,0,0,0.08)';
-        navMenu.style.border = '1px solid #e5e7eb';
-      }
+      setMenu(!navMenu.classList.contains('open'));
+    });
+
+    // Cierra el menú al tocar un enlace
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setMenu(false));
+    });
+
+    // Cierra con Escape o al tocar fuera del menú
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setMenu(false);
+    });
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !mobileToggle.contains(e.target)) setMenu(false);
+    });
+
+    // Al pasar a pantalla grande, restablece el estado
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1100) setMenu(false);
     });
   }
 
@@ -138,23 +150,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (tipo === 'ley_mono') {
       if (m2 <= 90) {
-        baseUF = 9.5;
+        baseUF = 10.0;
       } else if (m2 <= 140) {
-        baseUF = 12.0;
-      } else {
         baseUF = 15.0;
+      } else {
+        baseUF = 20.0;
       }
       weeks = '4 a 8 semanas';
     } else if (tipo === 'ampliacion') {
-      baseUF = (m2 * 0.14).toFixed(1);
-      if (baseUF < 10.0) baseUF = 10.0;
+      baseUF = (m2 * 0.25).toFixed(1);
+      if (baseUF < 15.0) baseUF = 15.0;
       weeks = '5 a 8 semanas';
     } else if (tipo === 'obra_nueva') {
-      baseUF = (m2 * 0.18).toFixed(1);
-      if (baseUF < 14.0) baseUF = 14.0;
+      baseUF = (m2 * 0.35).toFixed(1);
+      if (baseUF < 20.0) baseUF = 20.0;
       weeks = '8 a 12 semanas';
     } else if (tipo === 'recepcion') {
-      baseUF = 8.5;
+      baseUF = 12.0;
       weeks = '3 a 5 semanas';
     }
 
@@ -163,7 +175,16 @@ document.addEventListener('DOMContentLoaded', () => {
       calcTimeDisplay.textContent = `Plazo estimado DOM: ${weeks} • Precio final certificado en visita`;
     }
 
-    const msg = encodeURIComponent(`Hola Estudio ROER! Acabo de simular en la web para ${comuna}: ${tipo.replace('_', ' ').toUpperCase()} de aprox ${m2} m². Me gustaría agendar la visita técnica para certificar el presupuesto.`);
+    const calcM2Recepcion = document.getElementById('calcM2Recepcion');
+    const m2Rec = calcM2Recepcion && calcM2Recepcion.value ? parseFloat(calcM2Recepcion.value) : 0;
+    
+    let msgText = `Hola Estudio ROER! Acabo de generar un presupuesto estimado en la web para ${comuna}: ${tipo.replace('_', ' ').toUpperCase()} de aprox ${m2} m² a regularizar.`;
+    if (m2Rec > 0) {
+      msgText += ` (La propiedad ya cuenta con ${m2Rec} m² con recepción definitiva).`;
+    }
+    msgText += ` El simulador me indicó honorarios desde ${baseUF} UF. Me gustaría iniciar el contacto a partir de este presupuesto para evaluar mi caso y agendar la visita.`;
+    
+    const msg = encodeURIComponent(msgText);
     if (calcWspBtn) {
       calcWspBtn.href = `https://wa.me/56950196861?text=${msg}`;
     }
@@ -173,6 +194,12 @@ document.addEventListener('DOMContentLoaded', () => {
     calcComuna.addEventListener('change', updateEstimate);
     calcTipo.addEventListener('change', updateEstimate);
     calcM2.addEventListener('input', updateEstimate);
+    
+    const calcM2Recepcion = document.getElementById('calcM2Recepcion');
+    if (calcM2Recepcion) {
+      calcM2Recepcion.addEventListener('input', updateEstimate);
+    }
+    
     updateEstimate();
   }
 });
