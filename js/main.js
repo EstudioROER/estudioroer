@@ -131,6 +131,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Contact Form (Web3Forms)
+  const contactForm = document.getElementById('contactForm');
+  const contactStatus = document.getElementById('contactFormStatus');
+
+  function showContactStatus(message, ok) {
+    if (!contactStatus) return;
+    contactStatus.style.display = 'block';
+    contactStatus.textContent = message;
+    contactStatus.style.background = ok ? '#f0fdf4' : '#fef2f2';
+    contactStatus.style.color = ok ? '#15803d' : '#b91c1c';
+    contactStatus.style.border = ok ? '1px solid #bbf7d0' : '1px solid #fecaca';
+  }
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const btnLabel = submitBtn ? submitBtn.querySelector('span') : null;
+      const originalLabel = btnLabel ? btnLabel.textContent : '';
+
+      if (submitBtn) submitBtn.disabled = true;
+      if (btnLabel) btnLabel.textContent = 'Enviando...';
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(contactForm)
+        });
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          showContactStatus('¡Gracias! Tu mensaje fue enviado. Te responderemos a la brevedad.', true);
+          contactForm.reset();
+        } else {
+          showContactStatus('No pudimos enviar tu mensaje. Escríbenos por WhatsApp al +56 9 5019 6861 o a roer.arquitectura@gmail.com.', false);
+        }
+      } catch (err) {
+        showContactStatus('Hubo un problema de conexión. Escríbenos por WhatsApp al +56 9 5019 6861 o a roer.arquitectura@gmail.com.', false);
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+        if (btnLabel) btnLabel.textContent = originalLabel;
+      }
+    });
+  }
+
   // Calculator Logic
   const calcComuna = document.getElementById('calcComuna');
   const calcTipo = document.getElementById('calcTipo');

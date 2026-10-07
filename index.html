@@ -716,17 +716,17 @@
         <!-- Columna Derecha (Formulario) -->
         <div class="contact-form-box">
           <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem;">Déjanos un mensaje</h3>
-          <form action="https://formsubmit.co/roer.arquitectura@gmail.com" method="POST">
-            <!-- Opciones FormSubmit -->
-            <!-- Evita el captcha para mejor experiencia -->
-            <input type="hidden" name="_captcha" value="false">
-            <!-- Formato de la tabla en el correo -->
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_subject" value="¡Nuevo Contacto Web - Estudio ROER!">
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Web3Forms: clave de acceso (el correo de destino está asociado a esta clave) -->
+            <input type="hidden" name="access_key" value="e490e5d7-70f1-4840-95e6-b4c4a9084d18">
+            <input type="hidden" name="subject" value="¡Nuevo Contacto Web - Estudio ROER!">
+            <input type="hidden" name="from_name" value="Web Estudio ROER">
+            <!-- Anti-spam (honeypot): debe quedar oculto y vacío -->
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display: none;">
 
             <div style="margin-bottom: 1.15rem;">
               <label for="frmName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--text-dark);">Nombre y Apellido *</label>
-              <input type="text" id="frmName" name="Nombre" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: var(--font-main); font-size: 0.9rem; outline: none; background: #ffffff;" placeholder="Ej: Marcela González">
+              <input type="text" id="frmName" name="name" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: var(--font-main); font-size: 0.9rem; outline: none; background: #ffffff;" placeholder="Ej: Marcela González">
             </div>
 
             <div class="form-row-2">
@@ -736,19 +736,20 @@
               </div>
               <div>
                 <label for="frmEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--text-dark);">Correo *</label>
-                <input type="email" id="frmEmail" name="Email" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: var(--font-main); font-size: 0.9rem; outline: none; background: #ffffff;" placeholder="tu@correo.com">
+                <input type="email" id="frmEmail" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: var(--font-main); font-size: 0.9rem; outline: none; background: #ffffff;" placeholder="tu@correo.com">
               </div>
             </div>
 
             <div style="margin-bottom: 1.5rem;">
               <label for="frmMessage" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--text-dark);">Tu Requerimiento *</label>
-              <textarea id="frmMessage" name="Mensaje" required rows="4" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: var(--font-main); font-size: 0.9rem; outline: none; resize: vertical; background: #ffffff;" placeholder="Cuéntanos brevemente qué necesitas regularizar o construir..."></textarea>
+              <textarea id="frmMessage" name="message" required rows="4" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: var(--font-main); font-size: 0.9rem; outline: none; resize: vertical; background: #ffffff;" placeholder="Cuéntanos brevemente qué necesitas regularizar o construir..."></textarea>
             </div>
 
             <button type="submit" class="btn-pill btn-dark" style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 0.85rem;">
               <span>Enviar Mensaje</span>
               <span class="btn-arrow">↗</span>
             </button>
+            <p id="contactFormStatus" role="status" aria-live="polite" style="display: none; text-align: center; font-size: 0.85rem; font-weight: 600; margin-top: 1rem; padding: 0.75rem; border-radius: var(--radius-sm);"></p>
             <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">Tus datos están seguros. Te responderemos al correo o WhatsApp a la brevedad.</p>
           </form>
         </div>
