@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
+  <title>¡Mensaje enviado! | Estudio ROER</title>
+  <meta name="description" content="Recibimos tu mensaje. El equipo de Estudio ROER te responderá a la brevedad.">
+
+  <!-- Página de confirmación: no debe aparecer en Google -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.estudioroer.com/gracias.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/optik-theme.css">
+  <link rel="shortcut icon" href="assets/images/logo-roer-oficial.png" type="image/png">
+
+  <style>
+    .thanks-main {
+      min-height: calc(100vh - 140px);
+      display: flex;
+      align-items: center;
+      padding: 3rem 0;
+    }
+
+    .thanks-card {
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--bg-white);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 3rem 2.5rem;
+      text-align: center;
+    }
+
+    .thanks-check {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      background: #f0fdf4;
+      border: 2px solid #bbf7d0;
+      color: var(--accent-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.25rem;
+      font-weight: 800;
+      animation: thanksPop 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes thanksPop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .thanks-kicker {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.6rem;
+    }
+
+    .thanks-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.85rem;
+    }
+
+    .thanks-text {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 2rem;
+    }
+
+    .thanks-steps {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .thanks-steps li {
+      background: var(--bg-page);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1rem;
+      font-size: 0.82rem;
+      color: var(--text-body);
+      line-height: 1.45;
+    }
+
+    .thanks-steps strong {
+      display: block;
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .thanks-step-num {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      background: #fff5f2;
+      border: 1px solid #fed7aa;
+      border-radius: var(--radius-full);
+      padding: 0.15rem 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .thanks-actions {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .thanks-note {
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .thanks-note a {
+      color: var(--text-dark);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .thanks-main { padding: 2rem 0; }
+      .thanks-card { padding: 2rem 1.25rem; }
+      .thanks-title { font-size: 1.6rem; }
+      .thanks-steps { grid-template-columns: 1fr; }
+      .thanks-actions .btn-pill { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra superior simple -->
+  <header class="site-navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand">
+          <div class="nav-brand-logo-text">ROER</div>
+          <div class="nav-brand-tagline" style="line-height: 1.2;">regularización y optimización<br>de espacios residenciales</div>
+        </a>
+        <a href="index.html" class="btn-pill btn-dark btn-nav-compact">
+          <span>Volver al inicio</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="thanks-main">
+    <div class="container">
+      <div class="thanks-card">
+        <div class="thanks-check" aria-hidden="true">✓</div>
+
+        <div class="thanks-kicker">Mensaje enviado</div>
+        <h1 class="thanks-title">¡Gracias! Recibimos tu mensaje</h1>
+        <p class="thanks-text">
+          Tu consulta llegó correctamente al equipo de Estudio ROER. Revisaremos tu caso y te responderemos a la brevedad por correo o WhatsApp.
+        </p>
+
+        <ul class="thanks-steps">
+          <li>
+            <span class="thanks-step-num">01</span>
+            <strong>Revisamos tu caso</strong>
+            Un arquitecto analiza los datos que nos enviaste.
+          </li>
+          <li>
+            <span class="thanks-step-num">02</span>
+            <strong>Te contactamos</strong>
+            Te respondemos por el medio que dejaste en el formulario.
+          </li>
+          <li>
+            <span class="thanks-step-num">03</span>
+            <strong>Visita técnica</strong>
+            Coordinamos la visita en terreno para certificar tu presupuesto.
+          </li>
+        </ul>
+
+        <div class="thanks-actions">
+          <a href="index.html" class="btn-pill btn-dark">
+            <span>Volver al inicio</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+          <a href="https://calendar.app.google/KHPY2PfRjG3rM1SR8" target="_blank" rel="noopener noreferrer" class="btn-pill btn-light">
+            <span>Agendar visita técnica 📅</span>
+          </a>
+          <a href="https://wa.me/56950196861?text=Hola%20Estudio%20ROER,%20acabo%20de%20enviar%20el%20formulario%20de%20contacto%20en%20la%20web." target="_blank" rel="noopener noreferrer" class="btn-pill btn-light" style="border-color: #25D366; color: #15803d;">
+            <span>Escribir por WhatsApp 💬</span>
+          </a>
+        </div>
+
+        <p class="thanks-note">
+          ¿Es urgente? Llámanos al <a href="tel:+56950196861">+56 9 5019 6861</a> (Lun a Sáb, 9:00 a 19:00 hrs).
+        </p>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

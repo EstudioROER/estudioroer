@@ -163,13 +163,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = await response.json();
 
         if (response.ok && result.success) {
-          showContactStatus('¡Gracias! Tu mensaje fue enviado. Te responderemos a la brevedad.', true);
-          contactForm.reset();
+          window.location.href = 'gracias.html';
         } else {
-          showContactStatus('No pudimos enviar tu mensaje. Escríbenos por WhatsApp al +56 9 5019 6861 o a roer.arquitectura@gmail.com.', false);
+          showContactStatus('No pudimos enviar tu mensaje. Escríbenos por WhatsApp al +56 9 5019 6861 o a contacto@estudioroer.com.', false);
         }
       } catch (err) {
-        showContactStatus('Hubo un problema de conexión. Escríbenos por WhatsApp al +56 9 5019 6861 o a roer.arquitectura@gmail.com.', false);
+        showContactStatus('Hubo un problema de conexión. Escríbenos por WhatsApp al +56 9 5019 6861 o a contacto@estudioroer.com.', false);
       } finally {
         if (submitBtn) submitBtn.disabled = false;
         if (btnLabel) btnLabel.textContent = originalLabel;
