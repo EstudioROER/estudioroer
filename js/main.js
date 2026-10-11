@@ -146,13 +146,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const btnLabel = submitBtn ? submitBtn.querySelector('span') : null;
       const originalLabel = btnLabel ? btnLabel.textContent : '';
 
-      if (submitBtn) submitBtn.disabled = true;
       if (btnLabel) btnLabel.textContent = 'Enviando...';
+
+      // Si se prueba en local (file://), redirigir directamente a gracias.html para ver la experiencia
+      if (window.location.protocol === 'file:') {
+        e.preventDefault();
+        window.location.href = 'gracias.html';
+        return;
+      }
+
+      e.preventDefault();
+      if (submitBtn) submitBtn.disabled = true;
 
       try {
         const response = await fetch(contactForm.action, {
@@ -165,13 +173,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok && result.success) {
           window.location.href = 'gracias.html';
         } else {
-          showContactStatus('No pudimos enviar tu mensaje. Escríbenos por WhatsApp al +56 9 5019 6861 o a contacto@estudioroer.com.', false);
+          // Si la API requiere envío nativo, enviar formulario estándar
+          contactForm.submit();
         }
       } catch (err) {
-        showContactStatus('Hubo un problema de conexión. Escríbenos por WhatsApp al +56 9 5019 6861 o a contacto@estudioroer.com.', false);
-      } finally {
-        if (submitBtn) submitBtn.disabled = false;
-        if (btnLabel) btnLabel.textContent = originalLabel;
+        // En caso de bloqueo de fetch o red, fallback a envío estándar
+        contactForm.submit();
       }
     });
   }
