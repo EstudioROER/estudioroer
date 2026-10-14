@@ -752,3 +752,83 @@ h1, h2, h3, h4, h5, h6 {
   .legal-form-grid { grid-template-columns: 1fr; }
   .legal-footer-inner { flex-direction: column; gap: 1.25rem; text-align: center; }
 }
+
+
+/* ==========================================================================
+   PREGUNTAS FRECUENTES (SEO)
+   ========================================================================== */
+.section-legal-faq {
+  padding: 4rem 0;
+}
+
+.legal-faq-list {
+  max-width: 820px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.legal-faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.legal-faq-item[open] {
+  border-color: var(--gold-border-bright);
+  background: var(--bg-card-elevated);
+}
+
+.legal-faq-item summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.35rem;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.legal-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.legal-faq-item summary::after {
+  content: '+';
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--gold-court);
+}
+
+.legal-faq-item[open] summary::after {
+  content: '\2212';
+}
+
+.legal-faq-item summary:hover {
+  color: var(--gold-hover);
+}
+
+.legal-faq-answer {
+  padding: 0 1.35rem 1.25rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.legal-faq-answer a {
+  color: var(--gold-court);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .section-legal-faq { padding: 2.5rem 0; }
+  .legal-faq-item summary { padding: 1rem; font-size: 0.9rem; }
+  .legal-faq-answer { padding: 0 1rem 1.1rem; }
+}

@@ -72,7 +72,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/optik-theme.css">
-  <link rel="shortcut icon" href="assets/images/logo-roer-oficial.png" type="image/png">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="assets/images/favicon-32x32.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 </head>
 <body>
 
@@ -96,6 +98,12 @@
           <li><a href="#faq" class="nav-link">FAQ</a></li>
           <li><a href="#contacto" class="nav-link">Contacto</a></li>
           <li><a href="legal.html" class="nav-link" style="color: #b4832c; font-weight: 700;">Legal ⚖️</a></li>
+          <li>
+            <a href="#oficina-virtual" class="nav-link nav-link-office" title="Estudio Virtual en Kumospace">
+              <span class="office-nav-dot" id="navOfficeDot"></span>
+              <span id="navOfficeText">Oficina Virtual</span>
+            </a>
+          </li>
         </ul>
 
         <div style="display: flex; align-items: center; gap: 0.75rem;">
@@ -710,6 +718,30 @@
               <span>Agendar Visita Técnica 📅</span>
               <span class="btn-arrow">↗</span>
             </a>
+          </div>
+
+          <!-- Componente Inteligente: Oficina Virtual Estudio ROER (Kumospace) -->
+          <div class="virtual-office-card" id="oficina-virtual">
+            <div class="vo-header">
+              <div class="vo-status-badge closed" id="voStatusBadge">
+                <span class="vo-dot" id="voDot"></span>
+                <span id="voStatusTitle">Cargando estado...</span>
+              </div>
+              <span class="vo-schedule-tag">📅 Mar y Jue · 18:00 a 20:30 hrs</span>
+            </div>
+
+            <h3 class="vo-title" id="voTitle">Atención en Vivo en el Estudio</h3>
+            <p class="vo-description" id="voDescription">
+              Conéctate directamente con el arquitecto para una consulta preliminar y revisión de tu caso sin costo durante nuestro horario de atención.
+            </p>
+
+            <div class="vo-actions" id="voActions">
+              <!-- Renderizado dinámicamente según horario de Chile -->
+            </div>
+
+            <div class="vo-footer-note">
+              <span>🏛️ Despacho interactivo · Acceso instantáneo en 1 clic desde tu navegador</span>
+            </div>
           </div>
         </div>
 

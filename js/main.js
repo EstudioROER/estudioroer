@@ -254,4 +254,119 @@ document.addEventListener('DOMContentLoaded', () => {
     
     updateEstimate();
   }
+
+  // ==========================================================================
+  // OFICINA VIRTUAL INTELIGENTE - KUMOSPACE (Mar y Jue · 18:00 a 20:30 Chile)
+  // ==========================================================================
+  const voCard = document.getElementById('oficina-virtual');
+  const voStatusBadge = document.getElementById('voStatusBadge');
+  const voStatusTitle = document.getElementById('voStatusTitle');
+  const voTitle = document.getElementById('voTitle');
+  const voDescription = document.getElementById('voDescription');
+  const voActions = document.getElementById('voActions');
+  const navOfficeDot = document.getElementById('navOfficeDot');
+  const navOfficeText = document.getElementById('navOfficeText');
+
+  function getChileSchedule() {
+    try {
+      const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'America/Santiago',
+        weekday: 'short',
+        hour: 'numeric',
+        minute: 'numeric',
+        hourCycle: 'h23'
+      });
+      const parts = formatter.formatToParts(new Date());
+      const map = {};
+      parts.forEach(p => map[p.type] = p.value);
+      return {
+        weekday: map.weekday, // 'Tue', 'Thu', etc.
+        hour: parseInt(map.hour, 10),
+        minute: parseInt(map.minute, 10)
+      };
+    } catch (e) {
+      const now = new Date();
+      const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      return {
+        weekday: days[now.getDay()],
+        hour: now.getHours(),
+        minute: now.getMinutes()
+      };
+    }
+  }
+
+  function isVirtualOfficeOpen() {
+    // Parámetro de prueba opcional en URL: ?test_office=open o ?test_office=closed
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('test_office') === 'open') return true;
+    if (urlParams.get('test_office') === 'closed') return false;
+
+    const t = getChileSchedule();
+    const isTueOrThu = (t.weekday === 'Tue' || t.weekday === 'Thu');
+    const totalMinutes = t.hour * 60 + t.minute;
+    // 18:00 hrs = 1080 min | 20:30 hrs = 1230 min
+    return isTueOrThu && (totalMinutes >= 1080 && totalMinutes < 1230);
+  }
+
+  function updateVirtualOfficeUI() {
+    if (!voCard || !voActions) return;
+
+    const isOpen = isVirtualOfficeOpen();
+
+    if (isOpen) {
+      // Estado: EN VIVO
+      voCard.classList.remove('is-closed');
+      if (voStatusBadge) {
+        voStatusBadge.className = 'vo-status-badge open';
+        voStatusBadge.innerHTML = '<span class="vo-dot"></span><span>🟢 EN VIVO · ARQUITECTO EN LÍNEA</span>';
+      }
+      if (voTitle) {
+        voTitle.textContent = 'El arquitecto está disponible en el despacho';
+      }
+      if (voDescription) {
+        voDescription.textContent = 'Estamos en horario de atención. Ingresa ahora para una consulta técnica preliminar, resolver dudas de permisos o revisar tu propiedad en directo.';
+      }
+      voActions.innerHTML = `
+        <a href="https://www.kumospace.com/estudioroer" target="_blank" rel="noopener noreferrer" class="vo-btn-live">
+          <span>🏛️ Entrar a la Oficina Virtual</span>
+          <span style="font-size: 1.05rem;">↗</span>
+        </a>
+        <a href="https://wa.me/56950196861?text=Hola%20Estudio%20ROER,%20los%20veo%20en%20l%C3%ADnea%20en%20su%20oficina%20virtual." target="_blank" rel="noopener noreferrer" class="vo-btn-secondary" style="border-color: #25D366; color: #15803d !important;">
+          <span>💬 Avisar por WhatsApp</span>
+        </a>
+      `;
+
+      if (navOfficeDot) navOfficeDot.classList.add('open');
+      if (navOfficeText) navOfficeText.textContent = 'Oficina Virtual (En Vivo 🟢)';
+    } else {
+      // Estado: FUERA DE HORARIO
+      voCard.classList.add('is-closed');
+      if (voStatusBadge) {
+        voStatusBadge.className = 'vo-status-badge closed';
+        voStatusBadge.innerHTML = '<span class="vo-dot"></span><span>⚪ FUERA DE HORARIO EN VIVO</span>';
+      }
+      if (voTitle) {
+        voTitle.textContent = 'Atención en Vivo en el Estudio';
+      }
+      if (voDescription) {
+        voDescription.textContent = 'Nuestra atención directa en el estudio virtual es los Martes y Jueves de 18:00 a 20:30 hrs (hora de Chile). Fuera de este horario, puedes agendar una visita técnica o dejarnos tu consulta.';
+      }
+      voActions.innerHTML = `
+        <a href="https://calendar.app.google/KHPY2PfRjG3rM1SR8" target="_blank" rel="noopener noreferrer" class="vo-btn-secondary">
+          <span>📅 Agendar Visita Técnica</span>
+        </a>
+        <a href="https://wa.me/56950196861?text=Hola%20Estudio%20ROER,%20quisiera%20hacer%20una%20consulta%20con%20el%20arquitecto." target="_blank" rel="noopener noreferrer" class="vo-btn-secondary" style="border-color: #25D366; color: #15803d !important;">
+          <span>💬 Escribir al WhatsApp</span>
+        </a>
+      `;
+
+      if (navOfficeDot) navOfficeDot.classList.remove('open');
+      if (navOfficeText) navOfficeText.textContent = 'Oficina Virtual';
+    }
+  }
+
+  // Inicializar estado y actualizar cada 1 minuto automáticamente
+  updateVirtualOfficeUI();
+  setInterval(updateVirtualOfficeUI, 60000);
 });
+
