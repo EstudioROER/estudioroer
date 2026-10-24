@@ -56,7 +56,83 @@ document.addEventListener('DOMContentLoaded', () => {
   const giftSuccessState = document.getElementById('giftSuccessState');
   const openGiftBtns = document.querySelectorAll('.open-gift-trigger');
 
-  function openGiftModal() {
+  let activeGuideFile = 'assets/docs/guia-regularizacion-roer.html';
+  let activeGuideTitle = 'Guía Práctica de Regularización DOM';
+
+  const guideDetailsMap = {
+    'assets/docs/guia-ley-del-mono-20898.html': {
+      title: 'Guía Ley del Mono 20.898 (Vigencia 2027)',
+      badge: '📜 Ley 20.898 Transitoria',
+      subtitle: 'Ingresa tus datos para acceder a los requisitos de superficie, avalúo fiscal y trámite simultáneo sin multas.',
+      features: [
+        '✓ Tramos de 90 m² (1.000 UF) y 140 m² (2.000 UF).',
+        '✓ Checklist de documentos exigidos por la DOM comunal.',
+        '✓ Vigencia improrrogable confirmada hasta diciembre de 2027.'
+      ],
+      btnText: '📥 Descargar Guía Ley del Mono (PDF)'
+    },
+    'assets/docs/guia-recepcion-final-bancos.html': {
+      title: 'Por qué los Bancos Exigen Recepción Final para Créditos',
+      badge: '🏦 Tasación & Financiamiento',
+      subtitle: 'Aprende cómo evitar que el banco rechace el crédito hipotecario o tase a valor cero las ampliaciones de tu propiedad.',
+      features: [
+        '✓ Por qué el tasador desestima metros sin recepción.',
+        '✓ Cómo aumentar el valor comercial entre un +30% y +50%.',
+        '✓ Cobertura 100% de pólizas de incendio y sismo.'
+      ],
+      btnText: '📥 Descargar Guía Financiera Bancos (PDF)'
+    },
+    'assets/docs/guia-deslinde-vecino-oguc.html': {
+      title: 'Construcción en Deslinde: Muros Cortafuego y OGUC',
+      badge: '📏 Deslindes & Normativa OGUC',
+      subtitle: 'Conoce los márgenes técnicos de adosamiento, alturas permitidas y muros cortafuego para regularizar sin demolición.',
+      features: [
+        '✓ Exigencias de muro cortafuego F-60 / F-120 y sobrepaso.',
+        '✓ Porcentaje máximo de adosamiento (40%) y altura de 3,5 m.',
+        '✓ Cómo evitar multas de Policía Local o denuncias de vecinos.'
+      ],
+      btnText: '📥 Descargar Guía de Deslindes (PDF)'
+    }
+  };
+
+  function openGiftModal(file, title) {
+    activeGuideFile = file || 'assets/docs/guia-regularizacion-roer.html';
+    activeGuideTitle = title || 'Guía Práctica de Regularización DOM';
+
+    const info = guideDetailsMap[activeGuideFile] || {
+      title: activeGuideTitle,
+      badge: '🎁 Guía Didáctica Oficial',
+      subtitle: 'Ingresa tus datos para acceder inmediatamente al documento técnico con las respuestas normativas y pasos a seguir.',
+      features: [
+        '✓ Criterios de habitabilidad y seguridad estructural.',
+        '✓ Checklist de planos y documentos requeridos en la DOM.',
+        '✓ Recomendaciones de arquitectos especialistas.'
+      ],
+      btnText: '📥 Descargar Guía Gratuita (PDF)'
+    };
+
+    const modalTitleEl = document.querySelector('.gift-modal-title');
+    if (modalTitleEl) modalTitleEl.textContent = info.title;
+
+    const modalSubEl = document.querySelector('.gift-modal-subtitle');
+    if (modalSubEl) modalSubEl.textContent = info.subtitle;
+
+    const modalBadgeEl = document.querySelector('.gift-modal-header .chip');
+    if (modalBadgeEl) modalBadgeEl.textContent = info.badge;
+
+    const modalFeaturesEl = document.querySelector('.gift-modal-features');
+    if (modalFeaturesEl && info.features) {
+      modalFeaturesEl.innerHTML = info.features.map(f => `<div>${f}</div>`).join('');
+    }
+
+    const modalBtnSpan = document.querySelector('.gift-modal-submit-btn span');
+    if (modalBtnSpan) modalBtnSpan.textContent = info.btnText;
+
+    if (giftFormContainer && giftSuccessState) {
+      giftFormContainer.style.display = 'block';
+      giftSuccessState.style.display = 'none';
+    }
+
     if (giftModal) {
       giftModal.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -71,13 +147,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (floatingGiftBtn) {
-    floatingGiftBtn.addEventListener('click', openGiftModal);
+    floatingGiftBtn.addEventListener('click', () => openGiftModal());
   }
 
   if (openGiftBtns) {
     openGiftBtns.forEach(btn => btn.addEventListener('click', (e) => {
       e.preventDefault();
-      openGiftModal();
+      const file = btn.getAttribute('data-guide-file');
+      const title = btn.getAttribute('data-guide-title');
+      openGiftModal(file, title);
     }));
   }
 
@@ -103,7 +181,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const comuna = document.getElementById('giftComuna').value;
 
       // Save lead locally
-      const leadData = { nombre, phone, email, comuna, fecha: new Date().toISOString() };
+      const leadData = { 
+        nombre, 
+        phone, 
+        email, 
+        comuna, 
+        guia: activeGuideTitle,
+        archivo: activeGuideFile,
+        fecha: new Date().toISOString() 
+      };
       try {
         localStorage.setItem('roer_lead_guide', JSON.stringify(leadData));
       } catch (err) {}
@@ -116,15 +202,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const userNameDisplay = document.getElementById('giftUserNameDisplay');
         if (userNameDisplay) userNameDisplay.textContent = nombre;
 
+        // Actualizar botón de descarga directa en modal de éxito
+        const directGuideBtn = giftSuccessState.querySelector('a[href*="guia"]');
+        if (directGuideBtn) {
+          directGuideBtn.href = activeGuideFile;
+        }
+
         // Auto open guide doc after 1s or direct link
         setTimeout(() => {
-          window.open('assets/docs/guia-regularizacion-roer.html', '_blank');
+          window.open(activeGuideFile, '_blank');
         }, 1200);
 
         // Prepare WhatsApp link
         const wspGuideBtn = document.getElementById('giftWspConfirmBtn');
         if (wspGuideBtn) {
-          const msg = encodeURIComponent(`Hola Estudio ROER! Acabo de descargar la Guía de Regularización en su web. Mi nombre es ${nombre} de la comuna de ${comuna}.`);
+          const msg = encodeURIComponent(`Hola Estudio ROER! Acabo de descargar la "${activeGuideTitle}" en su web. Mi nombre es ${nombre} de la comuna de ${comuna}.`);
           wspGuideBtn.href = `https://wa.me/56950196861?text=${msg}`;
         }
       }
