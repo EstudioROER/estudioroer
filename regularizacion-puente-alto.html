@@ -257,20 +257,95 @@
     </div>
   </section>
 
-  <!-- CTA Final -->
-  <section class="section-features" style="background: var(--bg-alt); padding: 4rem 0;">
-    <div class="container" style="text-align: center;">
-      <h2 class="section-title">Comienza hoy la regularización de tu propiedad en Puente Alto</h2>
-      <p class="section-subtitle" style="margin-bottom: 2rem;">Contáctanos por WhatsApp para resolver dudas iniciales y agendar la visita del arquitecto a tu domicilio.</p>
-      
-      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <a href="https://wa.me/56950196861?text=Hola%20Estudio%20ROER,%20deseo%20agendar%20visita%20t%C3%A9cnica%20en%20Puente%20Alto." target="_blank" rel="noopener noreferrer" class="btn-pill btn-dark" style="background: #15803d; border-color: #16a34a; font-size: 1rem; padding: 0.85rem 1.6rem;">
-          <span>Hablar con un Arquitecto por WhatsApp 💬</span>
-          <span class="btn-arrow">↗</span>
-        </a>
-        <a href="index.html" class="btn-pill btn-light">
-          <span>Ir a la página principal</span>
-        </a>
+  <!-- Contacto / Formulario Puente Alto -->
+  <section class="section-contact" id="contacto">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Columna Izquierda -->
+        <div>
+          <span class="chip chip-blue" style="margin-bottom: 0.75rem;">Contacto Directo Puente Alto</span>
+          <h2 class="section-title">Comienza hoy la regularización de tu propiedad en Puente Alto</h2>
+          <p class="section-subtitle" style="margin-bottom: 2rem;">
+            Escríbenos directamente o agenda tu visita técnica en terreno. Un arquitecto colegiado revisará tu caso ante la DOM Puente Alto y emitirá tu presupuesto certificado.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 45px; height: 45px; border-radius: 50%; background: #f1f4f8; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">📞</div>
+              <div>
+                <strong style="display: block; color: var(--text-dark);">+56 9 5019 6861</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Atención telefónica y WhatsApp Puente Alto</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 45px; height: 45px; border-radius: 50%; background: #f1f4f8; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">✉️</div>
+              <div>
+                <strong style="display: block; color: var(--text-dark);">contacto@estudioroer.com</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Revisión de certificados CIP y antecedentes</span>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 45px; height: 45px; border-radius: 50%; background: #f1f4f8; display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">📍</div>
+              <div>
+                <strong style="display: block; color: var(--text-dark);">Puente Alto, RM</strong>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Vizcachas, Casas Viejas, San Carlos, Centro y alrededores</span>
+              </div>
+            </div>
+          </div>
+          
+          <div style="margin-top: 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a href="https://wa.me/56950196861?text=Hola%20Estudio%20ROER,%20deseo%20agendar%20visita%20t%C3%A9cnica%20en%20Puente%20Alto." target="_blank" rel="noopener noreferrer" class="btn-pill btn-dark" style="background: #15803d; border-color: #16a34a;">
+              <span>WhatsApp Inmediato 💬</span>
+              <span class="btn-arrow">↗</span>
+            </a>
+            <a href="https://calendar.app.google/KHPY2PfRjG3rM1SR8" target="_blank" rel="noopener noreferrer" class="btn-pill btn-light">
+              <span>Agendar Visita en Calendario 📅</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna Derecha (Formulario Web3Forms) -->
+        <div class="contact-form-box">
+          <h3 style="font-size: 1.35rem; margin-bottom: 1.5rem;">Consulta para Puente Alto</h3>
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="8c6ca19f-765e-4694-8783-618b34e9f2b8">
+            <input type="hidden" name="subject" value="¡Nuevo Contacto - Regularización Puente Alto!">
+            <input type="hidden" name="from_name" value="Web Estudio ROER (Puente Alto)">
+            <input type="hidden" name="redirect" value="https://www.estudioroer.com/gracias.html">
+            <input type="hidden" name="comuna_origen" value="Puente Alto">
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display: none;">
+
+            <div style="margin-bottom: 1.15rem;">
+              <label for="frmName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--text-dark);">Nombre y Apellido *</label>
+              <input type="text" id="frmName" name="name" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: var(--font-main); font-size: 0.9rem; outline: none; background: #ffffff;" placeholder="Ej: Marcela González">
+            </div>
+
+            <div class="form-row-2">
+              <div>
+                <label for="frmPhone" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--text-dark);">Teléfono / WhatsApp *</label>
+                <input type="tel" id="frmPhone" name="Telefono" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: var(--font-main); font-size: 0.9rem; outline: none; background: #ffffff;" placeholder="+56 9...">
+              </div>
+              <div>
+                <label for="frmEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--text-dark);">Correo *</label>
+                <input type="email" id="frmEmail" name="email" required style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: var(--font-main); font-size: 0.9rem; outline: none; background: #ffffff;" placeholder="tu@correo.com">
+              </div>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <label for="frmMessage" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--text-dark);">Requerimiento en Puente Alto *</label>
+              <textarea id="frmMessage" name="message" required rows="4" style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-family: var(--font-main); font-size: 0.9rem; outline: none; resize: vertical; background: #ffffff;" placeholder="Cuéntanos m² aproximados, sector de Puente Alto y tipo de ampliación..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-pill btn-dark" style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 0.85rem;">
+              <span>Enviar Consulta a los Arquitectos</span>
+              <span class="btn-arrow">↗</span>
+            </button>
+            <p id="contactFormStatus" role="status" aria-live="polite" style="display: none; text-align: center; font-size: 0.85rem; font-weight: 600; margin-top: 1rem; padding: 0.75rem; border-radius: var(--radius-sm);"></p>
+            <p style="text-align: center; font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">Tus datos están protegidos. Respuesta garantizada en menos de 24 horas.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
