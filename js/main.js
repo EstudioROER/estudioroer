@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '✓ Checklist de documentos exigidos por la DOM comunal.',
         '✓ Vigencia improrrogable confirmada hasta diciembre de 2027.'
       ],
-      btnText: '📥 Descargar Guía Ley del Mono (PDF)'
+      btnText: '👁️ Visualizar Guía Ley del Mono'
     },
     'assets/docs/guia-recepcion-final-bancos.html': {
       title: 'Por qué los Bancos Exigen Recepción Final para Créditos',
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '✓ Cómo aumentar el valor comercial entre un +30% y +50%.',
         '✓ Cobertura 100% de pólizas de incendio y sismo.'
       ],
-      btnText: '📥 Descargar Guía Financiera Bancos (PDF)'
+      btnText: '👁️ Visualizar Guía Financiera Bancos'
     },
     'assets/docs/guia-deslinde-vecino-oguc.html': {
       title: 'Construcción en Deslinde: Muros Cortafuego y OGUC',
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '✓ Porcentaje máximo de adosamiento (40%) y altura de 3,5 m.',
         '✓ Cómo evitar multas de Policía Local o denuncias de vecinos.'
       ],
-      btnText: '📥 Descargar Guía de Deslindes (PDF)'
+      btnText: '👁️ Visualizar Guía de Deslindes'
     }
   };
 
@@ -101,14 +101,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const info = guideDetailsMap[activeGuideFile] || {
       title: activeGuideTitle,
-      badge: '🎁 Guía Didáctica Oficial',
-      subtitle: 'Ingresa tus datos para acceder inmediatamente al documento técnico con las respuestas normativas y pasos a seguir.',
+      badge: '📖 Guía Didáctica Oficial',
+      subtitle: 'Ingresa tus datos para acceder inmediatamente al documento técnico interactivo con las respuestas normativas.',
       features: [
         '✓ Criterios de habitabilidad y seguridad estructural.',
         '✓ Checklist de planos y documentos requeridos en la DOM.',
         '✓ Recomendaciones de arquitectos especialistas.'
       ],
-      btnText: '📥 Descargar Guía Gratuita (PDF)'
+      btnText: '👁️ Visualizar Guía en Línea'
     };
 
     const modalTitleEl = document.querySelector('.gift-modal-title');
