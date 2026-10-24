@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guía Didáctica: ¿Por qué los Bancos Exigen Recepción Final para Créditos? | Estudio ROER</title>
+  <title>Guía Financiera Avanzada: Tasación Bancaria, Créditos Hipotecarios & Recepción Final | Estudio ROER</title>
   <style>
     :root {
       --primary: #0f172a;
-      --accent: #10b981;
+      --accent: #df603a;
       --text: #1e293b;
       --text-muted: #64748b;
       --bg: #f8fafc;
@@ -17,7 +17,7 @@
     * { box-sizing: border-box; }
     body { 
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-      line-height: 1.6; 
+      line-height: 1.65; 
       color: var(--text); 
       background: var(--bg); 
       margin: 0; 
@@ -25,10 +25,10 @@
       -webkit-font-smoothing: antialiased;
     }
     .doc-container { 
-      max-width: 840px; 
+      max-width: 880px; 
       margin: 0 auto; 
       background: var(--card); 
-      padding: 3rem; 
+      padding: 3.5rem; 
       border-radius: 16px; 
       border: 1px solid var(--border); 
       box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
@@ -43,42 +43,84 @@
       flex-wrap: wrap; 
       gap: 1rem; 
     }
-    .logo-text { font-size: 1.7rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+    .logo-text { font-size: 1.8rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
     .tag { 
-      background: #ecfdf5; 
-      color: #047857; 
+      background: #f0fdf4; 
+      color: #166534; 
       padding: 0.35rem 0.85rem; 
       border-radius: 9999px; 
       font-weight: 600; 
       font-size: 0.82rem; 
-      border: 1px solid #a7f3d0; 
+      border: 1px solid #bbf7d0; 
     }
-    h1 { font-size: 1.85rem; color: var(--primary); margin-bottom: 0.75rem; line-height: 1.3; }
+    h1 { font-size: 1.95rem; color: var(--primary); margin-bottom: 0.75rem; line-height: 1.3; }
     h2 { 
-      font-size: 1.25rem; 
+      font-size: 1.32rem; 
       color: var(--primary); 
-      margin-top: 1.75rem; 
+      margin-top: 2.25rem; 
       margin-bottom: 0.75rem; 
       border-left: 4px solid var(--accent); 
       padding-left: 0.75rem; 
     }
+    h3 { font-size: 1.1rem; color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.4rem; font-weight: 700; }
     p { margin-bottom: 1rem; font-size: 0.95rem; color: #334155; }
     ul, ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
     li { margin-bottom: 0.5rem; font-size: 0.92rem; color: #334155; }
+    
     .box-highlight { 
       background: #f8fafc; 
       border-radius: 10px; 
-      padding: 1.25rem; 
+      padding: 1.35rem; 
       margin: 1.5rem 0; 
       border: 1px solid #cbd5e1; 
     }
-    .box-green { background: #f0fdf4; border-color: #bbf7d0; border-left: 4px solid #16a34a; }
-    .box-red { background: #fef2f2; border-color: #fecaca; border-left: 4px solid #dc2626; }
-    .stat-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
-    .stat-card { padding: 1.25rem; border-radius: 8px; border: 1px solid var(--border); }
-    .stat-card.negative { background: #fff5f5; border-color: #fed7d7; }
-    .stat-card.positive { background: #f0fff4; border-color: #c6f6d5; }
-    .stat-card h3 { font-size: 1.05rem; margin-top: 0; margin-bottom: 0.5rem; }
+    .box-amber { background: #fffbeb; border-color: #fde68a; border-left: 4px solid #f59e0b; }
+    .box-blue { background: #eff6ff; border-color: #bfdbfe; border-left: 4px solid #3b82f6; }
+    .box-green { background: #f0fdf4; border-color: #bbf7d0; border-left: 4px solid #22c55e; }
+    .box-red { background: #fef2f2; border-color: #fecaca; border-left: 4px solid #ef4444; }
+
+    .stat-comparison { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 1.25rem; 
+      margin: 1.5rem 0; 
+    }
+    .stat-card { 
+      padding: 1.5rem; 
+      border-radius: 12px; 
+      border: 1px solid var(--border); 
+    }
+    .stat-card.negative { background: #fef2f2; border-color: #fecaca; }
+    .stat-card.positive { background: #f0fdf4; border-color: #bbf7d0; }
+    .stat-card h3 { margin-top: 0; font-size: 1.05rem; }
+
+    .calc-example-box {
+      background: #ffffff;
+      border: 2px dashed #cbd5e1;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .faq-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .faq-question {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
+    }
+    .faq-answer {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.55;
+    }
+
     .btn-action { 
       display: inline-block; 
       background: var(--primary); 
@@ -86,7 +128,7 @@
       padding: 0.85rem 1.6rem; 
       border-radius: 9999px; 
       text-decoration: none; 
-      font-weight: 600; 
+      font-weight: 700; 
       font-size: 0.92rem; 
       margin-top: 0.75rem; 
       transition: background 0.2s; 
@@ -94,14 +136,14 @@
     .btn-action:hover { background: #1e293b; }
     .footer { 
       text-align: center; 
-      margin-top: 3rem; 
+      margin-top: 3.5rem; 
       padding-top: 1.5rem; 
       border-top: 1px solid var(--border); 
       font-size: 0.85rem; 
       color: var(--text-muted); 
     }
 
-    /* BURBUJA FLOTANTE PARA DESCARGAR / IMPRIMIR EN PDF */
+    /* BURBUJA FLOTANTE RESPONSIVE PARA DESCARGAR O IMPRIMIR EN PDF */
     .print-bubble-bar {
       position: fixed;
       bottom: 1.5rem;
@@ -132,20 +174,14 @@
       background: #1e293b;
       box-shadow: 0 14px 28px rgba(15, 23, 42, 0.45);
     }
-    .print-bubble-btn:active {
-      transform: translateY(0);
-    }
-    .print-bubble-icon {
-      font-size: 1.15rem;
-      line-height: 1;
-    }
+    .print-bubble-icon { font-size: 1.15rem; line-height: 1; }
 
     @media (max-width: 768px) {
       body { padding: 1rem 0.5rem 5rem; }
-      .doc-container { padding: 1.5rem 1rem; border-radius: 12px; }
-      h1 { font-size: 1.45rem; }
-      h2 { font-size: 1.15rem; }
+      .doc-container { padding: 1.75rem 1rem; border-radius: 12px; }
       .stat-comparison { grid-template-columns: 1fr; }
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.2rem; }
       .print-bubble-bar {
         bottom: 1rem;
         right: 1rem;
@@ -171,55 +207,103 @@
   <div class="doc-container">
     <div class="header">
       <div class="logo-text">ROER <span style="font-size: 0.9rem; color: #64748b; font-weight: 500;">| Arquitectura & Tasaciones</span></div>
-      <span class="tag">Tasación & Créditos Hipotecarios</span>
+      <span class="tag">Guía de Especialidad Financiera e Hipotecaria</span>
     </div>
 
     <h1>¿Por Qué los Bancos Exigen Recepción Final para Otorgar Créditos?</h1>
-    <p>Guía didáctica y financiera elaborada por <strong>Estudio ROER Arquitectura</strong> para dueños de inmuebles que planean vender, refinanciar o solicitar un crédito con garantía hipotecaria.</p>
+    <p>Manual técnico-financiero desarrollado por <strong>Estudio ROER Arquitectura</strong> para propietarios, corredores de propiedades e inversionistas que necesitan comercializar, refinanciar o tasar un inmueble en Chile sin objeciones bancarias.</p>
 
     <div class="box-highlight box-green">
-      <strong>💡 La Regla de Oro Bancaria:</strong><br>
-      Para un banco, tasador o entidad aseguradora, <strong>lo que no tiene Recepción Final Municipal legalmente NO EXISTE</strong> como garantía hipotecaria ni respaldo crediticio.
+      <strong>💡 Principio Rector del Sistema Financiero (CMF):</strong><br>
+      Para el Comité de Riesgo de cualquier banco en Chile <em>(Banco Estado, Santander, BCI, Scotiabank, Banco de Chile, Itaú, etc.)</em>, <strong>toda construcción o ampliación que no cuente con Certificado de Recepción Definitiva Municipal legalmente equivale a $0 en la tasación de garantía hipotecaria</strong>.
     </div>
 
-    <h2>1. El Riesgo Jurídico y Financiero para el Banco</h2>
-    <p>Cuando solicitas un crédito hipotecario o un comprador intenta financiar tu casa, el banco realiza un estudio de títulos y envía a un perito tasador oficial. Las razones por las que rechazan construcciones sin recepción son:</p>
+    <h2>1. ¿Por Qué el Banco no Puede Prestar Dinero sobre Obras No Recepcionadas?</h2>
+    <p>Cuando una persona solicita un crédito hipotecario, la propiedad queda gravada con una hipoteca en favor del banco. La entidad financiera debe velar por que esa garantía sea jurídicamente perfecta y comercialmente ejecutable:</p>
     <ul>
-      <li><strong>Inseguridad de la Garantía:</strong> Si el banco presta dinero garantizado con la casa, no puede respaldarse en metros cuadrados sujetos a potenciales órdenes de demolición o multas de la DOM.</li>
-      <li><strong>Exclusión en Pólizas de Seguro:</strong> Los créditos hipotecarios obligan a contratar seguros contra terremoto e incendio. Si ocurre un siniestro originado en una ampliación sin recepción, la aseguradora puede rechazar la indemnización total.</li>
-      <li><strong>Rechazo del Estudio de Títulos:</strong> Los abogados bancarios objetan las escrituras cuando el Certificado de Informaciones Previas (CIP) o plano municipal difiere de la realidad física del predio.</li>
+      <li><strong>Riesgo de Demolición o Paralización:</strong> Si una ampliación fue construida sin permiso municipal, la DOM o el Juzgado de Policía Local pueden dictar órdenes de demolición o multas continuas. El banco jamás prestará dinero respaldado en metros con riesgo de clausura o demolición.</li>
+      <li><strong>Nulidad de Pólizas de Seguro Obligatorias (Sismo e Incendio):</strong> Todo crédito con garantía hipotecaria obliga por ley a contratar seguros contra incendio y terremoto. Si ocurre un siniestro originado o propagado en una ampliación sin recepción, las aseguradoras aplican cláusulas de exclusión por "edificación no autorizada", dejando la deuda descubierta.</li>
+      <li><strong>Objeción de Abogados en el Estudio de Títulos:</strong> El equipo legal del banco contrasta el Certificado de Informaciones Previas (CIP), el certificado municipal y el plano oficial. Si la descripción de metros cuadrados del Conservador de Bienes Raíces (CBR) no concuerda con la realidad, el departamento legal emite un <strong>Informe de Títulos con Reparos Graves</strong> y frena el desembolso del dinero.</li>
     </ul>
 
-    <h2>2. Impacto en el Valor Comercial de la Propiedad</h2>
-    <div class="stat-comparison">
-      <div class="stat-card negative">
-        <h3 style="color: #991b1b;">❌ Sin Regularizar (Riesgo Alto)</h3>
-        <p style="font-size: 0.88rem; margin: 0;">El tasador solo contabiliza los metros de la casa original. Tu ampliación de 50 m² se tasa a valor cero o como "mejora no computable", obligando al comprador a disponer de millones de pesos adicionales en efectivo (pie).</p>
-      </div>
-      <div class="stat-card positive">
-        <h3 style="color: #166534;">✅ Con Recepción Final (100% Legal)</h3>
-        <p style="font-size: 0.88rem; margin: 0;">La totalidad de metros cuadrados construidos se valorizan en la tasación bancaria. El inmueble aumenta su valor comercial entre un <strong>+30% y un +50%</strong> y califica de inmediato para cualquier banco o subsidio habitacional (MINVU).</p>
+    <h2>2. Impacto Financiero en Cifras Reales: Ejemplo de Tasación</h2>
+    <p>Analicemos un caso típico en comunas residenciales como San Bernardo, Maipú, Puente Alto o La Florida:</p>
+
+    <div class="calc-example-box">
+      <h3 style="margin-top: 0; color: var(--primary);">📊 Caso Práctico: Vivienda de 65 m² originales + 50 m² en ampliación (Total: 115 m²)</h3>
+      <p style="font-size: 0.9rem; margin-bottom: 1rem;">Valor de venta acordado entre las partes: <strong>$85.000.000</strong></p>
+
+      <div class="stat-comparison">
+        <div class="stat-card negative">
+          <h3 style="color: #991b1b;">❌ Escenario 1: Sin Regularizar</h3>
+          <p style="font-size: 0.86rem; color: #7f1d1d; margin-bottom: 0.5rem;">
+            El tasador oficial del banco solo computa los 65 m² originales. Los 50 m² ampliados se valoran a $0.
+          </p>
+          <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: #7f1d1d;">
+            <li>Tasación Bancaria Final: <strong>$55.000.000</strong></li>
+            <li>Crédito máximo al 80%: <strong>$44.000.000</strong></li>
+            <li>Pie en efectivo que debe poner el comprador: <strong>$41.000.000</strong></li>
+          </ul>
+          <p style="font-size: 0.82rem; font-weight: 700; color: #991b1b; margin: 0;">
+            👉 Resultado: El comprador desiste porque no tiene $41 millones al contado. La venta se cae y la carta de crédito vence.
+          </p>
+        </div>
+
+        <div class="stat-card positive">
+          <h3 style="color: #166534;">✅ Escenario 2: Con Recepción Final ROER</h3>
+          <p style="font-size: 0.86rem; color: #14532d; margin-bottom: 0.5rem;">
+            El tasador computa el 100% de la superficie útil (115 m²) bajo normas técnicas oficiales.
+          </p>
+          <ul style="font-size: 0.85rem; padding-left: 1.2rem; color: #14532d;">
+            <li>Tasación Bancaria Final: <strong>$92.000.000</strong></li>
+            <li>Crédito aprobado al 80%: <strong>$68.000.000</strong></li>
+            <li>Pie que pone el comprador: <strong>$17.000.000</strong> (habitual)</li>
+          </ul>
+          <p style="font-size: 0.82rem; font-weight: 700; color: #166534; margin: 0;">
+            👉 Resultado: La operación se aprueba en 48 horas en notaría. El propietario vende a precio justo y sin regateos.
+          </p>
+        </div>
       </div>
     </div>
 
-    <h2>3. ¿Qué Ocurre Durante la Visita del Tasador?</h2>
-    <p>El tasador del banco solicita formalmente a la DOM el expediente original. Luego asiste a la propiedad con distanciómetro láser y coteja:</p>
+    <h2>3. ¿Qué Revisa el Perito Tasador del Banco en Terreno?</h2>
+    <p>El tasador no solo hace una inspección visual; realiza una auditoría métrica y documental estricta:</p>
     <ol>
-      <li>Superficie total construida vs. la indicada en el Permiso de Edificación y Certificado de Recepción Final.</li>
-      <li>Distanciamientos hacia deslindes y cierros perimetrales.</li>
-      <li>Materialidad estructural y estado de conservación de los segundos pisos o ampliaciones traseras.</li>
+      <li><strong>Cotejo Métrica vs. Planos:</strong> Mide con distanciómetro láser la huella de la construcción y contrasta las plantas con el archivo del Conservador y la DOM.</li>
+      <li><strong>Verificación de Adosamientos y Deslindes:</strong> Constata que no existan ventanas con vista al vecino en muros divisorios y que exista muro cortafuego.</li>
+      <li><strong>Inspección de Segundo Piso y Estructura:</strong> Revisa vigas, escala de acceso, tabiques y materialidad para calcular la vida útil remanente.</li>
+      <li><strong>Informe Técnico de Tasación (ITT):</strong> Emite su informe con fotografías georreferenciadas. Si clasifica la obra como "con reparo de recepción", la división de créditos del banco congela el expediente de inmediato.</li>
     </ol>
-    <p>Si detecta diferencias no regularizadas, emitirá un <strong>informe de tasación con observación técnica o reparo grave</strong>, paralizando la operación hasta que se subsane.</p>
 
-    <div class="box-highlight box-red">
-      <strong>⚠️ Regulariza ANTES de publicar o firmar promesa:</strong><br>
-      Regularizar de urgencia mientras un crédito está corriendo genera estrés, multas y a menudo caída de operaciones de venta por vencimiento de las cartas de aprobación crediticia.
+    <h2>4. ¿Qué Pasa con los Subsidios Estatales del MINVU (DS1, DS49, DS19)?</h2>
+    <p>A diferencia de los compradores particulares que a veces transan en efectivo, los subsidios habitacionales del Ministerio de Vivienda y Urbanismo (MINVU) tienen como <strong>requisito legal de orden público e insubsanable</strong> que la vivienda cuente con el 100% de sus metros con Recepción Final de la DOM. Si tu propiedad no está regularizada, ningún beneficiario de subsidio podrá comprarla.</p>
+
+    <h2>5. Preguntas Frecuentes de Vendedores y Compradores</h2>
+
+    <div class="faq-block">
+      <div class="faq-question">¿Cuánto tiempo demora regularizar una propiedad para que el banco la acepte?</div>
+      <div class="faq-answer">En Estudio ROER elaboramos el expediente técnico completo en un plazo de 2 a 3 semanas. La revisión de la DOM demora habitualmente entre 30 y 60 días hábiles. Por esta razón, recomendamos <strong>regularizar ANTES de publicar en portales inmobiliarios o firmar promesas de compraventa</strong> con plazos perentorios de cierre.</div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-question">¿Es cierto que la municipalidad me cobrará multas retroactivas de contribuciones?</div>
+      <div class="faq-answer">Al acogerse a la Ley del Mono (Ley 20.898), la ley contempla <strong>exenciones de multas por infracción a la Ley General de Urbanismo y Construcciones</strong>. En cuanto al SII, se actualiza el avalúo de la construcción para el futuro, pero no se aplican multas punitivas por el trámite de regularización.</div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-question">¿Qué documento exacto es el que pide el banco para liberar los fondos?</div>
+      <div class="faq-answer">El banco exige el <strong>Certificado de Recepción Definitiva Total (o Recepción Final)</strong> emitido y timbrado por la Dirección de Obras Municipales, acompañado del plano oficial archivado y el Certificado de Número y Línea. Estudio ROER te entrega la carpeta original lista para el perito tasador.</div>
+    </div>
+
+    <div class="box-highlight box-amber">
+      <strong>¿Estás en proceso de venta o crédito?</strong><br>
+      Evita que el tasador emita un informe desfavorable y bloquee tu operación bancaria. Contacta a nuestros arquitectos especialistas para regularizar tus metros construidos con rapidez y garantía profesional.
       <br><br>
-      <a href="https://wa.me/56950196861?text=Hola%20Estudio%20ROER,%20necesito%20regularizar%20mi%20casa%20para%20venderla%20por%20cr%C3%A9dito%20bancario." target="_blank" class="btn-action">Regularizar para Tasación Bancaria ↗</a>
+      <a href="https://wa.me/56950196861?text=Hola%20Estudio%20ROER,%20le%C3%AD%20la%20gu%C3%ADa%20bancaria%20y%20necesito%20regularizar%20mi%20propiedad%20para%20tasaci%C3%B3n." target="_blank" class="btn-action">Agendar Evaluación para Tasación por WhatsApp ↗</a>
     </div>
 
     <div class="footer">
-      © 2026 Estudio ROER Arquitectura SpA • Expertos en Gestión Inmobiliaria y Trámites DOM • Tel: +56 9 5019 6861
+      © 2026 Estudio ROER Arquitectura SpA • Expertos en Arquitectura Legal y Tasación Bancaria • Santiago y Valparaíso • Tel: +56 9 5019 6861
     </div>
   </div>
 

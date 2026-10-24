@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guía Práctica Oficial: Regularización Ley del Mono 20.898 & Decreto 10 | Estudio ROER</title>
+  <title>Compendio Integral de Regularización Inmobiliaria DOM | Estudio ROER</title>
   <style>
     :root {
       --primary: #0f172a;
@@ -16,7 +16,7 @@
     }
     * { box-sizing: border-box; }
     body { 
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
       line-height: 1.6; 
       color: var(--text); 
       background: var(--bg); 
@@ -25,7 +25,7 @@
       -webkit-font-smoothing: antialiased;
     }
     .doc-container { 
-      max-width: 800px; 
+      max-width: 860px; 
       margin: 0 auto; 
       background: var(--card); 
       padding: 3rem; 
@@ -47,40 +47,113 @@
     .tag { 
       background: #eff6ff; 
       color: #1d4ed8; 
-      padding: 0.3rem 0.8rem; 
+      padding: 0.35rem 0.85rem; 
       border-radius: 9999px; 
       font-weight: 600; 
-      font-size: 0.8rem; 
+      font-size: 0.82rem; 
+      border: 1px solid #bfdbfe;
     }
-    h1 { font-size: 1.8rem; color: var(--primary); margin-bottom: 0.75rem; }
+    h1 { font-size: 1.85rem; color: var(--primary); margin-bottom: 0.75rem; line-height: 1.3; }
     h2 { 
       font-size: 1.3rem; 
-      color: var(--text); 
-      margin-top: 1.75rem; 
+      color: var(--primary); 
+      margin-top: 2rem; 
+      margin-bottom: 0.75rem; 
       border-left: 4px solid var(--accent); 
       padding-left: 0.75rem; 
     }
-    p { margin-bottom: 1rem; font-size: 0.95rem; }
-    ul { margin-bottom: 1.25rem; padding-left: 1.5rem; }
-    li { margin-bottom: 0.5rem; font-size: 0.92rem; }
+    h3 { font-size: 1.08rem; color: var(--text); margin-top: 1.25rem; margin-bottom: 0.4rem; }
+    p { margin-bottom: 1rem; font-size: 0.95rem; color: #334155; }
+    ul, ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    li { margin-bottom: 0.45rem; font-size: 0.92rem; color: #334155; }
+    
     .box-highlight { 
-      background: #f1f5f9; 
+      background: #f8fafc; 
       border-radius: 10px; 
       padding: 1.25rem; 
       margin: 1.5rem 0; 
       border: 1px solid #cbd5e1; 
     }
+    .box-amber { background: #fffbeb; border-color: #fde68a; border-left: 4px solid #f59e0b; }
+    .box-blue { background: #eff6ff; border-color: #bfdbfe; border-left: 4px solid #3b82f6; }
+    .box-green { background: #f0fdf4; border-color: #bbf7d0; border-left: 4px solid #22c55e; }
+    
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .topic-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .topic-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .topic-icon { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    .topic-card h4 { margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--primary); }
+    .topic-card p { font-size: 0.86rem; color: #475569; margin-bottom: 0.85rem; line-height: 1.45; }
+    .topic-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #0284c7;
+      text-decoration: none;
+    }
+    .topic-link:hover { text-decoration: underline; }
+
+    .table-container { overflow-x: auto; margin: 1.5rem 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: #f1f5f9; color: var(--primary); font-weight: 700; }
+
+    .step-list {
+      counter-reset: step-counter;
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+    .step-item {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 1.25rem;
+    }
+    .step-item::before {
+      counter-increment: step-counter;
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2rem;
+      height: 2rem;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     .btn-action { 
       display: inline-block; 
       background: var(--primary); 
       color: #fff; 
-      padding: 0.75rem 1.5rem; 
+      padding: 0.85rem 1.6rem; 
       border-radius: 9999px; 
       text-decoration: none; 
-      font-weight: 600; 
-      font-size: 0.9rem; 
-      margin-top: 1rem; 
+      font-weight: 700; 
+      font-size: 0.92rem; 
+      margin-top: 0.75rem; 
+      transition: background 0.2s; 
     }
+    .btn-action:hover { background: #1e293b; }
     .footer { 
       text-align: center; 
       margin-top: 3rem; 
@@ -121,13 +194,7 @@
       background: #1e293b;
       box-shadow: 0 14px 28px rgba(15, 23, 42, 0.45);
     }
-    .print-bubble-btn:active {
-      transform: translateY(0);
-    }
-    .print-bubble-icon {
-      font-size: 1.15rem;
-      line-height: 1;
-    }
+    .print-bubble-icon { font-size: 1.15rem; line-height: 1; }
 
     @media (max-width: 768px) {
       body { padding: 1rem 0.5rem 5rem; }
@@ -159,54 +226,112 @@
   <div class="doc-container">
     <div class="header">
       <div class="logo-text">ROER <span style="font-size: 0.9rem; color: #64748b; font-weight: 500;">| Arquitectura & Regularizaciones</span></div>
-      <span class="tag">Vigencia Oficial 2026 - 2027</span>
+      <span class="tag">Compendio General 2026 - 2027</span>
     </div>
 
-    <h1>Guía Práctica: Cómo Regularizar tu Vivienda por Ley 20.898</h1>
-    <p>Documento técnico preparado por <strong>Estudio ROER Arquitectura</strong> para orientar a propietarios en la obtención de su Recepción Final municipal.</p>
+    <h1>Compendio Didáctico de Regularización Inmobiliaria</h1>
+    <p>Guía ejecutiva elaborada por los arquitectos de <strong>Estudio ROER</strong>. Sintetiza en un solo documento los 3 pilares indispensables para regularizar tu vivienda ante la Dirección de Obras Municipales (DOM), proteger su valor comercial y evitar sanciones.</p>
 
-    <div class="box-highlight">
-      <strong>ℹ️ Marco Legal Vigente:</strong> La Ley 20.898 (conocida como Ley del Mono) se encuentra vigente para ingreso formal de expedientes ante las Direcciones de Obras Municipales (DOM) hasta el <strong>31 de diciembre de 2027</strong>.
+    <div class="box-highlight box-blue">
+      <strong>📌 Resumen Ejecutivo en 1 Minuto:</strong><br>
+      La Ley 20.898 otorga una ventana excepcional hasta el <strong>31 de diciembre de 2027</strong> para tramitar de forma simultánea Permiso y Recepción Final con exigencias técnicas reducidas. Regularizar protege el patrimonio familiar, habilita ventas bancarias con créditos hipotecarios y formaliza construcciones adosadas a los vecinos.
     </div>
 
-    <h2>1. Requisitos para Acogerse a la Ley 20.898</h2>
-    <ul>
-      <li><strong>Antigüedad de la edificación:</strong> Debe haber sido construida con anterioridad al 4 de febrero de 2016.</li>
-      <li><strong>Superficie y Avalúo:</strong>
-        <ul>
-          <li>Viviendas de hasta 90 m² con avalúo fiscal inferior a 1.000 UF.</li>
-          <li>Viviendas de hasta 140 m² con avalúo fiscal inferior a 2.000 UF.</li>
-        </ul>
+    <!-- TARJETAS DE NAVEGACIÓN A LAS 3 GUÍAS PROFUNDAS -->
+    <h2>1. Los Tres Pilares de la Regularización Urbana</h2>
+    <div class="grid-3">
+      <div class="topic-card">
+        <div class="topic-icon">📜</div>
+        <h4>Pilar 1: Ley del Mono 20.898</h4>
+        <p>Aplica a edificaciones anteriores a feb-2016. Tramos de 90 m² (1.000 UF) y 140 m² (2.000 UF). Trámite exprés sin multas municipales.</p>
+        <a href="guia-ley-del-mono-20898.html" class="topic-link">Leer Guía Desarrollada Ley del Mono ↗</a>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">🏦</div>
+        <h4>Pilar 2: Tasación Bancaria</h4>
+        <p>Los bancos tasan a $0 las ampliaciones sin recepción final. Regularizar incrementa la plusvalía un +30% a +50% y activa coberturas de seguros.</p>
+        <a href="guia-recepcion-final-bancos.html" class="topic-link">Leer Guía Desarrollada Financiera ↗</a>
+      </div>
+
+      <div class="topic-card">
+        <div class="topic-icon">📏</div>
+        <h4>Pilar 3: Deslindes & Muros</h4>
+        <p>Soluciones OGUC para construcciones colindantes: Muro cortafuego F-60, adosamiento hasta 40%, altura máx 3,5m y aguas lluvias al propio predio.</p>
+        <a href="guia-deslinde-vecino-oguc.html" class="topic-link">Leer Guía Desarrollada Deslindes ↗</a>
+      </div>
+    </div>
+
+    <!-- TABLA COMPARATIVA -->
+    <h2>2. Matriz Comparativa: Situación Actual vs. Regularizada</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Aspecto Clave</th>
+            <th>Vivienda Sin Regularizar ⚠️</th>
+            <th>Vivienda con Recepción Final DOM ✅</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Tasación Bancaria</strong></td>
+            <td>El tasador asigna valor $0 a los metros autoconstruidos.</td>
+            <td>Se tasa el 100% de la superficie útil al valor de mercado.</td>
+          </tr>
+          <tr>
+            <td><strong>Venta de la Propiedad</strong></td>
+            <td>Solo compradores con dinero al contado (rechazo de créditos hipotecarios).</td>
+            <td>Apta para Banco Estado, Santander, BCI, Scotiabank y subsidios MINVU.</td>
+          </tr>
+          <tr>
+            <td><strong>Seguros (Sismo / Incendio)</strong></td>
+            <td>Pólizas pueden denegar pago si el siniestro ocurre en zona no autorizada.</td>
+            <td>Cobertura técnica y jurídica total por las aseguradoras.</td>
+          </tr>
+          <tr>
+            <td><strong>Vecinos y Deslindes</strong></td>
+            <td>Riesgo de denuncias en Policía Local y órdenes de demolición DOM.</td>
+            <td>Plano formalizado con muro cortafuego F-60 certificado ante la ley.</td>
+          </tr>
+          <tr>
+            <td><strong>Herencia y Posesión Efectiva</strong></td>
+            <td>Títulos observados por discordancia física en el Conservador CBR.</td>
+            <td>Patrimonio saneado, transferible y listo para adjudicación notarial.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- RUTA PASO A PASO -->
+    <h2>3. Hoja de Ruta: El Proceso en 4 Pasos con Estudio ROER</h2>
+    <ul class="step-list">
+      <li class="step-item">
+        <strong>Visita Técnica y Levantamiento Láser en Terreno:</strong><br>
+        El arquitecto acude al inmueble, mide con precisión milimétrica la construcción existente, verifica la solidez estructural y revisa el cumplimiento de muros cortafuego.
       </li>
-      <li><strong>Seguridad y Habitabilidad:</strong> Cumplir con estabilidad estructural y muros cortafuego exigidos por la OGUC.</li>
-      <li><strong>Emplazamiento:</strong> No estar ubicada en zonas de riesgo, áreas verdes o declaradas de utilidad pública.</li>
-      <li><strong>Sin reclamos pendientes:</strong> No tener citaciones activas en Juzgado de Policía Local o DOM.</li>
+      <li class="step-item">
+        <strong>Confección del Expediente Municipal Completo:</strong><br>
+        Dibujamos los planos oficiales bajo estándares DOM (plantas de arquitectura, elevaciones, cortes, emplazamiento y cuadro normativo de superficies), elaboramos las E.E.T.T. y reunimos el CIP y avalúo fiscal.
+      </li>
+      <li class="step-item">
+        <strong>Ingreso y Tramitación Oficial en la DOM:</strong><br>
+        Ingresamos el expediente con firma de arquitecto colegiado. Hacemos seguimiento directo ante los revisores municipales y subsanamos cualquier observación técnica.
+      </li>
+      <li class="step-item">
+        <strong>Entrega del Certificado de Recepción Final:</strong><br>
+        Obtienes el cartón oficial firmado por el Director de Obras. Tu propiedad queda 100% regularizada a perpetuidad, lista para vender, hipotecar o heredar con total tranquilidad.
+      </li>
     </ul>
 
-    <h2>2. Documentación Exigida por la DOM</h2>
-    <ul>
-      <li>Formulario único de regularización y declaración simple de dominio.</li>
-      <li>Certificado de Informaciones Previas (CIP) y Certificado de Avalúo Fiscal detallado.</li>
-      <li>Plano de emplazamiento y arquitectura a escala oficial con firma de arquitecto colegiado.</li>
-      <li>Especificaciones Técnicas Resumidas (E.E.T.T.) y memoria explicativa.</li>
-    </ul>
-
-    <h2>3. Beneficios de Obtener la Recepción Final</h2>
-    <ul>
-      <li><strong>Habilita Venta con Crédito Hipotecario:</strong> Los bancos solo financian propiedades con 100% de metros recepcionados.</li>
-      <li><strong>Incremento de Plusvalía (+30% a +50%):</strong> Tu casa se tasa por el valor total real de sus metros.</li>
-      <li><strong>Protección y Cobertura de Seguros:</strong> Las aseguradoras cubren siniestros de incendio y sismo únicamente en áreas regularizadas.</li>
-    </ul>
-
-    <div class="box-highlight" style="background: #fffbeb; border-color: #fef3c7; border-left: 4px solid #f59e0b;">
-      <strong>¿Necesitas evaluar tu propiedad?</strong><br>
-      Agenda una visita técnica en terreno con los arquitectos de Estudio ROER para certificar tu presupuesto final cerrado.
+    <div class="box-highlight box-amber">
+      <strong>⚠️ Recuerda la fecha límite:</strong> La vigencia de la Ley 20.898 está garantizada por ley solo hasta el <strong>31 de diciembre de 2027</strong>. Iniciar tu trámite hoy asegura tarifa fija y evita la saturación municipal de última hora.
       <br><br>
-      <a href="https://wa.me/56950196861?text=Hola%20Estudio%20ROER,%20acabo%20de%20leer%20la%20gu%C3%ADa%20y%20deseo%20agendar%20una%20visita." target="_blank" class="btn-action">Agendar Visita por WhatsApp ↗</a>
+      <a href="https://wa.me/56950196861?text=Hola%20Estudio%20ROER,%20acabo%20de%20leer%20el%20Compendio%20General%20y%20quiero%20agendar%20mi%20visita%20t%C3%A9cnica." target="_blank" class="btn-action">Agendar Visita Técnica por WhatsApp ↗</a>
     </div>
 
     <div class="footer">
-      © 2026 Estudio ROER Arquitectura SpA • San Bernardo, Santiago y Valparaíso • Tel: +56 9 5019 6861
+      © 2026 Estudio ROER Arquitectura SpA • Santiago, San Bernardo y V Región • www.estudioroer.com • Tel: +56 9 5019 6861
     </div>
   </div>
 

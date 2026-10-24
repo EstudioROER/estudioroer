@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Gift Modal Open / Close Logic
-  const floatingGiftBtn = document.getElementById('floatingGiftBtn');
   const giftModal = document.getElementById('giftModal');
   const giftModalClose = document.getElementById('giftModalClose');
   const giftForm = document.getElementById('giftLeadForm');
@@ -60,6 +59,17 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeGuideTitle = 'Guía Práctica de Regularización DOM';
 
   const guideDetailsMap = {
+    'assets/docs/guia-regularizacion-roer.html': {
+      title: 'Compendio Didáctico: Resumen de Todos los Temas DOM',
+      badge: '📖 Compendio Integral 2026-2027',
+      subtitle: 'Accede al resumen ejecutivo que sintetiza Ley del Mono, Tasaciones Bancarias y Deslindes en un solo documento.',
+      features: [
+        '✓ Síntesis práctica de Ley 20.898, Tasaciones y Deslindes.',
+        '✓ Matriz comparativa entre vivienda irregular vs recepcionada.',
+        '✓ Hoja de ruta en 4 pasos para regularizar con Estudio ROER.'
+      ],
+      btnText: '👁️ Visualizar Compendio General'
+    },
     'assets/docs/guia-ley-del-mono-20898.html': {
       title: 'Guía Ley del Mono 20.898 (Vigencia 2027)',
       badge: '📜 Ley 20.898 Transitoria',
@@ -146,9 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  if (floatingGiftBtn) {
-    floatingGiftBtn.addEventListener('click', () => openGiftModal());
-  }
+
 
   if (openGiftBtns) {
     openGiftBtns.forEach(btn => btn.addEventListener('click', (e) => {

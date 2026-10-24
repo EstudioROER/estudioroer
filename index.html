@@ -97,7 +97,7 @@
           <li><a href="#guias" class="nav-link">Guías</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
           <li><a href="#contacto" class="nav-link">Contacto</a></li>
-          <li><a href="legal.html" class="nav-link" style="color: #b4832c; font-weight: 700;">Legal ⚖️</a></li>
+          <li><a href="legal.html" class="nav-link" style="color: #b4832c; font-weight: 700;" title="Abogados Inmobiliarios y Asesoría Jurídica">Abogados ⚖️</a></li>
           <li>
             <a href="#oficina-virtual" class="nav-link nav-link-office" title="Estudio Virtual en Kumospace">
               <span class="office-nav-dot" id="navOfficeDot"></span>
@@ -373,7 +373,7 @@
           <h2 class="section-heading">Guías y Respuestas Didácticas</h2>
           <p class="section-subtitle">Información técnica explicada de forma clara y accesible para propietarios e inversionistas.</p>
         </div>
-        <button class="btn-pill btn-light open-gift-trigger" style="border-color: #cbd5e1;">
+        <button class="btn-pill btn-light open-gift-trigger" data-guide-file="assets/docs/guia-regularizacion-roer.html" data-guide-title="Compendio General: Resumen de Todos los Temas DOM" style="border-color: #cbd5e1;">
           <span>📖 Visualizar Guía Completa</span>
           <span class="btn-arrow">↗</span>
         </button>
@@ -825,13 +825,7 @@
     </div>
   </footer>
 
-  <!-- ==========================================================================
-       BOTÓN FLOTANTE DE REGALO (BOTTOM LEFT)
-       ========================================================================== -->
-  <button class="floating-gift-btn" id="floatingGiftBtn" aria-label="Visualizar Guía Didáctica">
-    <span class="floating-gift-icon">📖</span>
-    <span>Ver Guía Didáctica</span>
-  </button>
+
 
   <!-- Floating WhatsApp Pill Button (Bottom Right) -->
   <a href="https://wa.me/56950196861?text=Hola%20Estudio%20ROER,%20quisiera%20agendar%20una%20visita%20t%C3%A9cnica%20para%20regularizar%20mi%20propiedad." target="_blank" class="floating-wsp" aria-label="Contactar por WhatsApp">
@@ -864,35 +858,37 @@
         </div>
 
         <form id="giftLeadForm">
-          <div class="gift-form-group">
-            <label for="giftName">Nombre y Apellido *</label>
-            <input type="text" id="giftName" class="gift-form-input" placeholder="Ej: Marcela González" required>
-          </div>
+          <div class="gift-form-grid">
+            <div class="gift-form-group">
+              <label for="giftName">Nombre y Apellido *</label>
+              <input type="text" id="giftName" class="gift-form-input" placeholder="Ej: Marcela González" required>
+            </div>
 
-          <div class="gift-form-group">
-            <label for="giftPhone">WhatsApp / Teléfono *</label>
-            <input type="tel" id="giftPhone" class="gift-form-input" placeholder="Ej: +56 9 1234 5678" required>
-          </div>
+            <div class="gift-form-group">
+              <label for="giftPhone">WhatsApp / Teléfono *</label>
+              <input type="tel" id="giftPhone" class="gift-form-input" placeholder="Ej: +56 9 1234 5678" required>
+            </div>
 
-          <div class="gift-form-group">
-            <label for="giftEmail">Correo Electrónico *</label>
-            <input type="email" id="giftEmail" class="gift-form-input" placeholder="Ej: marcela@gmail.com" required>
-          </div>
+            <div class="gift-form-group">
+              <label for="giftEmail">Correo Electrónico *</label>
+              <input type="email" id="giftEmail" class="gift-form-input" placeholder="Ej: marcela@gmail.com" required>
+            </div>
 
-          <div class="gift-form-group">
-            <label for="giftComuna">Comuna del Inmueble</label>
-            <select id="giftComuna" class="gift-form-select">
-              <option value="San Bernardo">San Bernardo</option>
-              <option value="El Bosque">El Bosque</option>
-              <option value="Peñaflor">Peñaflor</option>
-              <option value="Buin">Buin</option>
-              <option value="Paine">Paine</option>
-              <option value="Maipú">Maipú</option>
-              <option value="Puente Alto">Puente Alto</option>
-              <option value="La Florida">La Florida</option>
-              <option value="Valparaíso">Valparaíso</option>
-              <option value="Otra Comuna">Otra Comuna RM / V Región</option>
-            </select>
+            <div class="gift-form-group">
+              <label for="giftComuna">Comuna del Inmueble</label>
+              <select id="giftComuna" class="gift-form-select">
+                <option value="San Bernardo">San Bernardo</option>
+                <option value="El Bosque">El Bosque</option>
+                <option value="Peñaflor">Peñaflor</option>
+                <option value="Buin">Buin</option>
+                <option value="Paine">Paine</option>
+                <option value="Maipú">Maipú</option>
+                <option value="Puente Alto">Puente Alto</option>
+                <option value="La Florida">La Florida</option>
+                <option value="Valparaíso">Valparaíso</option>
+                <option value="Otra Comuna">Otra Comuna RM / V Región</option>
+              </select>
+            </div>
           </div>
 
           <button type="submit" class="gift-modal-submit-btn">

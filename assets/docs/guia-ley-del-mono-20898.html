@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guía Didáctica: Ley del Mono 20.898 - Requisitos y Vigencia hasta 2027 | Estudio ROER</title>
+  <title>Guía Técnica Exhaustiva: Ley del Mono 20.898 - Requisitos, Cálculos y Prórroga 2027 | Estudio ROER</title>
   <style>
     :root {
       --primary: #0f172a;
@@ -17,7 +17,7 @@
     * { box-sizing: border-box; }
     body { 
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-      line-height: 1.6; 
+      line-height: 1.65; 
       color: var(--text); 
       background: var(--bg); 
       margin: 0; 
@@ -25,10 +25,10 @@
       -webkit-font-smoothing: antialiased;
     }
     .doc-container { 
-      max-width: 840px; 
+      max-width: 880px; 
       margin: 0 auto; 
       background: var(--card); 
-      padding: 3rem; 
+      padding: 3.5rem; 
       border-radius: 16px; 
       border: 1px solid var(--border); 
       box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
@@ -43,7 +43,7 @@
       flex-wrap: wrap; 
       gap: 1rem; 
     }
-    .logo-text { font-size: 1.7rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
+    .logo-text { font-size: 1.8rem; font-weight: 800; color: var(--primary); letter-spacing: -0.5px; }
     .tag { 
       background: #eff6ff; 
       color: #1d4ed8; 
@@ -53,31 +53,55 @@
       font-size: 0.82rem; 
       border: 1px solid #bfdbfe; 
     }
-    h1 { font-size: 1.85rem; color: var(--primary); margin-bottom: 0.75rem; line-height: 1.3; }
+    h1 { font-size: 1.95rem; color: var(--primary); margin-bottom: 0.75rem; line-height: 1.3; }
     h2 { 
-      font-size: 1.25rem; 
+      font-size: 1.32rem; 
       color: var(--primary); 
-      margin-top: 1.75rem; 
+      margin-top: 2.25rem; 
       margin-bottom: 0.75rem; 
       border-left: 4px solid var(--accent); 
       padding-left: 0.75rem; 
     }
+    h3 { font-size: 1.1rem; color: var(--primary); margin-top: 1.5rem; margin-bottom: 0.4rem; font-weight: 700; }
     p { margin-bottom: 1rem; font-size: 0.95rem; color: #334155; }
     ul, ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
     li { margin-bottom: 0.5rem; font-size: 0.92rem; color: #334155; }
+    
     .box-highlight { 
       background: #f8fafc; 
       border-radius: 10px; 
-      padding: 1.25rem; 
+      padding: 1.35rem; 
       margin: 1.5rem 0; 
       border: 1px solid #cbd5e1; 
     }
     .box-amber { background: #fffbeb; border-color: #fde68a; border-left: 4px solid #f59e0b; }
     .box-blue { background: #eff6ff; border-color: #bfdbfe; border-left: 4px solid #3b82f6; }
+    .box-green { background: #f0fdf4; border-color: #bbf7d0; border-left: 4px solid #22c55e; }
+    
     .table-container { overflow-x: auto; margin: 1.5rem 0; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-    th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    th, td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
     th { background: #f1f5f9; color: var(--primary); font-weight: 700; }
+    
+    .faq-block {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .faq-question {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
+    }
+    .faq-answer {
+      font-size: 0.9rem;
+      color: #475569;
+      line-height: 1.55;
+    }
+
     .btn-action { 
       display: inline-block; 
       background: var(--primary); 
@@ -85,7 +109,7 @@
       padding: 0.85rem 1.6rem; 
       border-radius: 9999px; 
       text-decoration: none; 
-      font-weight: 600; 
+      font-weight: 700; 
       font-size: 0.92rem; 
       margin-top: 0.75rem; 
       transition: background 0.2s; 
@@ -93,14 +117,14 @@
     .btn-action:hover { background: #1e293b; }
     .footer { 
       text-align: center; 
-      margin-top: 3rem; 
+      margin-top: 3.5rem; 
       padding-top: 1.5rem; 
       border-top: 1px solid var(--border); 
       font-size: 0.85rem; 
       color: var(--text-muted); 
     }
 
-    /* BURBUJA FLOTANTE PARA DESCARGAR / IMPRIMIR EN PDF */
+    /* BURBUJA FLOTANTE RESPONSIVE PARA DESCARGAR O IMPRIMIR EN PDF */
     .print-bubble-bar {
       position: fixed;
       bottom: 1.5rem;
@@ -131,19 +155,13 @@
       background: #1e293b;
       box-shadow: 0 14px 28px rgba(15, 23, 42, 0.45);
     }
-    .print-bubble-btn:active {
-      transform: translateY(0);
-    }
-    .print-bubble-icon {
-      font-size: 1.15rem;
-      line-height: 1;
-    }
+    .print-bubble-icon { font-size: 1.15rem; line-height: 1; }
 
     @media (max-width: 768px) {
       body { padding: 1rem 0.5rem 5rem; }
-      .doc-container { padding: 1.5rem 1rem; border-radius: 12px; }
-      h1 { font-size: 1.45rem; }
-      h2 { font-size: 1.15rem; }
+      .doc-container { padding: 1.75rem 1rem; border-radius: 12px; }
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.2rem; }
       .print-bubble-bar {
         bottom: 1rem;
         right: 1rem;
@@ -169,82 +187,124 @@
   <div class="doc-container">
     <div class="header">
       <div class="logo-text">ROER <span style="font-size: 0.9rem; color: #64748b; font-weight: 500;">| Arquitectura & Regularizaciones</span></div>
-      <span class="tag">Vigencia Legal Confirmada: 31 Diciembre 2027</span>
+      <span class="tag">Vigencia Legal Garantizada: Hasta 31-Dic-2027</span>
     </div>
 
-    <h1>Ley del Mono 20.898: Guía Didáctica, Requisitos y Prórroga 2027</h1>
-    <p>Guía de orientación técnica desarrollada por <strong>Estudio ROER Arquitectura</strong> para propietarios de viviendas que buscan regularizar autoconstrucciones o ampliaciones de forma ágil y definitiva.</p>
+    <h1>Guía Técnica Exhaustiva: Ley del Mono 20.898</h1>
+    <p>Documento de especialidad elaborado por <strong>Estudio ROER Arquitectura</strong> para propietarios, herederos e inversionistas en la Región Metropolitana y V Región. Detalla las normas, cálculos de avalúo, exigencias estructurales y el paso a paso municipal para regularizar viviendas autoconstruidas sin multas.</p>
 
     <div class="box-highlight box-blue">
-      <strong>📌 ¿Qué es la Ley del Mono (Ley 20.898)?</strong><br>
-      Es una legislación especial de carácter transitorio que permite tramitar de forma <strong>simultánea el Permiso de Edificación y la Recepción Definitiva</strong> ante la Dirección de Obras Municipales (DOM), con exigencias técnicas simplificadas y exención o reducción de multas.
+      <strong>📌 Origen y Estado Actual de la Ley (Prórroga Vigente):</strong><br>
+      La Ley N° 20.898 fue promulgada para dar solución al déficit de regularización de viviendas en Chile. Tras sucesivas extensiones parlamentarias (Ley 21.141, 21.415 y la reciente Ley 21.558), el plazo fatal improrrogable para el ingreso de expedientes ante las Direcciones de Obras Municipales (DOM) vence indefectiblemente el <strong>31 de diciembre de 2027</strong>. Su principal ventaja es que permite tramitar en un solo acto y con un único expediente el <strong>Permiso de Edificación y la Recepción Definitiva Simultánea</strong>.
     </div>
 
-    <h2>1. Requisitos Fundamentales para Calificar</h2>
-    <p>Para acogerse al procedimiento simplificado de la Ley 20.898, el inmueble debe cumplir con las siguientes condiciones copulativas:</p>
+    <h2>1. Requisitos Indispensables para Calificar</h2>
+    <p>Para que una propiedad pueda acogerse legalmente al procedimiento especial de la Ley 20.898, debe cumplir con todos los siguientes requisitos copulativos:</p>
     <ul>
-      <li><strong>Fecha de Construcción:</strong> La edificación o ampliación debe haber sido levantada <em>con anterioridad al 4 de febrero de 2016</em>.</li>
-      <li><strong>Destino Habitacional:</strong> Debe estar destinada preferentemente al uso de vivienda.</li>
-      <li><strong>No estar en litigio:</strong> No poseer reclamaciones pendientes por infracción urbanística en el Juzgado de Policía Local o notificaciones de demolición DOM.</li>
-      <li><strong>Zona Segura:</strong> No encontrarse emplazada en áreas de riesgo natural, reservas naturales o franjas declaradas de utilidad pública (expropiación vial).</li>
+      <li><strong>Antigüedad de la Obra:</strong> Las construcciones, segundos pisos o ampliaciones deben haber sido ejecutadas con anterioridad al <strong>4 de febrero de 2016</strong>. <em>(¿Cómo se acredita? Se demuestra mediante certificados de avalúo detallado del SII, ortofotos aerofotogramétricas del SAF, cuentas de servicios o declaraciones juradas protocolizadas).</em></li>
+      <li><strong>Destino Habitacional Preferente:</strong> Debe tratarse de un inmueble destinado a la residencia familiar, ya sea como vivienda única o ampliación de vivienda social existente.</li>
+      <li><strong>Inexistencia de Reclamos en Trámite:</strong> No deben existir denuncias pendientes cursadas ante el Juzgado de Policía Local (JPL) ni órdenes de paralización o demolición emanadas de la Dirección de Obras.</li>
+      <li><strong>Emplazamiento en Zonas Aptas:</strong> La propiedad no puede ubicarse en áreas declaradas de alto riesgo de inundación o remoción en masa, fajas de resguardo de tendidos de alta tensión, áreas verdes públicas o franjas afectas a expropiación por ensanche vial según el Plano Regulador Comunal (PRC).</li>
     </ul>
 
-    <h2>2. Tramos según Superficie y Avalúo Fiscal</h2>
-    <p>La ley divide las propiedades en dos tramos principales de aplicación:</p>
-    
+    <h2>2. Tramos de Superficie, Avalúo Fiscal y Beneficios</h2>
+    <p>La ley clasifica los inmuebles en categorías específicas según su tamaño y avalúo fiscal de las construcciones (determinado por el Servicio de Impuestos Internos):</p>
+
     <div class="table-container">
       <table>
         <thead>
           <tr>
-            <th>Tramo</th>
-            <th>Metros Totales Máx.</th>
-            <th>Avalúo Fiscal Máx.</th>
-            <th>Beneficio y Exigencias</th>
+            <th>Categoría Legal</th>
+            <th>Metros Totales Máximos</th>
+            <th>Avalúo Fiscal Máximo Construcciones</th>
+            <th>Beneficio Arancelario y Técnico</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Título I (Vivienda Social)</strong></td>
-            <td>Hasta 90 m²</td>
-            <td>Hasta 1.000 UF (aprox. $38M)</td>
-            <td>Exención de derechos municipales al 100% o rebaja sustancial. Trámite prioritario.</td>
+            <td><strong>Título I: Vivienda Social</strong></td>
+            <td>Hasta 90 m² totales</td>
+            <td>Hasta 1.000 UF (aprox. $38.500.000)</td>
+            <td><strong>Exención del 100%</strong> de derechos municipales de edificación. Tramitación prioritaria en la DOM.</td>
           </tr>
           <tr>
-            <td><strong>Título II (Media Escala)</strong></td>
-            <td>Hasta 140 m²</td>
-            <td>Hasta 2.000 UF (aprox. $76M)</td>
-            <td>Requisitos simplificados de habitabilidad y seguridad estructural comprobada por arquitecto.</td>
+            <td><strong>Título I: Ampliación de Vivienda Social</strong></td>
+            <td>Hasta 140 m² totales</td>
+            <td>Hasta 2.000 UF (aprox. $77.000.000)</td>
+            <td>Exención o rebaja significativa de derechos municipales siempre que la vivienda original cuente con subsidio estatal o calificación SERVIU.</td>
+          </tr>
+          <tr>
+            <td><strong>Título II: Vivienda Media Escala</strong></td>
+            <td>Hasta 140 m² totales</td>
+            <td>Hasta 2.000 UF (aprox. $77.000.000)</td>
+            <td>Rebaja del 50% de derechos municipales. Exigencias reducidas de habitabilidad y acreditación simplificada de seguridad.</td>
+          </tr>
+          <tr>
+            <td><strong>Título III: Microempresas y Equipamiento</strong></td>
+            <td>Hasta 400 m² totales</td>
+            <td>Hasta 2.000 UF a 4.000 UF según actividad</td>
+            <td>Aplica a talleres artesanales, almacenes de barrio inofensivos o sedes comunitarias vecinales.</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <h2>3. Habitabilidad y Seguridad Contra Incendio</h2>
-    <p>Aun cuando se trata de una ley simplificada, la DOM exige el cumplimiento de criterios mínimos irrenunciables:</p>
-    <ul>
-      <li><strong>Muro Cortafuego:</strong> Si la construcción colinda con el deslinde vecino (adosamiento), se exige muro cortafuego con resistencia F-60 debidamente certificado.</li>
-      <li><strong>Ventilación e Iluminación:</strong> Dormitorios y áreas habitables deben contar con ventanas hacia patios o áreas libres para asegurar ventilación natural.</li>
-      <li><strong>Altura Mínima:</strong> Cielos interiores con altura reglamentaria mínima según el tipo de techo o pendiente.</li>
-    </ul>
+    <h2>3. Estándares Técnicos de Habitabilidad y Seguridad Estructural</h2>
+    <p>A pesar de ser una ley de facilidades, la DOM es rigurosa en verificar que la edificación entregue condiciones de vida dignas y seguras. El arquitecto patrocinante de Estudio ROER certifica los siguientes aspectos:</p>
 
-    <h2>4. ¿Qué Documentos Ingresa Estudio ROER a la DOM?</h2>
+    <h3>A. Muros Cortafuego en Deslindes (Resistencia al Fuego F-60)</h3>
+    <p>Toda edificación que se encuentre pegada a la pandereta o deslinde divisorio con el vecino (adosamiento) debe contar obligatoriamente con un muro continuo, sin ventanas ni vanos de ningún tipo, con una resistencia mínima al fuego de 60 minutos (F-60). Puede ser construido en albañilería confinada (ladrillo con pilares), bloques de hormigón, o tabiques estructurales forrados con planchas de yeso-cartón resistentes al fuego (tipo RF) o fibrocemento de alta densidad debidamente homologado.</p>
+
+    <h3>B. Altura Mínima Interior y Espacios Habitables</h3>
+    <p>Los recintos habitables (estar, comedor, dormitorios) deben poseer una altura libre promedio mínima de 2,30 metros de piso terminado a cielo (o hasta 2,00 metros bajo vigas o en cielos inclinados de mansarda), garantizando ventilación adecuada y confort térmico.</p>
+
+    <h3>C. Iluminación y Ventilación Natural</h3>
+    <p>Cada dormitorio y zona de permanencia debe ventilar directamente a un patio, antejardín o patio interior libre de techumbre, con una superficie vidriada mínima equivalente al 10% de la superficie útil de la habitación para luz y 5% para entrada de aire fresco.</p>
+
+    <h2>4. Contenido de la Carpeta Oficial que Presenta Estudio ROER</h2>
     <ol>
-      <li>Formulario Único Nacional de Regularización Ley 20.898 firmado por el propietario y arquitecto patrocinante.</li>
-      <li>Certificado de Informaciones Previas (CIP) emitido por la municipalidad.</li>
-      <li>Certificado de Dominio Vigente y Certificado de Avalúo Fiscal detallado por el SII.</li>
-      <li>Plano de levantamiento arquitectónico oficial (plantas, cortes, elevaciones, ubicación y cuadro de superficies).</li>
-      <li>Memoria explicativa y Especificaciones Técnicas Resumidas (E.E.T.T.).</li>
+      <li><strong>Formulario Único Nacional de Regularización Ley 20.898:</strong> Suscrito con firmas y timbres del arquitecto colegiado y el titular del dominio.</li>
+      <li><strong>Certificado de Informaciones Previas (CIP):</strong> Tramitado directamente ante la municipalidad respectiva.</li>
+      <li><strong>Certificado de Dominio Vigente (CBR) y Copia de Inscripción de Dominio:</strong> Emitido con no más de 30 a 60 días de antigüedad.</li>
+      <li><strong>Certificado de Avalúo Fiscal Detallado por Roles:</strong> Emitido por el SII, acreditando que la tasación no sobrepasa los topes legales.</li>
+      <li><strong>Plano Oficial de Arquitectura (Escalas 1:50 y 1:100):</strong>
+        <ul>
+          <li>Plano de Emplazamiento con cotas de deslinde, porcentajes de ocupación de suelo y distanciamientos reglamentarios.</li>
+          <li>Plantas de Arquitectura amobladas y acotadas de todos los niveles.</li>
+          <li>Cortes longitudinales y transversales ilustrando alturas y niveles de terreno.</li>
+          <li>Elevaciones principales mostrando vanos y pendientes de techo.</li>
+          <li>Cuadro normativo de superficies (metros originales recepcionados + metros nuevos a regularizar).</li>
+        </ul>
+      </li>
+      <li><strong>Especificaciones Técnicas Resumidas (E.E.T.T.):</strong> Clasificación técnica de cimientos, sobrecimientos, tabiquerías, cubiertas, aislación térmica y redes sanitarias.</li>
+      <li><strong>Informe de Verificación de Cumplimiento de Normas de Habitabilidad y Seguridad:</strong> Emitido y firmado por el arquitecto bajo fe pública profesional.</li>
     </ol>
 
+    <h2>5. Preguntas Frecuentes de Propietarios</h2>
+    
+    <div class="faq-block">
+      <div class="faq-question">¿Qué pasa si mi casa tiene más de 140 m² construidos en total?</div>
+      <div class="faq-answer">Si la superficie supera los 140 m², no califica bajo el Título I o II de la Ley 20.898. En ese caso, en Estudio ROER tramitamos la regularización mediante el <strong>procedimiento ordinario de la Ley General de Urbanismo y Construcciones (LGUC)</strong>, aplicando normas del Plan Regulador Comunal con un estudio de rasantes y constructibilidad a la medida.</div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-question">¿Puedo regularizar si compré por "Cesión de Derechos"?</div>
+      <div class="faq-answer">La DOM exige acreditar dominio formal mediante inscripción de dominio o autorización unánime de los comuneros. Si compraste por cesión de derechos sobre un loteo no subdividido, nuestro equipo jurídico aliado <em>(Arismendi & Vera Abogados)</em> te asesora paralelamente para sanear el título vía Bienes Nacionales (DL 2.695) o juicio de partición.</div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-question">¿Exigen planos de electricidad o gas en la Ley del Mono?</div>
+      <div class="faq-answer">Para la tramitación del Título I de vivienda social, la ley exime de la presentación de proyectos formales SEC (TE1 o TC6), bastando la declaración técnica del arquitecto de que la red es segura. Sin embargo, para viviendas de mayor escala o venta posterior con créditos bancarios, en Estudio ROER gestionamos la certificación TE1 SEC si el propietario lo requiere.</div>
+    </div>
+
     <div class="box-highlight box-amber">
-      <strong>⚠️ La prórroga vence el 31 de Diciembre de 2027:</strong><br>
-      Aunque parezca tiempo suficiente, preparar los planos, levantar el inmueble con láser y reunir los certificados notariales toma semanas. Ingresar con anticipación evita retrasos por saturación municipal.
+      <strong>⚠️ No esperes al 2027:</strong> El proceso completo (levantamiento técnico, diseño de planos e ingreso DOM) requiere entre 3 y 8 semanas según la comuna. Asegura tu recepción definitiva hoy y protege tu patrimonio familiar.
       <br><br>
-      <a href="https://wa.me/56950196861?text=Hola%20Estudio%20ROER,%20le%C3%AD%20la%20gu%C3%ADa%20de%20la%20Ley%20del%20Mono%20y%20quiero%20evaluar%20mi%20caso." target="_blank" class="btn-action">Consultar mi Caso por WhatsApp ↗</a>
+      <a href="https://wa.me/56950196861?text=Hola%20Estudio%20ROER,%20le%C3%AD%20la%20gu%C3%ADa%20exhaustiva%20de%20la%20Ley%20del%20Mono%20y%20quiero%20evaluar%20mi%20caso." target="_blank" class="btn-action">Solicitar Revisión Técnica por WhatsApp ↗</a>
     </div>
 
     <div class="footer">
-      © 2026 Estudio ROER Arquitectura SpA • Especialistas en Regularizaciones DOM • Santiago y Valparaíso • Tel: +56 9 5019 6861
+      © 2026 Estudio ROER Arquitectura SpA • Expertos en Ley 20.898 y Regularizaciones DOM • Santiago y Valparaíso • Tel: +56 9 5019 6861
     </div>
   </div>
 
