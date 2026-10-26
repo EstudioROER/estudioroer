@@ -631,25 +631,40 @@
           </div>
 
           <div class="calc-field">
-            <label for="calcM2">Superficie a Regularizar / Construir (m²)</label>
-            <input type="number" class="calc-input" id="calcM2" value="70" min="10" max="600" placeholder="Ej: 70">
-            <span style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.3;">M² que efectivamente se van a regularizar (superficie sin permiso).</span>
+            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+              <label for="calcM2">Superficie a Regularizar / Construir (m²)</label>
+              <span id="calcM2ValueBadge" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-dark); background: rgba(0,0,0,0.05); padding: 0.15rem 0.5rem; border-radius: 4px;">70 m²</span>
+            </div>
+            <div style="display: flex; gap: 0.6rem; align-items: center;">
+              <input type="range" id="calcM2Range" min="10" max="300" step="1" value="70" style="flex: 1; accent-color: #15803d; cursor: pointer;">
+              <input type="number" class="calc-input" id="calcM2" value="70" min="10" max="1000" style="width: 90px; text-align: center; font-weight: 700;" placeholder="Ej: 70">
+            </div>
+            <span style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.3;">M² sin permiso que efectivamente se van a regularizar (mueve el control deslizante o escribe el número).</span>
           </div>
 
           <div class="calc-field">
             <label for="calcPlanos">¿Cuenta con planos o permisos anteriores?</label>
             <select class="calc-select" id="calcPlanos">
               <option value="sin_planos">No tengo planos ni permisos (Levantamiento desde cero)</option>
-              <option value="con_planos">Sí, cuento con planos/permiso primitivo aprobado</option>
+              <option value="con_planos">Sí, cuento con planos/permiso primitivo aprobado (-10% honorarios)</option>
               <option value="duda">No lo sé / Requiere búsqueda en archivo DOM</option>
             </select>
           </div>
 
           <div class="calc-summary-panel">
-            <div>
-              <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em;">Honorarios Profesionales de Arquitectura</div>
-              <div class="calc-price" id="calcPriceDisplay">Desde 13.0 UF (~$513.500 CLP)</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;" id="calcTimeDisplay">Plazo estimado DOM: 4 a 8 semanas • Honorarios referenciales certificados en visita</div>
+            <div style="flex: 1; min-width: 260px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.25rem;">
+                <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em;">Medidor de Honorarios Referenciales</span>
+                <span id="calcMeterPctLabel" style="font-size: 0.72rem; font-weight: 700; color: #15803d;">Escala Proporcional DOM</span>
+              </div>
+              <div class="calc-price" id="calcPriceDisplay">Desde 16.2 UF (~$639.900 CLP)</div>
+
+              <!-- BARRA MEDIDORA PROGRESIVA DINÁMICA -->
+              <div style="margin: 0.45rem 0 0.35rem; width: 100%; max-width: 380px; height: 8px; background: #e5e7eb; border-radius: 999px; overflow: hidden; position: relative;">
+                <div id="calcMeterBar" style="height: 100%; width: 25%; background: linear-gradient(90deg, #16a34a, #2563eb); border-radius: 999px; transition: width 0.25s ease-out;"></div>
+              </div>
+
+              <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.2rem;" id="calcTimeDisplay">Plazo estimado DOM: 4 a 8 semanas • Honorarios referenciales certificados en visita</div>
             </div>
             <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
               <a href="#" id="calcWspBtn" target="_blank" class="btn-pill btn-dark" style="background: #15803d; border-color: #16a34a; font-weight: 700;">
@@ -662,39 +677,55 @@
             </div>
           </div>
 
-          <!-- QUÉ INCLUYE Y FACILIDADES DE PAGO -->
-          <div class="calc-includes-box">
-            <div style="font-weight: 700; color: var(--text-dark); margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem;">
-              <span>📋</span> ¿Qué incluye este servicio profesional de arquitectura?
+          <!-- DESPLEGABLE 1: QUÉ INCLUYE EL SERVICIO -->
+          <details class="calc-accordion">
+            <summary>
+              <span>📋 ¿Qué incluye este servicio profesional de arquitectura?</span>
+            </summary>
+            <div class="calc-accordion-content">
+              <div class="calc-includes-grid" style="margin-top: 0;">
+                <div class="calc-include-item"><span class="check-icon">✓</span> <span>Visita técnica diagnóstica presencial y levantamiento métrico láser en terreno.</span></div>
+                <div class="calc-include-item"><span class="check-icon">✓</span> <span>Planimetría digital oficial conforme a obra (Plantas, Cortes, Elevaciones, Ubicación).</span></div>
+                <div class="calc-include-item"><span class="check-icon">✓</span> <span>Confección de expediente DOM (Memoria explicativa, EETT y formularios MINVU).</span></div>
+                <div class="calc-include-item"><span class="check-icon">✓</span> <span>Firma de arquitecto patrocinante y seguimiento activo hasta la aprobación final.</span></div>
+              </div>
             </div>
-            <div class="calc-includes-grid">
-              <div class="calc-include-item"><span class="check-icon">✓</span> <span>Visita técnica diagnóstica presencial y levantamiento métrico láser en terreno.</span></div>
-              <div class="calc-include-item"><span class="check-icon">✓</span> <span>Planimetría digital oficial conforme a obra (Plantas, Cortes, Elevaciones, Ubicación).</span></div>
-              <div class="calc-include-item"><span class="check-icon">✓</span> <span>Confección de expediente DOM (Memoria explicativa, EETT y formularios MINVU).</span></div>
-              <div class="calc-include-item"><span class="check-icon">✓</span> <span>Firma de arquitecto patrocinante y seguimiento activo hasta la aprobación final.</span></div>
-            </div>
+          </details>
 
-            <!-- HITOS DE PAGO TRANSPARENTES -->
-            <div class="calc-payment-milestones">
-              <div class="calc-milestone-card">
-                <div class="calc-milestone-pct">50% Inicial</div>
-                <div class="calc-milestone-lbl">Firma de contrato y levantamiento métrico en terreno</div>
-              </div>
-              <div class="calc-milestone-card">
-                <div class="calc-milestone-pct">30% En Trámite</div>
-                <div class="calc-milestone-lbl">Entrega de planos e ingreso formal de carpeta a la DOM</div>
-              </div>
-              <div class="calc-milestone-card">
-                <div class="calc-milestone-pct">20% Final</div>
-                <div class="calc-milestone-lbl">Subsanación de observaciones y entrega de Recepción Final</div>
+          <!-- DESPLEGABLE 2: FACILIDADES DE PAGO POR HITOS -->
+          <details class="calc-accordion">
+            <summary>
+              <span>💳 Modalidad de Pago en Cuotas por Hitos (50% / 30% / 20%)</span>
+            </summary>
+            <div class="calc-accordion-content">
+              <div class="calc-payment-milestones" style="margin-top: 0; padding-top: 0; border-top: none;">
+                <div class="calc-milestone-card">
+                  <div class="calc-milestone-pct">50% Inicial</div>
+                  <div class="calc-milestone-lbl">Firma de contrato y levantamiento métrico en terreno</div>
+                </div>
+                <div class="calc-milestone-card">
+                  <div class="calc-milestone-pct">30% En Trámite</div>
+                  <div class="calc-milestone-lbl">Entrega de planos e ingreso formal de carpeta a la DOM</div>
+                </div>
+                <div class="calc-milestone-card">
+                  <div class="calc-milestone-pct">20% Final</div>
+                  <div class="calc-milestone-lbl">Subsanación de observaciones y entrega de Recepción Final</div>
+                </div>
               </div>
             </div>
-          </div>
+          </details>
 
-          <!-- AVISO DE DERECHOS MUNICIPALES -->
-          <div class="calc-dom-fee-notice">
-            <strong>🏛️ Nota sobre Derechos Municipales (DOM):</strong> El cálculo anterior corresponde a los <strong>honorarios profesionales del arquitecto</strong>. Las municipalidades liquidan por separado sus derechos de permiso (aprox. 1,5% del presupuesto oficial MINVU, con rebajas por Ley del Mono de hasta un 75% o gratuidad para adultos mayores).
-          </div>
+          <!-- DESPLEGABLE 3: DERECHOS MUNICIPALES -->
+          <details class="calc-accordion">
+            <summary>
+              <span>🏛️ ¿Cómo se calculan los Derechos Municipales (DOM)?</span>
+            </summary>
+            <div class="calc-accordion-content">
+              <div style="font-size: 0.78rem; color: #1e40af; background: #eff6ff; padding: 0.85rem 1rem; border-radius: var(--radius-sm); border-left: 3px solid #3b82f6; line-height: 1.5;">
+                <strong>Nota sobre Derechos Municipales (DOM):</strong> El cálculo del simulador corresponde a los <strong>honorarios profesionales del arquitecto</strong>. Las municipalidades liquidan por separado sus derechos de permiso (aprox. 1,5% del presupuesto oficial MINVU, con rebajas por Ley del Mono de hasta un 75% o gratuidad para adultos mayores).
+              </div>
+            </div>
+          </details>
 
           <div class="calc-certification-alert">
             <span>ℹ️</span>
