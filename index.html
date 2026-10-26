@@ -637,21 +637,19 @@
           </div>
 
           <div class="calc-field">
-            <label for="calcM2Recepcion">Superficie con Recepción (m² opcional)</label>
-            <input type="number" class="calc-input" id="calcM2Recepcion" min="0" max="600" placeholder="Ej: 45">
-            <span style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.3;">M² originales que ya cuentan con recepción definitiva vigente.</span>
-          </div>
-
-          <div class="calc-certification-alert">
-            <span>ℹ️</span>
-            <div><strong>Transparencia ROER:</strong> Los valores del simulador son rangos referenciales. El <strong>precio final cerrado se certifica</strong> tras la visita técnica presencial del arquitecto, una vez medido el terreno y revisado el CIP.</div>
+            <label for="calcPlanos">¿Cuenta con planos o permisos anteriores?</label>
+            <select class="calc-select" id="calcPlanos">
+              <option value="sin_planos">No tengo planos ni permisos (Levantamiento desde cero)</option>
+              <option value="con_planos">Sí, cuento con planos/permiso primitivo aprobado</option>
+              <option value="duda">No lo sé / Requiere búsqueda en archivo DOM</option>
+            </select>
           </div>
 
           <div class="calc-summary-panel">
             <div>
-              <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Honorarios Referenciales</div>
-              <div class="calc-price" id="calcPriceDisplay">Desde 9.5 UF (Referencial)</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted);" id="calcTimeDisplay">Plazo estimado DOM: 4 a 8 semanas • Precio final certificado en visita</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em;">Honorarios Profesionales de Arquitectura</div>
+              <div class="calc-price" id="calcPriceDisplay">Desde 13.0 UF (~$513.500 CLP)</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem;" id="calcTimeDisplay">Plazo estimado DOM: 4 a 8 semanas • Honorarios referenciales certificados en visita</div>
             </div>
             <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
               <a href="#" id="calcWspBtn" target="_blank" class="btn-pill btn-dark" style="background: #15803d; border-color: #16a34a; font-weight: 700;">
@@ -662,6 +660,45 @@
                 <span>Agendar Visita Técnica en Terreno 📅</span>
               </a>
             </div>
+          </div>
+
+          <!-- QUÉ INCLUYE Y FACILIDADES DE PAGO -->
+          <div class="calc-includes-box">
+            <div style="font-weight: 700; color: var(--text-dark); margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem;">
+              <span>📋</span> ¿Qué incluye este servicio profesional de arquitectura?
+            </div>
+            <div class="calc-includes-grid">
+              <div class="calc-include-item"><span class="check-icon">✓</span> <span>Visita técnica diagnóstica presencial y levantamiento métrico láser en terreno.</span></div>
+              <div class="calc-include-item"><span class="check-icon">✓</span> <span>Planimetría digital oficial conforme a obra (Plantas, Cortes, Elevaciones, Ubicación).</span></div>
+              <div class="calc-include-item"><span class="check-icon">✓</span> <span>Confección de expediente DOM (Memoria explicativa, EETT y formularios MINVU).</span></div>
+              <div class="calc-include-item"><span class="check-icon">✓</span> <span>Firma de arquitecto patrocinante y seguimiento activo hasta la aprobación final.</span></div>
+            </div>
+
+            <!-- HITOS DE PAGO TRANSPARENTES -->
+            <div class="calc-payment-milestones">
+              <div class="calc-milestone-card">
+                <div class="calc-milestone-pct">50% Inicial</div>
+                <div class="calc-milestone-lbl">Firma de contrato y levantamiento métrico en terreno</div>
+              </div>
+              <div class="calc-milestone-card">
+                <div class="calc-milestone-pct">30% En Trámite</div>
+                <div class="calc-milestone-lbl">Entrega de planos e ingreso formal de carpeta a la DOM</div>
+              </div>
+              <div class="calc-milestone-card">
+                <div class="calc-milestone-pct">20% Final</div>
+                <div class="calc-milestone-lbl">Subsanación de observaciones y entrega de Recepción Final</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AVISO DE DERECHOS MUNICIPALES -->
+          <div class="calc-dom-fee-notice">
+            <strong>🏛️ Nota sobre Derechos Municipales (DOM):</strong> El cálculo anterior corresponde a los <strong>honorarios profesionales del arquitecto</strong>. Las municipalidades liquidan por separado sus derechos de permiso (aprox. 1,5% del presupuesto oficial MINVU, con rebajas por Ley del Mono de hasta un 75% o gratuidad para adultos mayores).
+          </div>
+
+          <div class="calc-certification-alert">
+            <span>ℹ️</span>
+            <div><strong>Transparencia ROER:</strong> Los valores del simulador son rangos referenciales. El <strong>precio final cerrado se certifica</strong> tras la visita técnica presencial del arquitecto, una vez medido el terreno y revisado el CIP.</div>
           </div>
         </div>
       </div>
