@@ -27,29 +27,89 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "ProfessionalService",
+        "@type": ["ProfessionalService", "ArchitecturalService"],
+        "@id": "https://www.estudioroer.com/#organization",
         "name": "Estudio ROER Arquitectura",
         "url": "https://www.estudioroer.com/",
         "telephone": "+56950196861",
         "email": "contacto@estudioroer.com",
+        "priceRange": "$$",
+        "image": "https://www.estudioroer.com/assets/images/hero_architectural_house.jpg",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Santiago",
           "addressRegion": "Región Metropolitana",
           "addressCountry": "CL"
         },
-        "description": "Estudio de arquitectura especializado en Regularización de Viviendas (Ley 20.898 Ley del Mono), Permisos de Edificación y Recepción Final ante la DOM.",
-        "areaServed": ["San Bernardo", "El Bosque", "Peñaflor", "Buin", "Paine", "Maipú", "Puente Alto", "Valparaíso", "Viña del Mar"]
+        "description": "Estudio de arquitectura especializado en Regularización de Viviendas bajo Ley del Mono 20.898 (vigente hasta 2027), Permisos de Edificación, Recepción Final y soluciones normativas ante la DOM en Santiago y Valparaíso.",
+        "areaServed": [
+          { "@type": "City", "name": "San Bernardo" },
+          { "@type": "City", "name": "Maipú" },
+          { "@type": "City", "name": "Puente Alto" },
+          { "@type": "City", "name": "La Florida" },
+          { "@type": "City", "name": "Buin" },
+          { "@type": "City", "name": "Paine" },
+          { "@type": "City", "name": "Peñaflor" },
+          { "@type": "City", "name": "El Bosque" },
+          { "@type": "City", "name": "Valparaíso" },
+          { "@type": "City", "name": "Viña del Mar" }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de Arquitectura y Regularización DOM",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Regularización Ley del Mono 20.898",
+                "description": "Procedimiento simplificado y simultáneo de permiso y recepción final para viviendas hasta 140 m² o sociales."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Recepción Final Municipal DOM",
+                "description": "Cierre formal de expedientes para destrabar créditos hipotecarios, subsidios y ventas bancarizadas."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Permisos de Edificación de Obra Nueva y Ampliaciones Mayores",
+                "description": "Planimetría oficial CAD, cálculo estructural y especificaciones técnicas conforme a la OGUC."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Levantamiento Láser y Planimetría Oficial",
+                "description": "Medición milimétrica in situ de construcciones existentes para expedientes municipales."
+              }
+            }
+          ]
+        }
       },
       {
         "@type": "FAQPage",
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "¿Hasta cuándo está vigente la Ley del Mono 20.898?",
+            "name": "¿Hasta cuándo está vigente la Ley del Mono 20.898 en Chile?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "La Ley 20.898 está vigente para el ingreso de expedientes ante la Dirección de Obras Municipales (DOM) hasta el 31 de diciembre de 2027."
+              "text": "La Ley 20.898 está vigente para el ingreso formal de expedientes ante la Dirección de Obras Municipales (DOM) hasta el 31 de diciembre de 2027. Posterior a esa fecha, regularizar implicará el procedimiento ordinario general con costos arancelarios significativamente mayores."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuáles son los requisitos de superficie y avalúo para la Ley 20.898?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aplica para viviendas sociales o de hasta 90 m² (con avalúo fiscal de la construcción de hasta 520 UF o 1.000 UF según categoría), y para viviendas de hasta 140 m² cuyo avalúo fiscal total no supere las 2.000 UF. Además, la edificación debe haberse construido antes del 4 de febrero de 2016."
             }
           },
           {
@@ -57,7 +117,31 @@
             "name": "¿Cuándo se certifica el precio final de la regularización?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Los valores calculados en línea son referenciales. El precio final y cerrado se certifica formalmente tras la visita técnica en terreno del arquitecto, revisando deslindes, CIP y condiciones estructurales."
+              "text": "Los valores calculados en línea en nuestro simulador son rangos referenciales. El precio final y cerrado se certifica formalmente tras la visita técnica en terreno del arquitecto colegiado, una vez medido el inmueble y revisados los deslindes, CIP y condiciones estructurales."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Por qué el banco rechaza un crédito hipotecario si la casa no tiene recepción final?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Los tasadores bancarios solo asignan valor de garantía a los metros cuadrados formalmente recibidos por la municipalidad. Las construcciones sin permiso representan riesgo legal de demolición o multas, impidiendo la aprobación del crédito hipotecario hasta que el expediente esté regularizado."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Puedo regularizar una ampliación si compré por cesión de derechos o tengo problemas de títulos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí, gracias a nuestro tándem técnico-jurídico integrado con Arismendi & Vera Abogados Asociados. Mientras nuestros abogados sanean el dominio en el Conservador de Bienes Raíces (CBR), nuestros arquitectos preparan los planos y tramitan la carpeta ante la DOM."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo demora la tramitación completa en la municipalidad?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El plazo promedio de revisión y emisión de la resolución municipal oscila entre 4 y 8 semanas hábiles desde el ingreso formal del expediente técnico suscrito por nuestro arquitecto."
             }
           }
         ]
@@ -208,7 +292,7 @@
               Procedimiento simplificado de regularización simultánea (permiso + recepción) para viviendas de hasta 140 m² o sociales.
             </p>
           </div>
-          <a href="#guias" class="service-box-link">Ver requisitos y guía →</a>
+          <a href="ley-del-mono-20898.html" class="service-box-link">Ver requisitos y guía completa 2027 →</a>
         </div>
 
         <div class="service-box-item">
@@ -812,6 +896,7 @@
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contacto">Contacto</a></li>
           <li><a href="legal.html" style="color: #b4832c; font-weight: 700;">Asesoría Legal (Abogados) ⚖️</a></li>
+          <li><a href="ley-del-mono-20898.html" style="font-weight: 600;">Guía Ley del Mono 2027 📜</a></li>
           <li><a href="regularizacion-san-bernardo.html">DOM San Bernardo</a></li>
           <li><a href="regularizacion-el-bosque.html">DOM El Bosque</a></li>
           <li><a href="regularizacion-maipu.html">DOM Maipú</a></li>
