@@ -789,6 +789,129 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0.6rem;
 }
 
+.calc-accordion {
+  grid-column: span 2;
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.calc-accordion[open] {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  border-color: #d1d5db;
+}
+
+.calc-accordion summary {
+  padding: 0.9rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  background: #fafafa;
+  transition: background 0.15s ease;
+}
+
+.calc-accordion summary:hover {
+  background: #f3f4f6;
+  color: var(--accent-dark);
+}
+
+.calc-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.calc-accordion summary::after {
+  content: '▾';
+  font-size: 1rem;
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+}
+
+.calc-accordion[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.calc-accordion-content {
+  padding: 1.15rem 1.25rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.calc-includes-box {
+  background: transparent;
+  padding: 0;
+  font-size: 0.8rem;
+}
+
+.calc-includes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-top: 0.65rem;
+}
+
+.calc-include-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  color: var(--text-dark);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.calc-include-item span.check-icon {
+  color: #16a34a;
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+.calc-payment-milestones {
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border-light);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+  text-align: center;
+}
+
+.calc-milestone-card {
+  background: var(--bg-page);
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+.calc-milestone-pct {
+  font-weight: 800;
+  color: var(--accent-dark);
+  font-size: 0.92rem;
+}
+
+.calc-milestone-lbl {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.25;
+  margin-top: 0.15rem;
+}
+
+.calc-dom-fee-notice {
+  grid-column: span 2;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-left: 3px solid #3b82f6;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  font-size: 0.76rem;
+  color: #1e40af;
+  line-height: 1.45;
+}
+
 /* ==========================================================================
    7. DARK STATS BANNER
    ========================================================================== */

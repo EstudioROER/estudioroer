@@ -293,48 +293,110 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateEstimate() {
     if (!calcM2 || !calcTipo || !calcPriceDisplay) return;
-    const m2 = parseFloat(calcM2.value) || 70;
+    const m2 = Math.max(1, parseFloat(calcM2.value) || 70);
     const tipo = calcTipo.value;
     const comuna = calcComuna ? calcComuna.value : 'San Bernardo';
+    const valorUF_CLP = 39500; // Valor referencial actualizado de la UF
 
-    let baseUF = 8.5;
-    let weeks = '4 a 6 semanas';
+    let baseUF = 13.0;
+    let weeks = '4 a 8 semanas';
+    let tipoNombre = 'Regularización de Inmueble';
 
+    // Fórmulas directamente proporcionales al m²:
+    // El valor sube o baja continuamente con cada m² ingresado.
     if (tipo === 'ley_mono') {
-      if (m2 <= 90) {
-        baseUF = 10.0;
-      } else if (m2 <= 140) {
-        baseUF = 15.0;
-      } else {
-        baseUF = 20.0;
-      }
+      tipoNombre = 'Regularización Ley del Mono (Ley 20.898)';
+      // Tasa directa: 8.5 UF base fija + 0.11 UF por cada m²
+      // Ejemplos: 40 m² = 13.0 UF | 70 m² = 16.2 UF | 100 m² = 19.5 UF | 140 m² = 23.9 UF
+      baseUF = 8.5 + m2 * 0.11;
       weeks = '4 a 8 semanas';
     } else if (tipo === 'ampliacion') {
-      baseUF = (m2 * 0.25).toFixed(1);
-      if (baseUF < 15.0) baseUF = 15.0;
-      weeks = '5 a 8 semanas';
-    } else if (tipo === 'obra_nueva') {
-      baseUF = (m2 * 0.35).toFixed(1);
-      if (baseUF < 20.0) baseUF = 20.0;
-      weeks = '8 a 12 semanas';
+      tipoNombre = 'Ampliación / Segundo Piso (Vía General LGUC)';
+      // Tasa directa: 9.5 UF base fija + 0.15 UF por cada m²
+      // Ejemplos: 30 m² = 14.0 UF | 50 m² = 17.0 UF | 70 m² = 20.0 UF | 100 m² = 24.5 UF
+      baseUF = 9.5 + m2 * 0.15;
+      weeks = '6 a 10 semanas';
     } else if (tipo === 'recepcion') {
-      baseUF = 12.0;
-      weeks = '3 a 5 semanas';
+      tipoNombre = 'Recepción Final Municipal';
+      // Tasa directa: 9.0 UF base fija + 0.08 UF por cada m²
+      // Ejemplos: 50 m² = 13.0 UF | 70 m² = 14.6 UF | 100 m² = 17.0 UF
+      baseUF = 9.0 + m2 * 0.08;
+      weeks = '4 a 6 semanas';
+    } else if (tipo === 'regularizacion_comercial') {
+      tipoNombre = 'Regularización Comercial / Patente';
+      // Tasa directa: 12.0 UF base fija + 0.18 UF por cada m²
+      // Ejemplos: 40 m² = 19.2 UF | 70 m² = 24.6 UF | 100 m² = 30.0 UF
+      baseUF = 12.0 + m2 * 0.18;
+      weeks = '6 a 10 semanas';
+    } else if (tipo === 'obra_nueva') {
+      tipoNombre = 'Permiso Obra Nueva (Casa Completa)';
+      // Tasa directa: 15.0 UF base fija + 0.22 UF por cada m²
+      // Ejemplos: 50 m² = 26.0 UF | 70 m² = 30.4 UF | 100 m² = 37.0 UF | 140 m² = 45.8 UF
+      baseUF = 15.0 + m2 * 0.22;
+      weeks = '8 a 14 semanas';
+    } else if (tipo === 'subdivision') {
+      tipoNombre = 'Subdivisión o Fusión de Terreno';
+      // Base predial: 18.0 UF + 0.008 UF por cada m² de terreno
+      baseUF = 18.0 + m2 * 0.008;
+      weeks = '6 a 12 semanas';
+    } else if (tipo === 'cambio_destino') {
+      tipoNombre = 'Cambio de Destino Inmueble';
+      // Tasa directa: 11.0 UF base fija + 0.14 UF por cada m²
+      baseUF = 11.0 + m2 * 0.14;
+      weeks = '5 a 8 semanas';
+    } else if (tipo === 'levantamiento') {
+      tipoNombre = 'Levantamiento Planimétrico As-Built';
+      // Tasa directa: 8.5 UF base fija + 0.09 UF por cada m²
+      baseUF = 8.5 + m2 * 0.09;
+      weeks = '2 a 4 semanas';
     }
 
-    calcPriceDisplay.textContent = `Desde ${baseUF} UF (Referencial)`;
+    const calcPlanos = document.getElementById('calcPlanos');
+    const estadoPlanos = calcPlanos ? calcPlanos.value : 'sin_planos';
+    let estadoPlanosTxt = 'Sin planos previos (levantamiento completo)';
+
+    if (estadoPlanos === 'con_planos') {
+      estadoPlanosTxt = 'Cuenta con planos aprobados previos';
+      // Descuento referencial del 10% si ya cuenta con base planimétrica primitiva aprobada
+      baseUF = baseUF * 0.90;
+    } else if (estadoPlanos === 'duda') {
+      estadoPlanosTxt = 'Por confirmar / Búsqueda en archivo DOM';
+    }
+
+    // Regla de piso mínimo absoluto: nunca menos de 13.0 UF (~$513.500 CLP)
+    if (baseUF < 13.0) baseUF = 13.0;
+
+    const baseUFRedondeado = baseUF.toFixed(1);
+    const montoCLP = Math.round(baseUF * valorUF_CLP);
+    const montoCLPFormateado = '$' + montoCLP.toLocaleString('es-CL');
+
+    calcPriceDisplay.textContent = `Desde ${baseUFRedondeado} UF (~${montoCLPFormateado} CLP)`;
     if (calcTimeDisplay) {
-      calcTimeDisplay.textContent = `Plazo estimado DOM: ${weeks} • Precio final certificado en visita`;
+      calcTimeDisplay.textContent = `Plazo estimado DOM: ${weeks} • Honorarios referenciales certificados en visita`;
     }
 
-    const calcM2Recepcion = document.getElementById('calcM2Recepcion');
-    const m2Rec = calcM2Recepcion && calcM2Recepcion.value ? parseFloat(calcM2Recepcion.value) : 0;
-    
-    let msgText = `Hola Estudio ROER! Acabo de generar un presupuesto estimado en la web para ${comuna}: ${tipo.replace('_', ' ').toUpperCase()} de aprox ${m2} m² a regularizar.`;
-    if (m2Rec > 0) {
-      msgText += ` (La propiedad ya cuenta con ${m2Rec} m² con recepción definitiva).`;
+    // Actualizar medidor visual y badge de superficie
+    const calcM2ValueBadge = document.getElementById('calcM2ValueBadge');
+    if (calcM2ValueBadge) {
+      calcM2ValueBadge.textContent = `${m2} m²`;
     }
-    msgText += ` El simulador me indicó honorarios desde ${baseUF} UF. Me gustaría iniciar el contacto a partir de este presupuesto para evaluar mi caso y agendar la visita.`;
+
+    const calcMeterBar = document.getElementById('calcMeterBar');
+    const calcMeterPctLabel = document.getElementById('calcMeterPctLabel');
+    if (calcMeterBar) {
+      // Escala visual entre 13 UF (mínimo) y 45 UF (máximo referencial)
+      const minScaleUF = 13.0;
+      const maxScaleUF = 45.0;
+      let pct = ((baseUF - minScaleUF) / (maxScaleUF - minScaleUF)) * 100;
+      pct = Math.max(10, Math.min(100, Math.round(pct)));
+      calcMeterBar.style.width = `${pct}%`;
+
+      if (calcMeterPctLabel) {
+        calcMeterPctLabel.textContent = `Nivel de Complejidad: ${pct}%`;
+      }
+    }
+    
+    let msgText = `Hola Estudio ROER! Acabo de simular un presupuesto en la web para ${comuna}: ${tipoNombre} de aprox ${m2} m². Antecedentes: ${estadoPlanosTxt}. El simulador estimó honorarios desde ${baseUFRedondeado} UF (~${montoCLPFormateado} CLP). Me gustaría coordinar la visita técnica presencial.`;
     
     const msg = encodeURIComponent(msgText);
     if (calcWspBtn) {
@@ -343,13 +405,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (calcComuna && calcTipo && calcM2) {
+    const calcM2Range = document.getElementById('calcM2Range');
+
+    // Sincronizar input numérico con slider range
+    if (calcM2Range) {
+      calcM2Range.addEventListener('input', () => {
+        calcM2.value = calcM2Range.value;
+        updateEstimate();
+      });
+
+      calcM2.addEventListener('input', () => {
+        calcM2Range.value = calcM2.value;
+        updateEstimate();
+      });
+    } else {
+      calcM2.addEventListener('input', updateEstimate);
+    }
+
     calcComuna.addEventListener('change', updateEstimate);
     calcTipo.addEventListener('change', updateEstimate);
-    calcM2.addEventListener('input', updateEstimate);
     
-    const calcM2Recepcion = document.getElementById('calcM2Recepcion');
-    if (calcM2Recepcion) {
-      calcM2Recepcion.addEventListener('input', updateEstimate);
+    const calcPlanos = document.getElementById('calcPlanos');
+    if (calcPlanos) {
+      calcPlanos.addEventListener('change', updateEstimate);
     }
     
     updateEstimate();
