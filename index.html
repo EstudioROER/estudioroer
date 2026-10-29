@@ -155,7 +155,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/optik-theme.css?v=2.1">
+  <link rel="stylesheet" href="css/optik-theme.css?v=2.2">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="assets/images/favicon-32x32.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
@@ -594,9 +594,9 @@
   <section class="section-calculator" id="simulador">
     <div class="container">
       <div class="calc-box">
-        <div style="text-align: center;">
-          <h2 style="font-size: 1.85rem; margin-bottom: 0.35rem;">Calcula el costo estimado de tu trámite</h2>
-          <p style="color: var(--text-muted); font-size: 0.85rem;">Selecciona tu comuna y superficie aproximada para ver un rango referencial.</p>
+        <div class="calc-header-box">
+          <h2 class="calc-title">Calcula el costo estimado de tu trámite</h2>
+          <p class="calc-subtitle">Selecciona tu comuna y superficie aproximada para ver un rango referencial.</p>
         </div>
 
         <div class="calc-grid">
@@ -631,15 +631,15 @@
           </div>
 
           <div class="calc-field">
-            <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <div class="calc-m2-header">
               <label for="calcM2">Superficie a Regularizar / Construir (m²)</label>
-              <span id="calcM2ValueBadge" style="font-size: 0.8rem; font-weight: 700; color: var(--accent-dark); background: rgba(0,0,0,0.05); padding: 0.15rem 0.5rem; border-radius: 4px;">70 m²</span>
+              <span id="calcM2ValueBadge" class="calc-m2-badge">70 m²</span>
             </div>
-            <div style="display: flex; gap: 0.6rem; align-items: center;">
-              <input type="range" id="calcM2Range" min="10" max="300" step="1" value="70" style="flex: 1; accent-color: #15803d; cursor: pointer;">
-              <input type="number" class="calc-input" id="calcM2" value="70" min="10" max="1000" style="width: 90px; text-align: center; font-weight: 700;" placeholder="Ej: 70">
+            <div class="calc-slider-row">
+              <input type="range" id="calcM2Range" min="10" max="300" step="1" value="70" aria-label="Control deslizante de metros cuadrados">
+              <input type="number" class="calc-input calc-m2-input" id="calcM2" value="70" min="10" max="1000" inputmode="numeric" placeholder="70" aria-label="Cantidad de metros cuadrados">
             </div>
-            <span style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.3;">M² sin permiso que efectivamente se van a regularizar (mueve el control deslizante o escribe el número).</span>
+            <span class="calc-field-hint">M² sin permiso que efectivamente se van a regularizar (mueve el control deslizante o escribe el número).</span>
           </div>
 
           <div class="calc-field">
@@ -652,26 +652,26 @@
           </div>
 
           <div class="calc-summary-panel">
-            <div style="flex: 1; min-width: 260px;">
-              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.25rem;">
-                <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em;">Medidor de Honorarios Referenciales</span>
-                <span id="calcMeterPctLabel" style="font-size: 0.72rem; font-weight: 700; color: #15803d;">Escala Proporcional DOM</span>
+            <div class="calc-summary-info">
+              <div class="calc-meter-header">
+                <span class="calc-meter-kicker">Medidor de Honorarios Referenciales</span>
+                <span id="calcMeterPctLabel" class="calc-meter-badge">Escala Proporcional DOM</span>
               </div>
               <div class="calc-price" id="calcPriceDisplay">Desde 16.2 UF (~$639.900 CLP)</div>
 
               <!-- BARRA MEDIDORA PROGRESIVA DINÁMICA -->
-              <div style="margin: 0.45rem 0 0.35rem; width: 100%; max-width: 380px; height: 8px; background: #e5e7eb; border-radius: 999px; overflow: hidden; position: relative;">
-                <div id="calcMeterBar" style="height: 100%; width: 25%; background: linear-gradient(90deg, #16a34a, #2563eb); border-radius: 999px; transition: width 0.25s ease-out;"></div>
+              <div class="calc-meter-track">
+                <div id="calcMeterBar" class="calc-meter-fill"></div>
               </div>
 
-              <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.2rem;" id="calcTimeDisplay">Plazo estimado DOM: 4 a 8 semanas • Honorarios referenciales certificados en visita</div>
+              <div class="calc-time-display" id="calcTimeDisplay">Plazo estimado DOM: 4 a 8 semanas • Honorarios referenciales certificados en visita</div>
             </div>
-            <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
-              <a href="#" id="calcWspBtn" target="_blank" class="btn-pill btn-dark" style="background: #15803d; border-color: #16a34a; font-weight: 700;">
+            <div class="calc-summary-actions">
+              <a href="#" id="calcWspBtn" target="_blank" class="btn-pill btn-dark calc-btn-wsp">
                 <span>💬 Enviar este cálculo a mi WhatsApp</span>
                 <span class="btn-arrow">↗</span>
               </a>
-              <a href="https://calendar.app.google/KHPY2PfRjG3rM1SR8" target="_blank" rel="noopener noreferrer" class="btn-pill btn-light">
+              <a href="https://calendar.app.google/KHPY2PfRjG3rM1SR8" target="_blank" rel="noopener noreferrer" class="btn-pill btn-light calc-btn-calendar">
                 <span>Agendar Visita Técnica en Terreno 📅</span>
               </a>
             </div>
@@ -683,7 +683,7 @@
               <span>📋 ¿Qué incluye este servicio profesional de arquitectura?</span>
             </summary>
             <div class="calc-accordion-content">
-              <div class="calc-includes-grid" style="margin-top: 0;">
+              <div class="calc-includes-grid">
                 <div class="calc-include-item"><span class="check-icon">✓</span> <span>Visita técnica diagnóstica presencial y levantamiento métrico láser en terreno.</span></div>
                 <div class="calc-include-item"><span class="check-icon">✓</span> <span>Planimetría digital oficial conforme a obra (Plantas, Cortes, Elevaciones, Ubicación).</span></div>
                 <div class="calc-include-item"><span class="check-icon">✓</span> <span>Confección de expediente DOM (Memoria explicativa, EETT y formularios MINVU).</span></div>
@@ -698,7 +698,7 @@
               <span>💳 Modalidad de Pago en Cuotas por Hitos (50% / 30% / 20%)</span>
             </summary>
             <div class="calc-accordion-content">
-              <div class="calc-payment-milestones" style="margin-top: 0; padding-top: 0; border-top: none;">
+              <div class="calc-payment-milestones">
                 <div class="calc-milestone-card">
                   <div class="calc-milestone-pct">50% Inicial</div>
                   <div class="calc-milestone-lbl">Firma de contrato y levantamiento métrico en terreno</div>
@@ -721,14 +721,14 @@
               <span>🏛️ ¿Cómo se calculan los Derechos Municipales (DOM)?</span>
             </summary>
             <div class="calc-accordion-content">
-              <div style="font-size: 0.78rem; color: #1e40af; background: #eff6ff; padding: 0.85rem 1rem; border-radius: var(--radius-sm); border-left: 3px solid #3b82f6; line-height: 1.5;">
+              <div class="calc-dom-notice-box">
                 <strong>Nota sobre Derechos Municipales (DOM):</strong> El cálculo del simulador corresponde a los <strong>honorarios profesionales del arquitecto</strong>. Las municipalidades liquidan por separado sus derechos de permiso (aprox. 1,5% del presupuesto oficial MINVU, con rebajas por Ley del Mono de hasta un 75% o gratuidad para adultos mayores).
               </div>
             </div>
           </details>
 
           <div class="calc-certification-alert">
-            <span>ℹ️</span>
+            <span class="calc-cert-icon">ℹ️</span>
             <div><strong>Transparencia ROER:</strong> Los valores del simulador son rangos referenciales. El <strong>precio final cerrado se certifica</strong> tras la visita técnica presencial del arquitecto, una vez medido el terreno y revisado el CIP.</div>
           </div>
         </div>
