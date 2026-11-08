@@ -357,9 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (estadoPlanos === 'con_planos') {
       estadoPlanosTxt = 'Cuenta con planos aprobados previos';
-      // Descuento referencial del 10% si ya cuenta con base planimétrica primitiva aprobada
-      baseUF = baseUF * 0.90;
-    } else if (estadoPlanos === 'duda') {
+                } else if (estadoPlanos === 'duda') {
       estadoPlanosTxt = 'Por confirmar / Búsqueda en archivo DOM';
     }
 
