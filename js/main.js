@@ -229,6 +229,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
+      // Enviar prospecto a Google Sheets y activar secuencia de 4 correos
+      const sheetsWebhookUrl = 'https://script.google.com/macros/s/AKfycbxp1W3oSkpv7WoefhQV_UUqoJpTHp339vsSXpZsicQLgOQ4G7unP5CI5E-7Poyz1KYhvA/exec';
+      fetch(sheetsWebhookUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(leadData)
+      }).catch(err => {
+        console.warn('Aviso Google Sheets:', err);
+      });
+
       // Switch to success view
       if (giftFormContainer && giftSuccessState) {
         giftFormContainer.style.display = 'none';
