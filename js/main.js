@@ -202,6 +202,33 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('roer_lead_guide', JSON.stringify(leadData));
       } catch (err) {}
 
+      // Enviar notificación inmediata a Web3Forms hacia el correo de Estudio ROER
+      const accessKeyInput = document.querySelector('#contactForm input[name="access_key"]');
+      const accessKey = accessKeyInput ? accessKeyInput.value : '';
+
+      if (accessKey) {
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: `🎁 ¡Nuevo Prospecto: Descarga de Guía (${comuna})!`,
+            from_name: 'Web Estudio ROER (Lead Guía)',
+            Nombre: nombre,
+            Telefono: phone,
+            Email: email,
+            Comuna: comuna,
+            Guia_Descargada: activeGuideTitle,
+            Fecha: new Date().toLocaleString('es-CL')
+          })
+        }).catch(err => {
+          console.warn('Aviso Web3Forms:', err);
+        });
+      }
+
       // Switch to success view
       if (giftFormContainer && giftSuccessState) {
         giftFormContainer.style.display = 'none';
@@ -357,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (estadoPlanos === 'con_planos') {
       estadoPlanosTxt = 'Cuenta con planos aprobados previos';
-                } else if (estadoPlanos === 'duda') {
+    } else if (estadoPlanos === 'duda') {
       estadoPlanosTxt = 'Por confirmar / Búsqueda en archivo DOM';
     }
 
